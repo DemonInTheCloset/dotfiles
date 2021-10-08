@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup Passwords Database to Google Drive with rclone
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/rclone sync -P Drive:Passwords.kdbx %h
+ExecStop=/usr/bin/rclone sync -P %h/Passwords.kdbx Drive:
+
+[Install]
+WantedBy=default.target

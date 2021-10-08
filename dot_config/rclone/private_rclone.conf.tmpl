@@ -1,0 +1,9 @@
+[Drive]
+type = drive
+client_id = {{ (keepassxcAttribute "RClone" "client_id") }}
+client_secret = {{ (keepassxcAttribute "RClone" "client_secret") }}
+scope = drive.file
+root_folder_id = {{ (keepassxcAttribute "RClone" "root_folder_id") }}
+token = {"access_token":"{{ (keepassxcAttribute "RClone" "access_token") }}","token_type":"Bearer","refresh_token":"{{ (keepassxcAttribute "RClone" "refresh_token") }}","expiry":"2021-10-04T11:27:24.347471323+02:00"}
+team_drive = 
+

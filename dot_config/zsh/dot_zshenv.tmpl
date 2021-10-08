@@ -1,0 +1,31 @@
+# Path Settings
+typeset -U ZDOTDIR
+ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR
+
+typeset -U FPATH fpath
+fpath+="$ZDOTDIR/zfunc"
+export FPATH fpath
+
+typeset -U PATH path
+path+="$HOME/.local/bin"
+export PATH
+
+typeset -U npm_config_prefix
+npm_config_prefix="$HOME/.local"
+export npm_config_prefix
+
+# Websites
+typeset -U ALARMPI
+ALARMPI='{{ (keepassxc "RaspberryPi").URL }}'
+export ALARMPI
+
+# Default programs
+typeset -U VISUAL EDITOR
+VISUAL='/usr/bin/nvim'
+EDITOR="$VISUAL"
+export VISUAL EDITOR
+
+typeset -U TERMINAL
+TERMINAL='terminator'
+export TERMINAL

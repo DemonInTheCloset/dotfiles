@@ -1,0 +1,18 @@
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[pull]
+	ff = only
+	rebase = true
+[commit]
+	gpgsign = true
+
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+	path = ~/.config/git/config_git
+
+[includeIf "gitdir:~/Documents/Programming/"]
+	path = ~/.config/git/config_git
+
+[includeIf "gitdir:~/Documents/University/"]
+	path = ~/.config/git/config_uni

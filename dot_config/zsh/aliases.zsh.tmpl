@@ -1,0 +1,33 @@
+# Get places information
+source "$ZDOTDIR/places.zsh"
+
+# cd aliases
+alias cdc="cd $CONFIG"
+alias cdn="cd $CONFIG/nvim"
+alias cdp="cd $PROGRAMMING"
+alias cdu="cd $UNIVERSITY"
+alias cdz="cd $ZDOTDIR"
+
+alias cdpc="cd $PROGRAMMING/C"
+alias cdpcpp="cd $PROGRAMMING/Cpp"
+alias cdpd="cd $PROGRAMMING/D"
+alias cdphs="cd $PROGRAMMING/Haskell"
+alias cdppy="cd $PROGRAMMING/Python"
+alias cdprs="cd $PROGRAMMING/Rust"
+
+alias cdchezmoi="cd ~/.local/share/chezmoi"
+
+# ls aliases
+alias la='ls -la --color=auto'
+alias ls='ls --color=auto'
+
+# zsh aliases
+alias zshconfig="$VISUAL $ZDOTDIR/config.zsh"
+alias sourcezshrc="source $ZDOTDIR/.zshrc"
+
+# ssh aliases
+alias sshalarmpi='ssh {{ (keepassxc "RaspberryPi").UserName }}@{{ (keepassxc "RaspberryPi").URL }}'
+
+# Python aliases
+alias mkvenv="virtualenv venv"
+alias sourcevenv="source venv/bin/activate"

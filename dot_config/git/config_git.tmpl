@@ -1,0 +1,4 @@
+[user]
+	name = {{ (keepassxc "GnuPG GitHub").UserName }}
+	email = {{ (keepassxcAttribute "GnuPG GitHub" "UserEmail") }}
+	signingkey = {{ (keepassxcAttribute "GnuPG GitHub" "UserKey") }}
