@@ -11,6 +11,8 @@ source "$ZDOTDIR/hooks.zsh"
 source "$ZDOTDIR/aliases.zsh"
 
 # Set prompt
-prompt off
-powerline-daemon -q
-. /usr/share/powerline/bindings/zsh/powerline.zsh
+source "$ZDOTDIR/prompt.zsh"
+source "$ZDOTDIR/activate_prompt.zsh"
+# prompt off
+# powerline-daemon -q
+# . /usr/share/powerline/bindings/zsh/powerline.zsh
