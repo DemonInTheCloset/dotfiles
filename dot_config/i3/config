@@ -192,15 +192,23 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:www"
+set $ws1 "1:web"
 set $ws2 "2:term"
 set $ws3 "3:"
 set $ws4 "4:"
-set $ws5 "5:"
+set $ws5 "5:pass"
 set $ws6 "6:chat"
 set $ws7 "7:mail"
 set $ws8 "8:steam"
 set $ws9 "9:game"
+
+# assign windows to workspaces
+assign [instance="^Navigator$"] → $ws1
+# assign [instance="^kitty$"] → $ws2
+assign [instance="^keepassxc$"] → $ws5
+assign [instance="^signal$"] → $ws6
+assign [instance="^Mail$"] → $ws7
+assign [instance="^Steam$"] → $ws8
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -330,7 +338,13 @@ bar {
 #######################################################################
 # exec i3-config-wizard
 
-# Autostart Apps
+# Autostart bg tasks
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b 	# background & compositor
-exec keepassxc                                              # password manager
 exec --no-startup-id signal-desktop --start-in-tray         # chat app
+exec --no-startup-id /usr/share/ff2mpv/ff2mpv.py &          # firefox to mpv
+
+# Autostart Programs
+exec firefox                                                # browser
+exec keepassxc                                              # password manager
+exec thunderbird                                            # mail client
+exec i3-msg 'workspace $ws5'                                # start in workspace 5
