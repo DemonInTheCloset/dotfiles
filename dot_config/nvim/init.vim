@@ -3,8 +3,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovimhaskell/haskell-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+Plug 'twinside/vim-hoogle'
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
@@ -52,6 +55,12 @@ set shortmess+=c                " Don't pass messages to ins-completion-menu
 set cmdheight=3                 " Give more space for messages
 set nobackup                    " Some LSPs have problems with backups
 set nowritebackup
+
+" Filetype Specific Actions
+augroup FiletypeBehaviour
+    autocmd FileType tex let b:dispatch = 'latexmk -pvc -pdf %'
+    
+augroup END 
 
 " Keybindings
 " Enter jumps to line

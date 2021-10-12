@@ -21,13 +21,16 @@ alias cdchezmoi="cd ~/.local/share/chezmoi"
 alias la='ls -la --color=auto'
 alias ls='ls --color=auto'
 
-# zsh aliases
-alias zshconfig="$VISUAL $ZDOTDIR/config.zsh"
-alias sourcezshrc="source $ZDOTDIR/.zshrc"
-
-# ssh aliases
-alias sshalarmpi='ssh {{ (keepassxc "RaspberryPi").UserName }}@{{ (keepassxc "RaspberryPi").URL }}'
+# nvim aliases
+alias nvimconfig="$VISUAL $CONFIG/nvim/init.vim"
 
 # Python aliases
 alias mkvenv="virtualenv venv"
 alias sourcevenv="source venv/bin/activate"
+
+# ssh aliases
+alias sshpi='ssh {{ (keepassxc "RaspberryPi").UserName }}@{{ (keepassxc "RaspberryPi").URL }}'
+
+# zsh aliases
+alias zshconfig="$VISUAL $ZDOTDIR/config.zsh"
+alias sourcezshrc="source $ZDOTDIR/.zshrc"
