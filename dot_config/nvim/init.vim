@@ -16,14 +16,15 @@ call plug#end()
 let g:python3_host_prog='~/.config/nvim/venv/bin/python'
 
 " Enable Filetype detection and syntax Highlighting
+syntax enable
 filetype plugin indent on
-syntax on
 
 " Appearance
-set number		                " Show line numbers
+set number relativenumber       " Show relative line numbers
 set colorcolumn=80	            " Color column 80
 set cursorline		            " Highlight selected line
 set nowrap		                " Longlines don't wrap
+set signcolumn=number           " Merge line numbers with coc messages
 let g:gruvbox_italic=1          " Allow italic font
 let g:airline_powerline_fonts=1 " Allow powerline fonts for the status line
 " Colors
@@ -40,6 +41,17 @@ set expandtab		            " Change tabs to spaces
 set tabstop=4		            " A Tab is 4 spaces
 set softtabstop=0	            " No softtabs
 set shiftwidth=4	            " An indent is 4 spaces
+
+augroup TABSIZE
+    autocmd FileType c setlocal tabstop=8
+    autocmd FileType c setlocal shiftwidth=8
+    autocmd FileType haskell setlocal tabstop=2
+    autocmd FileType haskell setlocal shiftwidth=2
+augroup END
+
+augroup SymbolHighlight
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 " Search settings
 set path=.,/usr/include,**
@@ -58,8 +70,8 @@ set nowritebackup
 
 " Filetype Specific Actions
 augroup FiletypeBehaviour
+    " Latex Preview
     autocmd FileType tex let b:dispatch = 'latexmk -pvc -pdf %'
-    
 augroup END 
 
 " Keybindings
