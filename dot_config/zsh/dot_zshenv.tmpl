@@ -29,3 +29,19 @@ export VISUAL EDITOR
 typeset -U TERMINAL
 TERMINAL='xterm-kitty'
 export TERMINAL
+
+typeset -U MANPAGER
+MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPAGER
+
+# Color settings
+typeset -U LESSOPEN
+LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESSOPEN
+
+typeset -U LESS
+LESS=' -R '
+export LESS
+
+typeset -U LS_COLORS
+eval $(dircolors)
