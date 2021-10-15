@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync Local Passwords Database to the Cloud
+
+[Service]
+Type=oneshot
+ExecStart=rclone sync -P %h/Passwords.kdbx Drive:

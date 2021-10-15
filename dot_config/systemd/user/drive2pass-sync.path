@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitor Drive:/Passwords.kdbx for changes and sync to home dir
+Wants=mount-drive.service
+
+[Path]
+PathModified=%h/Drive/Passwords.kdbx
+
+[Install]
+WantedBy=default.target

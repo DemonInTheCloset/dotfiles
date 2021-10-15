@@ -1,0 +1,8 @@
+[Unit]
+Description=Monitor ~/Passwords.kdbx for changes and sync to cloud
+
+[Path]
+PathModified=%h/Passwords.kdbx
+
+[Install]
+WantedBy=default.target

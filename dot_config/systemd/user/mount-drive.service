@@ -1,0 +1,16 @@
+[Unit]
+Description=Mount Google Drive drive with rclone
+AssertPathIsDirectory=%h/Drive
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount --config=%h/.config/rclone/rclone.conf Drive: %h/Drive
+# Unmount on shutdown
+ExecStop=/usr/bin/fusermount -zu %h/Drive
+# Restart
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=default.target
