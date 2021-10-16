@@ -11,8 +11,8 @@
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = ~/.config/git/config_git
 
-[includeIf "gitdir:~/Documents/Programming/"]
+[includeIf "gitdir:~/Programming/"]
 	path = ~/.config/git/config_git
 
-[includeIf "gitdir:~/Documents/University/"]
+[includeIf "gitdir:~/University/"]
 	path = ~/.config/git/config_uni
