@@ -8,6 +8,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'twinside/vim-hoogle'
+Plug 'cespare/vim-toml', {'branch': 'main'}
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
@@ -42,7 +43,8 @@ set tabstop=4		            " A Tab is 4 spaces
 set softtabstop=0	            " No softtabs
 set shiftwidth=4	            " An indent is 4 spaces
 
-augroup TABSIZE
+" augroups
+augroup Tabsize
     autocmd FileType c setlocal tabstop=8
     autocmd FileType c setlocal shiftwidth=8
     autocmd FileType haskell setlocal tabstop=2
@@ -51,6 +53,11 @@ augroup END
 
 augroup SymbolHighlight
     autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
+
+augroup Templates
+    autocmd BufNewFile *.py  0r ~/.config/nvim/templates/skeleton.py
+    autocmd BufNewFile *.zsh 0r ~/.config/nvim/templates/skeleton.zsh
 augroup END
 
 " Search settings
