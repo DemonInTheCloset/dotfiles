@@ -74,11 +74,15 @@ bar {
     # Bar position
     position top
 	
-    # Use i3bar
+    # Use i3bar with transparency
     i3bar_command i3bar --transparency
     
-    # Show infor through conky
-    status_command "$HOME/.local/bin/i3status-conky.sh"
+    # Show information through conky
+    # status_command "$HOME/.local/bin/i3status-conky.sh"
+    # Show information through i3blocks
+    # status_command i3blocks
+    # Show information though py3status
+    status_command py3status -c ~/.config/py3status/py3status.conf
 
     colors {
         # class     color
@@ -229,7 +233,7 @@ set $ws5 "5:pass"
 set $ws6 "6:chat"
 set $ws7 "7:mail"
 set $ws8 "8:steam"
-set $ws9 "9:game"
+set $ws9 "9:discord"
 
 # Go back an forth between workspaces when pressing the workspace switch button
 workspace_auto_back_and_forth yes
@@ -243,6 +247,7 @@ assign [instance="^keepassxc$"] → $ws5
 assign [instance="^signal$"] → $ws6
 assign [instance="^Mail$"] → $ws7
 assign [instance="^Steam$"] → $ws8
+assign [instance="^discord$"] → $ws9
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
