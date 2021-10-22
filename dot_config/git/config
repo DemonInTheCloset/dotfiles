@@ -2,6 +2,7 @@
 	defaultBranch = main
 [core]
 	editor = nvim
+	hooksPath = /home/jalil/.config/git/hooks
 [pull]
 	ff = only
 	rebase = true
@@ -9,10 +10,10 @@
 	gpgsign = true
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
-	path = ~/.config/git/config_git
+	path = ~/.config/git/configuration/git
 
 [includeIf "gitdir:~/Programming/"]
-	path = ~/.config/git/config_git
+	path = ~/.config/git/configuration/git
 
 [includeIf "gitdir:~/University/"]
-	path = ~/.config/git/config_uni
+	path = ~/.config/git/configuration/uni
