@@ -1,0 +1,9 @@
+
+# 1. Subject line should be <= 50 characters long|
+# 2. After the subject line there should be a blank line
+# 3. Subject line should follow this format:
+#       (fix|feat)(\(module\))?: [A-Z].*
+# 4. Subject line shouldn't end with a dot
+# 5. Subject line should be imperative
+# 6. The body should wrap at 72 characters                             |
+# 7. The body should explain what and why, not how.

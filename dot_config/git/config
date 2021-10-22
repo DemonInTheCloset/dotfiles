@@ -8,6 +8,7 @@
 	rebase = true
 [commit]
 	gpgsign = true
+	template = /home/jalil/.config/git/template/commit-message
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = ~/.config/git/configuration/git
