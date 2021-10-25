@@ -8,6 +8,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'twinside/vim-hoogle'
+Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml', {'branch': 'main'}
 Plug 'wakatime/vim-wakatime'
 
@@ -49,6 +50,8 @@ augroup Tabsize
     autocmd FileType c setlocal shiftwidth=8
     autocmd FileType haskell setlocal tabstop=2
     autocmd FileType haskell setlocal shiftwidth=2
+    autocmd FileType markdown setlocal shiftwidth=2
+    autocmd FileType markdown setlocal shiftwidth=2
 augroup END
 
 augroup SymbolHighlight
@@ -80,6 +83,8 @@ augroup FiletypeBehaviour
     " Latex Preview
     autocmd FileType tex let b:dispatch = 'latexmk -pvc -pdf %'
 augroup END 
+
+let g:rustfmt_autosave = 1      " Format rust code on save
 
 " Keybindings
 " Enter jumps to line
