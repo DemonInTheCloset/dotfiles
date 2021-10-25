@@ -225,15 +225,15 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:web"
-set $ws2 "2:term"
-set $ws3 "3:"
+set $ws1 "1:www"
+set $ws2 "2:tty"
+set $ws3 "3:zoom"
 set $ws4 "4:"
 set $ws5 "5:pass"
-set $ws6 "6:chat"
+set $ws6 "6:im"
 set $ws7 "7:mail"
 set $ws8 "8:steam"
-set $ws9 "9:discord"
+set $ws9 "9:"
 
 # Go back an forth between workspaces when pressing the workspace switch button
 workspace_auto_back_and_forth yes
@@ -243,11 +243,12 @@ workspace_auto_back_and_forth yes
 # assign windows to workspaces
 assign [instance="^Navigator$"] → $ws1
 # assign [instance="^kitty$"] → $ws2
+assign [instance="^zoom$"] → $ws3
 assign [instance="^keepassxc$"] → $ws5
 assign [instance="^signal$"] → $ws6
+assign [instance="^discord$"] → $ws6
 assign [instance="^Mail$"] → $ws7
 assign [instance="^Steam$"] → $ws8
-assign [instance="^discord$"] → $ws9
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
