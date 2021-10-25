@@ -14,6 +14,14 @@ Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
+" CoC.nvim Extensions
+let g:coc_global_extensions=[
+            \ 'coc-clang-format-style-options', 'coc-clangd', 'coc-highlight',
+            \ 'coc-json', 'coc-markdown-preview-enhanced', 'coc-markdownlint',
+            \ 'coc-pyright', 'coc-rust-analyzer', 'coc-snippets', 'coc-vimlsp',
+            \ 'coc-webview'
+            \ ]
+
 " Setup environment
 let g:python3_host_prog='~/.config/nvim/venv/bin/python'
 
