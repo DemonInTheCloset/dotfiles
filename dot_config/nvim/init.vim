@@ -31,12 +31,14 @@ filetype plugin indent on
 
 " Appearance
 set number relativenumber       " Show relative line numbers
-set colorcolumn=80	            " Color column 80
-set cursorline		            " Highlight selected line
-set nowrap		                " Longlines don't wrap
+set colorcolumn=80              " Color column 80
+set cursorline                  " Highlight selected line
+set nowrap                      " Long lines don't wrap
 set signcolumn=number           " Merge line numbers with coc messages
 let g:gruvbox_italic=1          " Allow italic font
 let g:airline_powerline_fonts=1 " Allow powerline fonts for the status line
+" In list mode show tabs and leading and trailing spaces
+set listchars=tab:==>,trail:·,lead:·
 " Colors
 set termguicolors               " Allow Truecolor Support
 colorscheme gruvbox             " Set colorscheme
@@ -44,18 +46,19 @@ colorscheme gruvbox             " Set colorscheme
 set laststatus=2
 
 " Global Tab and indentation settings
-set smarttab		            " Tabs are smarter
+set smarttab                    " Tabs are smarter
 set autoindent                  " Auto indent lines
-set smartindent		            " Indentation is smarter
-set expandtab		            " Change tabs to spaces
-set tabstop=4		            " A Tab is 4 spaces
-set softtabstop=0	            " No softtabs
-set shiftwidth=4	            " An indent is 4 spaces
+set smartindent                 " Indentation is smarter
+set expandtab                   " Change tabs to spaces
+set tabstop=4                   " A Tab is 4 spaces
+set softtabstop=0               " No softtabs
+set shiftwidth=4                " An indent is 4 spaces
 
 " augroups
 augroup Tabsize
     autocmd FileType c setlocal tabstop=8
     autocmd FileType c setlocal shiftwidth=8
+    autocmd FileType c setlocal noexpandtab
     autocmd FileType haskell setlocal tabstop=2
     autocmd FileType haskell setlocal shiftwidth=2
     autocmd FileType markdown setlocal shiftwidth=2
@@ -69,6 +72,11 @@ augroup END
 augroup Templates
     autocmd BufNewFile *.py  0r ~/.config/nvim/templates/skeleton.py
     autocmd BufNewFile *.zsh 0r ~/.config/nvim/templates/skeleton.zsh
+augroup END
+
+augroup RemoveTrailingWhitespace
+    autocmd BufWritePre *.md :%s/\s\+$//e
+    autocmd BufWritePre *.py :%s/\s\+$//e
 augroup END
 
 " Search settings
