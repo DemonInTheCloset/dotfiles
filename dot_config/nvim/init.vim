@@ -61,7 +61,7 @@ augroup Tabsize
     autocmd FileType c setlocal noexpandtab
     autocmd FileType haskell setlocal tabstop=2
     autocmd FileType haskell setlocal shiftwidth=2
-    autocmd FileType markdown setlocal shiftwidth=2
+    autocmd FileType markdown setlocal tabstop=2
     autocmd FileType markdown setlocal shiftwidth=2
 augroup END
 
