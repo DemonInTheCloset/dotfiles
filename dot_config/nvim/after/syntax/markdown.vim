@@ -1,5 +1,7 @@
-syntax region markdownLatexInline start=/\v\$[^$]/ end=/\v\$/
-highlight link markdownLatexInline String
+syntax include @tex syntax/tex.vim
 
-syntax region markdownLatex start=/\v\$\$/ end=/\v\$\$/
-highlight link markdownLatex String
+syntax region markdownLatexInline start=/\v\$[^$]/ end=/\v\$/ contains=@tex
+syntax region markdownLatex start=/\v\$\$/ end=/\v\$\$/ contains=@tex
+
+highlight link markdownLatexInline SpecialComment
+highlight link markdownLatex SpecialComment
