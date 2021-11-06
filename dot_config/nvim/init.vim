@@ -1,17 +1,30 @@
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'psf/black', { 'branch': 'stable' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'morhetz/gruvbox'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'twinside/vim-hoogle'
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml', {'branch': 'main'}
+" Time tracking
 Plug 'wakatime/vim-wakatime'
+
+" NVim improvements
+Plug 'morhetz/gruvbox'          " Colorscheme
+Plug 'vim-airline/vim-airline'  " StatusLine
+Plug 'tpope/vim-dispatch'       " Async commands
+Plug 'tpope/vim-fugitive'       " Git integration
+
+" Language specific features
+Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Completion & LSP engine
+
+" Python Plugins
+Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+
+" Haskell Plugins
+Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+Plug 'twinside/vim-hoogle', {'for': 'haskell'}      " Hoolge search
+
+" Rust Plugins
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+
+" TOML Plugins
+Plug 'cespare/vim-toml', {'branch': 'main', 'for': 'toml'}
 
 call plug#end()
 
