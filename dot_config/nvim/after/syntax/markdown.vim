@@ -1,7 +1,9 @@
-syntax include @tex syntax/tex.vim
+# KaTeX
+call TextEnableCodeSnip('tex', '$', '$', 'SpecialComment')
+call TextEnableCodeSnip('tex', '$$', '$$', 'SpecialComment')
 
-syntax region markdownLatexInline start=/\v\$[^$]/ end=/\v\$/ contains=@tex
-syntax region markdownLatex start=/\v\$\$/ end=/\v\$\$/ contains=@tex
-
-highlight link markdownLatexInline SpecialComment
-highlight link markdownLatex SpecialComment
+# Code Blocks
+call TextEnableCodeSnip('c', '```c', '```', 'SpecialComment')
+call TextEnableCodeSnip('rust', '```rust', '```', 'SpecialComment')
+call TextEnableCodeSnip('python', '```python', '```', 'SpecialComment')
+call TextEnableCodeSnip('haskell', '```haskell', '```', 'SpecialComment')
