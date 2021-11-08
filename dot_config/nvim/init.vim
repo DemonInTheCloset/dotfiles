@@ -12,6 +12,10 @@ Plug 'tpope/vim-fugitive'       " Git integration
 
 " Language specific features
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Completion & LSP engine
+Plug 'godlygeek/tabular'
+
+" Markdown Plugins
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Python Plugins
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
@@ -154,6 +158,15 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" Syntax
+let g:vim_markdown_math = 1     " Highlight LaTeX math inside markdown files
+let g:vim_markdown_fenced_languages = [
+            \ 'c'
+            \ , 'rust'
+            \ , 'python'
+            \ , 'haskell'
+            \ ]
 
 " Syntax Region Definition helper function
 function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
