@@ -10,6 +10,19 @@ source "$ZDOTDIR/hooks.zsh"
 # Source Personal Aliases
 source "$ZDOTDIR/aliases.zsh"
 
+# Source Interactive Shell Variables
+# Color settings
+typeset -U LESSOPEN
+LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESSOPEN
+
+typeset -U LESS
+LESS=' -R '
+export LESS
+
+typeset -U LS_COLORS
+eval $(dircolors)
+
 # Set prompt
 # source "$ZDOTDIR/prompt.zsh"
 # source "$ZDOTDIR/activate_prompt.zsh"
