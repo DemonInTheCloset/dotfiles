@@ -121,6 +121,9 @@ exec --no-startup-id pasystray
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# screenshots with scrot
+bindsym Print exec --no-startup-id scrot "$HOME"'/Pictures/%Y-%m-%d_$wx$h.png'
+
 # use pamixer to adjust volume
 set $audio-notify exec --no-startup-id audio-notify.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5; $audio-notify
@@ -360,7 +363,7 @@ exec --no-startup-id signal-desktop --start-in-tray         # chat app
 
 # Autostart Programs
 # exec firefox                                                # browser
-exec qutebrowser                                            # browser
-exec keepassxc                                              # password manager
-exec thunderbird                                            # mail client
+# exec qutebrowser                                            # browser
+# exec keepassxc                                              # password manager
+# exec thunderbird                                            # mail client
 exec i3-msg 'workspace $ws5'                                # start in workspace 5
