@@ -358,7 +358,7 @@ bindsym $mod+r mode "resize"
 
 # Autostart bg tasks
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b 	# background & compositor
-exec --no-startup-id signal-desktop --start-in-tray         # chat app
+# exec --no-startup-id signal-desktop --start-in-tray         # chat app
 # exec --no-startup-id /usr/share/ff2mpv/ff2mpv.py &          # firefox to mpv
 
 # Autostart Programs
