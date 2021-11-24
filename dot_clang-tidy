@@ -1,2 +1,2 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,-*,clang-analizer-*,performance-*,core-*'
+Checks:          '-*,cert-*,clang-diagnostic-*,clang-analyzer-*,cppcoreguidelines-*,readability-*'
