@@ -18,7 +18,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Python Plugins
-Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+Plug 'psf/black', { 'branch': 'main', 'for': 'python' }
 
 " Haskell Plugins
 Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
@@ -26,6 +26,9 @@ Plug 'twinside/vim-hoogle', {'for': 'haskell'}      " Hoolge search
 
 " Rust Plugins
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+
+" Simple X Hotkey Daemon
+Plug 'baskerville/vim-sxhkdrc', {'for': 'sxhkdrc'}
 
 " TOML Plugins
 Plug 'cespare/vim-toml', {'branch': 'main', 'for': 'toml'}
@@ -161,6 +164,7 @@ let g:coc_snippet_next = '<tab>'
 
 " Syntax
 let g:vim_markdown_math = 1     " Highlight LaTeX math inside markdown files
+let g:vim_markdown_folding_disabled = 1     " Disable folding
 let g:vim_markdown_fenced_languages = [
             \ 'c'
             \ , 'rust'
