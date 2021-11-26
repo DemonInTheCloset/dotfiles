@@ -111,9 +111,9 @@ exec --no-startup-id dunst
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
-exec --no-startup-id pasystray
+# exec --no-startup-id pasystray
 
 # Use pactl to adjust volume in PulseAudio.
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
@@ -366,4 +366,5 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b 	# background & compo
 # exec qutebrowser                                            # browser
 # exec keepassxc                                              # password manager
 # exec thunderbird                                            # mail client
+exec dex -ae i3                                               # execute desktop files
 exec i3-msg 'workspace $ws5'                                # start in workspace 5
