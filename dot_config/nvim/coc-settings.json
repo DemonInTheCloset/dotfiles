@@ -2,7 +2,6 @@
     "coc.preferences.colorSupport": true,
     "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
     "clangd.arguments": ["--clang-tidy"],
-    "clangd.fallbackFlags": ["--clang-tidy"],
     "languageserver": {
         // Haskell Configuration
         "haskell": {

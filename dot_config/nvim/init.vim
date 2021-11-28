@@ -6,6 +6,7 @@ Plug 'wakatime/vim-wakatime'
 
 " NVim improvements
 Plug 'morhetz/gruvbox'          " Colorscheme
+Plug 'unblevable/quick-scope'   " Jump hints
 Plug 'vim-airline/vim-airline'  " StatusLine
 Plug 'tpope/vim-dispatch'       " Async commands
 Plug 'tpope/vim-fugitive'       " Git integration
@@ -67,6 +68,7 @@ colorscheme gruvbox             " Set colorscheme
 set foldmethod=syntax
 " Statusbar
 set laststatus=2                " Statusbar is always visible
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Global Tab and indentation settings
 set smarttab                    " Tabs are smarter
@@ -94,6 +96,10 @@ augroup Tabsize " Change default tab settings for specific files
     " Markdown tab settings (Tabs are 2 spaces)
     autocmd FileType markdown setlocal tabstop=2
     autocmd FileType markdown setlocal shiftwidth=2
+augroup END
+
+augroup TerminalMode " Settings for vim terminal mode
+    autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
 augroup SymbolHighlight " Highlight all symbols with the same name
@@ -146,7 +152,7 @@ let g:rustfmt_autosave = 1      " Format rust code on save
 
 " Keybindings
 " Enter jumps to line
-nnoremap <CR> gg
+" nnoremap <CR> gg
 
 " Make completions work like in VSCode
 inoremap <silent><expr> <TAB>
