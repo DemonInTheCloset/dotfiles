@@ -17,7 +17,8 @@
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 11.0
+# font pango:DejaVu Sans Mono 11.0
+font pango:NotoSansMono 11.0
 
 # --- Colors
 
@@ -125,15 +126,15 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym Print exec --no-startup-id scrot "$HOME"'/Pictures/%Y-%m-%d_$wx$h.png'
 
 # use pamixer to adjust volume
-set $audio-notify exec --no-startup-id audio-notify.sh
+set $audio-notify exec --no-startup-id ~/.local/bin/audio-notify.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5; $audio-notify
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5; $audio-notify
 bindsym XF86AudioMute exec --no-startup-id pamixer -t; $audio-notify
 
 # Use xbacklight to control brightness
-set $brightness-notify exec --no-startup-id brightness-notify.sh
-bindsym XF86BrightnessMonUp exec --no-startup-id xbacklight -perceived -inc 5; $brightness-notify
-bindsym XF86BrightnessMonDown exec --no-startup-id xbacklight -perceived -dec 5; $brightness-notify
+set $brightness-notify exec --no-startup-id ~/.local/bin/brightness-notify.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -perceived -inc 5; $brightness-notify
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -perceived -dec 5; $brightness-notify
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
