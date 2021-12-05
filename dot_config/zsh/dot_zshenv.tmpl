@@ -1,5 +1,4 @@
-# Path Settings
-typeset -U ZDOTDIR
+# Path Settings typeset -U ZDOTDIR
 ZDOTDIR="$HOME/.config/zsh"
 export ZDOTDIR
 
@@ -34,6 +33,10 @@ typeset -U TERMINAL
 TERMINAL='xterm-kitty'
 export TERMINAL
 
+typeset -U BROWSER
+BROWSER='qutebrowser'
+export BROWSER
+
 typeset -U MANPAGER
-MANPAGER="less -R --use-color -Dd+r -Du+b"
+MANPAGER='less -R --use-color -Dd+r -Du+b'
 export MANPAGER
