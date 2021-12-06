@@ -1,0 +1,19 @@
+# Newsboat colour scheme
+
+color background          color0    default
+color listnormal          white     default
+color listnormal_unread   color2    default
+color listfocus           white     color237
+color listfocus_unread    color2    color237
+color info                color3    color234
+color article             white     default
+
+# highlights
+highlight article  "^(Feed|Link):.*$"         color2    default bold
+highlight article  "^(Title):.*$"             color5    default bold
+highlight article  "^(Date|Author):.*$"       color166  default
+highlight article  "https?://[^ ]+"           color4    default underline
+highlight article  "\\[[0-9]+\\]"             color10   default bold
+highlight article  "\\[image\\ [0-9]+\\]"     color3    default bold
+highlight article  "c[0-9]+(part[0-9])?"      color2    default bold
+highlight feedlist "^─.*$"                    color6    default bold
