@@ -1,6 +1,8 @@
 # Path Settings
-export fpath+="$ZDOTDIR"/zfunc
-export path+="$HOME"/.local/bin
+typeset -U PATH path FPATH fpath
+path+="$HOME"/.local/bin
+fpath+="$ZDOTDIR"/zfunc
+export PATH FPATH
 
 # Websites
 export ALARMPI='{{ (keepassxc "RaspberryPi").URL }}'
