@@ -38,9 +38,17 @@ call plug#end()
 
 " CoC.nvim Extensions
 let g:coc_global_extensions=[
-            \ 'coc-clang-format-style-options', 'coc-clangd', 'coc-highlight',
-            \ 'coc-json', 'coc-markdown-preview-enhanced', 'coc-markdownlint',
-            \ 'coc-pyright', 'coc-rust-analyzer', 'coc-snippets', 'coc-vimlsp',
+            \ 'coc-clang-format-style-options',
+            \ 'coc-clangd',
+            \ 'coc-highlight',
+            \ 'coc-java',
+            \ 'coc-json',
+            \ 'coc-markdown-preview-enhanced',
+            \ 'coc-markdownlint',
+            \ 'coc-pyright',
+            \ 'coc-rust-analyzer',
+            \ 'coc-snippets',
+            \ 'coc-vimlsp',
             \ 'coc-webview'
             \ ]
 
@@ -85,7 +93,7 @@ augroup OpenFolds " Open folds when opening a file
     autocmd BufRead * silent! %foldopen!
 augroup END
 
-augroup Tabsize " Change default tab settings for specific files
+augroup FTApperance " Change default tab settings for specific files
     " C tab settings (Tabs are 8 spaces and don't expand tabs to spaces)
     autocmd FileType c setlocal tabstop=8
     autocmd FileType c setlocal shiftwidth=8
@@ -96,6 +104,7 @@ augroup Tabsize " Change default tab settings for specific files
     " Markdown tab settings (Tabs are 2 spaces)
     autocmd FileType markdown setlocal tabstop=2
     autocmd FileType markdown setlocal shiftwidth=2
+    autocmd FileType markdown setlocal wrap
 augroup END
 
 augroup TerminalMode " Settings for vim terminal mode
@@ -127,6 +136,14 @@ augroup RunFormatter " run formaters when writting to disk
     autocmd BufWritePre *.c call ClangFormat()
 augroup END
 
+augroup SetCompiler " set compiler to run with vim-dispatch
+    autocmd FileType java let b:dispatch = 'gradle build'
+    autocmd FileType python let b:dispatch = 'mypy %'
+    autocmd FileType markdown let b:dispatch = 'pandoc --pdf-engine=xelatex -f markdown % -o %.pdf'
+    autocmd FileType tex let b:dispatch = 'latexmk -pvc -pdf %'
+    autocmd FileType plaintex let b:dispatch = 'latexmk -pvc -pdf %'
+augroup END
+
 " Search settings
 set path=.,/usr/include,**
 set wildmenu
@@ -142,17 +159,15 @@ set cmdheight=3                 " Give more space for messages
 set nobackup                    " Some LSPs have problems with backups
 set nowritebackup
 
-" Filetype Specific Actions
-augroup FiletypeBehaviour
-    " Latex Preview
-    autocmd FileType tex let b:dispatch = 'latexmk -pvc -pdf %'
-augroup END 
-
 let g:rustfmt_autosave = 1      " Format rust code on save
 
 " Keybindings
 " Enter jumps to line
 " nnoremap <CR> gg
+
+" Editor Commands
+" :Format command
+command! -nargs=0 Format :call CocAction('format')
 
 " Make completions work like in VSCode
 inoremap <silent><expr> <TAB>
