@@ -1,8 +1,4 @@
 # Path Settings
-# typeset -U ZDOTDIR
-ZDOTDIR="$HOME/.config/zsh"
-export ZDOTDIR
-
 typeset -U FPATH fpath
 fpath+="$ZDOTDIR/zfunc"
 export FPATH fpath
@@ -10,14 +6,6 @@ export FPATH fpath
 typeset -U PATH path
 path+="$HOME/.local/bin"
 export PATH
-
-typeset -U npm_config_prefix
-npm_config_prefix="$HOME/.local"
-export npm_config_prefix
-
-typeset -U WAKATIME_HOME
-WAKATIME_HOME="$HOME/.config/wakatime"
-export WAKATIME_HOME
 
 # Websites
 typeset -U ALARMPI
@@ -41,3 +29,44 @@ export BROWSER
 typeset -U MANPAGER
 MANPAGER='less -R --use-color -Dd+r -Du+b'
 export MANPAGER
+
+# XDG_BASE_DIRS
+typeset -U XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME XDG_STATE_HOME
+XDG_CONFIG_HOME="$HOME/.config"
+XDG_CACHE_HOME="$HOME/.cache"
+XDG_DATA_HOME="$HOME/.local/share"
+XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME XDG_STATE_HOME
+
+# Make apps follow XDG Base Dirs Spec
+typeset -U ZDOTDIR
+ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR
+
+typeset -U CARGO_HOME
+CARGO_HOME="$XDG_DATA_HOME/cargo"
+export CARGO_HOME
+
+typeset -U NPM_CONFIG_USERCONFIG
+NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NPM_CONFIG_USERCONFIG
+
+typeset -U WAKATIME_HOME
+WAKATIME_HOME="$HOME/.config/wakatime"
+export WAKATIME_HOME
+
+typeset -U CALCHISTFILE
+CALCHISTFILE"$XDG_CACHE_HOME/calc_history"
+export CALCHISTFILE
+
+typeset -U GRADLE_USER_HOME 
+GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export GRADLE_USER_HOME
+
+typeset -U STACK_ROOT
+STACK_ROOT="$XDG_DATA_HOME/stack"
+export STACK_ROOT
+
+typeset -U WINEPREFIX
+WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
+export WINEPREFIX
