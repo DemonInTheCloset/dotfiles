@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=XWallpaper
+Comment=Wallpaper setting utility for X
+Icon=xwallapaper
+Exec=xwallapaper --zoom /usr/share/backgrounds/archlinux/awesome.png
+Terminal=false
+Categories=Wallpaper;
+Keywords=wallpaper;xorg;

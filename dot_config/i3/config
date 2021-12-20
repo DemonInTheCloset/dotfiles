@@ -360,7 +360,6 @@ bindsym $mod+r mode "resize"
 # exec i3-config-wizard
 
 # Autostart bg tasks
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b 	# background & compositor
 # exec --no-startup-id signal-desktop --start-in-tray         # chat app
 # exec --no-startup-id /usr/share/ff2mpv/ff2mpv.py &          # firefox to mpv
 
@@ -370,4 +369,4 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b 	# background & compo
 # exec keepassxc                                              # password manager
 # exec thunderbird                                            # mail client
 exec dex -ae i3                                               # execute desktop files
-exec i3-msg 'workspace $ws5'                                # start in workspace 5
+exec i3-msg 'workspace $ws5'                                  # start in workspace 5
