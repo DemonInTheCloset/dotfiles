@@ -22,7 +22,7 @@ def valid_commit_msg(msg: Iterable[str]) -> bool:
     subject, *rest = msg
 
     if len(subject) > 50:
-        print("Error: Subject line too long {len(subject)} > 50")
+        print(f"Error: Subject line too long {len(subject)} > 50")
         return False
 
     if not subject.strip():
@@ -42,7 +42,7 @@ def valid_commit_msg(msg: Iterable[str]) -> bool:
 
         for line in rest:
             if len(line) > 72:
-                print("Error: \"{line}\" is too long\n{len(line)} > 72")
+                print(f"Error: \"{line}\" is too long\n{len(line)} > 72")
                 return False
 
     return True
