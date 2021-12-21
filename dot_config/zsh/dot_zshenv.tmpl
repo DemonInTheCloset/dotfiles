@@ -1,20 +1,20 @@
-#: XDG_BASE_DIRS {{{1
+# XDG_BASE_DIRS
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
-#: Make apps follow XDG Base Dirs Spec {{{1
-#: X11 {{{2
+# Make apps follow XDG Base Dirs Spec
+# X11
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 
-#: Shells {{{2
+# Shells
 export ZDOTDIR="$HOME"/.config/zsh
 export HISTFILE="$XDG_STATE_HOME"/bash/history
 
-#: Programing tools {{{2
+# Programing tools
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export STACK_ROOT="$XDG_DATA_HOME"/stack
@@ -23,7 +23,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export WAKATIME_HOME="$XDG_CONFIG_HOME"/wakatime
 
-#: Misc {{{2
+# Misc
 export CALCHISTFILE="$XDG_CACHE_HOME"/calc_history
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
 export SSB_HOME="$XDG_DATA_HOME"/zoom
@@ -32,16 +32,16 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug
 
-#: Path Settings {{{1
+# Path Settings
 typeset -U PATH path FPATH fpath
 path+="$HOME"/.local/bin
 fpath+="$ZDOTDIR"/zfunc
 export PATH FPATH
 
-#: Websites {{{1
+# Websites
 export ALARMPI='{{ (keepassxc "RaspberryPi").URL }}'
 
-#: Default programs {{{1
+# Default programs
 export VISUAL='/usr/bin/nvim'
 export EDITOR="$VISUAL"
 export TERMINAL='xterm-kitty'
