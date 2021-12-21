@@ -1,15 +1,15 @@
 #!/bin/sh
 
-userresources=$XDG_CONFIG_HOME/xresources
-usermodmap=$XDG_CONFIG_HOME/xmodmap
+userresources=$XDG_CONFIG_HOME/X11/xresources
+usermodmap=$XDG_CONFIG_HOME/X11/xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # Change Xorg cache files
-USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
-USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
-ALTUSERXSESSION="$XDG_CACHE_HOME/X11/Xsession"
-ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+export USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
+export USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
+export ALTUSERXSESSION="$XDG_CACHE_HOME/X11/Xsession"
+export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 
 # merge in defaults and keymaps
 

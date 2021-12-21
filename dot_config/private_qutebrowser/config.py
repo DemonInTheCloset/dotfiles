@@ -10,6 +10,7 @@ c: ConfigContainer = c  # noqa: F821 pylint: disable=E0602,C0103
 
 config.load_autoconfig()
 
+
 def read_xresources(prefix: str) -> dict[str, str]:
     props = {}
     x = subprocess.run(["xrdb", "-query"], stdout=subprocess.PIPE)
@@ -19,36 +20,38 @@ def read_xresources(prefix: str) -> dict[str, str]:
         props[prop] = value
     return props
 
-xresources = read_xresources("*")
 
-bg0 = xresources['*.background']
+xresources = read_xresources("*")
+# print(f"{xresources=}")
+
+bg0 = xresources["*background"]
 bg1 = "#3c3836"
 bg2 = "#504945"
 bg3 = "#665c54"
 bg4 = "#7c6f64"
 
 fg0 = "#fbf1c7"
-fg1 = xresources['*.foreground']
+fg1 = xresources["*foreground"]
 fg2 = "#d5c4a1"
 fg3 = "#bdae93"
 fg4 = "#a89984"
 
-bright_red = xresources['*.color9']
-bright_green = xresources['*.color10']
-bright_yellow = xresources["*.color11"]
-bright_blue = xresources["*.color12"]
-bright_purple = xresources["*.color13"]
-bright_aqua = xresources["*.color14"]
-bright_gray = xresources["*.color8"]
+bright_red = xresources["*color9"]
+bright_green = xresources["*color10"]
+bright_yellow = xresources["*color11"]
+bright_blue = xresources["*color12"]
+bright_purple = xresources["*color13"]
+bright_aqua = xresources["*color14"]
+bright_gray = xresources["*color8"]
 bright_orange = "#fe8019"
 
-dark_red = xresources["*.color1"]
-dark_green = xresources["*.color2"]
-dark_yellow = xresources["*.color3"]
-dark_blue = xresources["*.color4"]
-dark_purple = xresources["*.color5"]
-dark_aqua = xresources["*.color6"]
-dark_gray = xresources["*.color7"]
+dark_red = xresources["*color1"]
+dark_green = xresources["*color2"]
+dark_yellow = xresources["*color3"]
+dark_blue = xresources["*color4"]
+dark_purple = xresources["*color5"]
+dark_aqua = xresources["*color6"]
+dark_gray = xresources["*color7"]
 dark_orange = "#d65d0e"
 
 ### Completion
@@ -85,7 +88,9 @@ c.colors.completion.item.selected.bg = bg4
 c.colors.completion.item.selected.border.top = bg2
 
 # Bottom border color of the selected completion item.
-c.colors.completion.item.selected.border.bottom = c.colors.completion.item.selected.border.top
+c.colors.completion.item.selected.border.bottom = (
+    c.colors.completion.item.selected.border.top
+)
 
 # Foreground color of the matched text in the selected completion item.
 c.colors.completion.item.selected.match.fg = bright_orange
@@ -111,12 +116,12 @@ c.colors.contextmenu.disabled.fg = fg3
 c.colors.contextmenu.menu.bg = bg0
 
 # Foreground color of the context menu. If set to null, the Qt default is used.
-c.colors.contextmenu.menu.fg =  fg2
+c.colors.contextmenu.menu.fg = fg2
 
 # Background color of the context menu’s selected item. If set to null, the Qt default is used.
 c.colors.contextmenu.selected.bg = bg2
 
-#Foreground color of the context menu’s selected item. If set to null, the Qt default is used.
+# Foreground color of the context menu’s selected item. If set to null, the Qt default is used.
 c.colors.contextmenu.selected.fg = c.colors.contextmenu.menu.fg
 
 ### Downloads
@@ -145,7 +150,7 @@ c.colors.downloads.error.fg = bright_red
 c.colors.hints.fg = bg0
 
 # Background color for hints.
-c.colors.hints.bg = 'rgba(250, 191, 47, 200)'  # bright_yellow
+c.colors.hints.bg = "rgba(250, 191, 47, 200)"  # bright_yellow
 
 # Font color for the matched part of hints.
 c.colors.hints.match.fg = bg4
@@ -196,7 +201,7 @@ c.colors.messages.info.border = c.colors.messages.info.bg
 c.colors.prompts.fg = fg2
 
 # Border used around UI elements in prompts.
-c.colors.prompts.border = f'1px solid {bg1}'
+c.colors.prompts.border = f"1px solid {bg1}"
 
 # Background color for prompts.
 c.colors.prompts.bg = bg3
