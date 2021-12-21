@@ -23,23 +23,41 @@ font pango:NotoSansMono 11.0
 # --- Colors
 
 # set colors from ~/.Xresources
-set_from_resource $bg-col       i3wm.color0  #1d2021
-set_from_resource $bg-col-light i3wm.color1  #3c3836
-set_from_resource $bg-col-sel   i3wm.color2  #504945
-set_from_resource $hi-col       i3wm.color3  #665c54
-set_from_resource $fg-col-dark  i3wm.color4  #bdae93
-set_from_resource $fg-col       i3wm.color5  #d5c4a1
-set_from_resource $fg-col-light i3wm.color6  #ebdbb2
-set_from_resource $bg-col-light i3wm.color7  #fbf1c7
+# set_from_resource $bg-col       i3wm.color0  #1d2021
+# set_from_resource $bg-col-light i3wm.color1  #3c3836
+# set_from_resource $bg-col-sel   i3wm.color2  #504945
+# set_from_resource $hi-col       i3wm.color3  #665c54
+# set_from_resource $fg-col-dark  i3wm.color4  #bdae93
+# set_from_resource $fg-col       i3wm.color5  #d5c4a1
+# set_from_resource $fg-col-light i3wm.color6  #ebdbb2
+# set_from_resource $bg-col-light i3wm.color7  #fbf1c7
 
-set_from_resource $red          i3wm.color8  #fb4934
-set_from_resource $orange       i3wm.color9  #fe8019
-set_from_resource $yellow       i3wm.color10 #fabd2f
-set_from_resource $green        i3wm.color11 #b8bb26
-set_from_resource $teal         i3wm.color12 #8ec07c
-set_from_resource $lightblue    i3wm.color13 #83a598
-set_from_resource $pink         i3wm.color14 #d3869b
-set_from_resource $orange-dark  i3wm.color15 #d65d0e
+# set_from_resource $red          i3wm.color8  #fb4934
+# set_from_resource $orange       i3wm.color9  #fe8019
+# set_from_resource $yellow       i3wm.color10 #fabd2f
+# set_from_resource $green        i3wm.color11 #b8bb26
+# set_from_resource $teal         i3wm.color12 #8ec07c
+# set_from_resource $lightblue    i3wm.color13 #83a598
+# set_from_resource $pink         i3wm.color14 #d3869b
+# set_from_resource $orange-dark  i3wm.color15 #d65d0e
+
+set $bg-col       #1d2021
+set $bg-col-light #3c3836
+set $bg-col-sel   #504945
+set $hi-col       #665c54
+set $fg-col-dark  #bdae93
+set $fg-col       #d5c4a1
+set $fg-col-light #ebdbb2
+set $bg-col-light #fbf1c7
+
+set $red          #fb4934
+set $orange       #fe8019
+set $yellow       #fabd2f
+set $green        #b8bb26
+set $teal         #8ec07c
+set $lightblue    #83a598
+set $pink         #d3869b
+set $orange-dark  #d65d0e
 
 # --- Apperance
 
