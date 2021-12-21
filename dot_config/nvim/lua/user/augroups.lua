@@ -43,10 +43,10 @@ function! ClangFormat()
     py3f /usr/share/clang/clang-format.py
 endfunction
 
-augroup RunFormatter " run formaters when writting to disk
-    autocmd BufWritePre *.py :Black
-    autocmd BufWritePre *.c call ClangFormat()
-augroup END
+" augroup RunFormatter " run formaters when writting to disk
+"     autocmd BufWritePre *.py :Black
+"     autocmd BufWritePre *.c call ClangFormat()
+" augroup END
 
 augroup SetCompiler " set compiler to run with vim-dispatch
     autocmd FileType java let b:dispatch = 'gradle build'
