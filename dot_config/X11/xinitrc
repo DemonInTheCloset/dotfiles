@@ -29,6 +29,10 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+# Disable screen blanking after 10 minues
+xset -dpms
+xset s off
+
 # Autostart programs in $XDG_CONFIG_HOME/autostart
 dex --autostart --environment i3 &
 

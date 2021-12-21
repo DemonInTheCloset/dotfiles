@@ -7,8 +7,4 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
     # Make sure i3 isn't running before starting it
     pgrep i3 || startx "$XDG_CONFIG_HOME"/X11/xinitrc -- "$XDG_CONFIG_HOME"/X11/xserverrc vt"${XDG_VTNR}"
-
-    # Disable screen blanking after 10 minues
-    xset -dpms
-    xset s off
 fi
