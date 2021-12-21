@@ -15,5 +15,6 @@ highlight article  "^(Date|Author):.*$"       color166  default
 highlight article  "https?://[^ ]+"           color4    default underline
 highlight article  "\\[[0-9]+\\]"             color10   default bold
 highlight article  "\\[image\\ [0-9]+\\]"     color3    default bold
-highlight article  "c[0-9]+(part[0-9])?"      color2    default bold
+highlight article  "c[0-9]+( part[0-9])?"     color2    default bold
+highlight article  "v[0-9]+"                  color2    default
 highlight feedlist "^─.*$"                    color6    default bold
