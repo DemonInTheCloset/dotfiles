@@ -24,34 +24,34 @@ def read_xresources(prefix: str) -> dict[str, str]:
 xresources = read_xresources("*")
 # print(f"{xresources=}")
 
-bg0 = xresources["*background"]
+bg0 = xresources["*.background"]
 bg1 = "#3c3836"
 bg2 = "#504945"
 bg3 = "#665c54"
 bg4 = "#7c6f64"
 
 fg0 = "#fbf1c7"
-fg1 = xresources["*foreground"]
+fg1 = xresources["*.foreground"]
 fg2 = "#d5c4a1"
 fg3 = "#bdae93"
 fg4 = "#a89984"
 
-bright_red = xresources["*color9"]
-bright_green = xresources["*color10"]
-bright_yellow = xresources["*color11"]
-bright_blue = xresources["*color12"]
-bright_purple = xresources["*color13"]
-bright_aqua = xresources["*color14"]
-bright_gray = xresources["*color8"]
+bright_red = xresources["*.color9"]
+bright_green = xresources["*.color10"]
+bright_yellow = xresources["*.color11"]
+bright_blue = xresources["*.color12"]
+bright_purple = xresources["*.color13"]
+bright_aqua = xresources["*.color14"]
+bright_gray = xresources["*.color8"]
 bright_orange = "#fe8019"
 
-dark_red = xresources["*color1"]
-dark_green = xresources["*color2"]
-dark_yellow = xresources["*color3"]
-dark_blue = xresources["*color4"]
-dark_purple = xresources["*color5"]
-dark_aqua = xresources["*color6"]
-dark_gray = xresources["*color7"]
+dark_red = xresources["*.color1"]
+dark_green = xresources["*.color2"]
+dark_yellow = xresources["*.color3"]
+dark_blue = xresources["*.color4"]
+dark_purple = xresources["*.color5"]
+dark_aqua = xresources["*.color6"]
+dark_gray = xresources["*.color7"]
 dark_orange = "#d65d0e"
 
 ### Completion
