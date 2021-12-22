@@ -34,7 +34,7 @@ xset -dpms
 xset s off
 
 # Autostart programs
-systemctl --user start autostart.target
+xdg-autostart-launcher --both
 
 # Start Window Manager
 exec i3
