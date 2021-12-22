@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Picom
-Comment=Compositor for X11
-Icon=picom
-Exec=picom -b
-Terminal=false
-Categories=Compositor;
-Keywords=compositor;x11;
