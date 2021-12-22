@@ -37,7 +37,7 @@ alias mkvenv="virtualenv .venv"
 alias sourcevenv="source .venv/bin/activate"
 
 # ssh aliases
-alias sshpi='ssh {{ (keepassxc "RaspberryPi").UserName }}@{{ (keepassxc "RaspberryPi").URL }}'
+alias sshpi='ssh ALARMUSER@$ALARMPI'
 
 # zsh aliases
 alias zshconfig="$VISUAL $ZDOTDIR/config.zsh"
