@@ -14,27 +14,30 @@ export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
+    xrdb -merge $sysresources &
 fi
 
 if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
+    xmodmap $sysmodmap &
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+    xrdb -merge "$userresources" &
 fi
 
 if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+    xmodmap "$usermodmap" &
 fi
 
 # Disable screen blanking after 10 minues
-xset -dpms
-xset s off
+xset -dpms &
+xset s off &
+
+# Enable numlock
+numlockx &
 
 # Autostart programs
-xdg-autostart-launcher --both
+xdg-autostart-launcher --both &
 
 # Start Window Manager
 exec i3
