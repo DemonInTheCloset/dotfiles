@@ -3,58 +3,63 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_bootstrap = nil
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({
-        "git",
-        "clone",
-        "--depth",
-        "1",
-        "https://github.com/wbthomason/packer.nvim",
-        install_path,
-    })
+	packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
 end
 
 -- Plugins
-return require("packer").startup(function(use)
-    use("wbthomason/packer.nvim")
+return require("packer").startup({
+	function(use)
+		use("wbthomason/packer.nvim")
 
-    -- Time tracking
-    use("wakatime/vim-wakatime")
+		-- Time tracking
+		use("wakatime/vim-wakatime")
 
-    -- ColorScheme
-    use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
+		-- ColorScheme
+		use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
 
-    -- Jump hints
-    use("unblevable/quick-scope")
+		-- Jump hints
+		use("unblevable/quick-scope")
 
-    -- Async commands
-    use("tpope/vim-dispatch")
+		-- Async commands
+		use("tpope/vim-dispatch")
 
-    -- Git integration
-    use("tpope/vim-fugitive")
+		-- Git integration
+		use("tpope/vim-fugitive")
 
-    -- Language Server configuration
-    use("neovim/nvim-lspconfig")
-    use("onsails/lspkind-nvim")
-    use("mfussenegger/nvim-jdtls") -- Java JDTLS support
+		-- Language Server configuration
+		use("neovim/nvim-lspconfig")
+		use("onsails/lspkind-nvim")
+		use("mfussenegger/nvim-jdtls") -- Java JDTLS support
 
-    -- Completion Support
-    use("hrsh7th/cmp-nvim-lsp") -- Language server hints
-    use("hrsh7th/cmp-buffer") -- Words from the buffer
-    use("hrsh7th/cmp-path") -- Path like strings (ie. /usr/bin/nvim)
-    use("hrsh7th/cmp-cmdline") -- Commands completion
-    use("saadparwaiz1/cmp_luasnip") -- Snippet support
-    use("hrsh7th/nvim-cmp")
+		-- Completion Support
+		use("hrsh7th/cmp-nvim-lsp") -- Language server hints
+		use("hrsh7th/cmp-buffer") -- Words from the buffer
+		use("hrsh7th/cmp-path") -- Path like strings (ie. /usr/bin/nvim)
+		use("hrsh7th/cmp-cmdline") -- Commands completion
+		use("saadparwaiz1/cmp_luasnip") -- Snippet support
+		use("hrsh7th/nvim-cmp")
 
-    -- Snippet support
-    use("L3MON4D3/LuaSnip")
+		-- Snippet support
+		use("L3MON4D3/LuaSnip")
 
-    -- StatusLine
-    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+		-- StatusLine
+		use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 
-    -- Filetype Highlighting
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+		-- Filetype Highlighting
+		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-    --[[ Old FT higlights
+		-- Fuzzy find
+		use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
+		use("nvim-telescope/telescope-fzy-native.nvim") -- C binary for fzy
+
+		--[[ Old FT higlights
     -- Plug 'godlygeek/tabular'
     use 'godlygeek/tabular'
     -- " Markdown Plugins
@@ -79,8 +84,14 @@ return require("packer").startup(function(use)
     use {'cespare/vim-toml', branch= 'main', ft= 'toml'}
     --]]
 
-    -- Do bootstrap
-    if packer_bootstrap then
-        require("packer").sync()
-    end
-end)
+		-- Do bootstrap
+		if packer_bootstrap then
+			require("packer").sync()
+		end
+	end,
+    config = {
+        display = {
+            open_fn = require("packer.util").float;
+        }
+    }
+})
