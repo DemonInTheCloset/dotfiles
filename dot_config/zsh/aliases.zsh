@@ -30,7 +30,7 @@ alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 
 # nvim aliases
-alias nvimconfig="$VISUAL $CONFIG/nvim/init.vim"
+alias nvimconfig="$VISUAL $CONFIG/nvim/init.lua"
 
 # Python aliases
 alias mkvenv="virtualenv .venv"
