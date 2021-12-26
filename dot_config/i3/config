@@ -386,5 +386,5 @@ bindsym $mod+r mode "resize"
 # exec qutebrowser                                            # browser
 # exec keepassxc                                              # password manager
 # exec thunderbird                                            # mail client
-exec dex -ae i3                                               # execute desktop files
+# exec dex -ae i3                                               # execute desktop files
 exec i3-msg 'workspace $ws5'                                  # start in workspace 5
