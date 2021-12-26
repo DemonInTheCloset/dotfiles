@@ -10,6 +10,7 @@ local config_files = {
     "user/statusline",
     "user/augroups",
     "user/telescope",
+    "user/plugconf",
     -- 'error_file', -- test file to make sure errors are non fatal
 }
 

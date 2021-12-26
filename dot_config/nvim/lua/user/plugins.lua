@@ -24,6 +24,9 @@ return require("packer").startup({
 		-- ColorScheme
 		use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
 
+        -- Colorizer
+        use("norcalli/nvim-colorizer.lua")
+
 		-- Jump hints
 		use("unblevable/quick-scope")
 
