@@ -141,7 +141,7 @@ bar {
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # screenshots with scrot
-bindsym Print exec --no-startup-id scrot "$HOME"'/Pictures/%Y-%m-%d_$wx$h.png'
+bindsym Print exec --no-startup-id scrot "$HOME"'/Pictures/%Y-%m-%d_$wx$h.png' && notify-send 'Took screenshot'
 
 # use pamixer to adjust volume
 set $audio-notify exec --no-startup-id ~/.local/bin/audio-notify.sh
