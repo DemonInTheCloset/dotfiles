@@ -3,12 +3,13 @@ vim.cmd("filetype plugin on")
 
 local config_files = {
     "user/plugins",
-    "user/cmp",
-    "user/lsp-config",
     "user/settings",
+    "user/cmp",
     "user/treesitter",
+    "user/lsp-config",
     "user/statusline",
     "user/augroups",
+    "user/telescope",
     -- 'error_file', -- test file to make sure errors are non fatal
 }
 
