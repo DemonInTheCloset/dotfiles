@@ -23,41 +23,29 @@ font pango:NotoSansMono 11.0
 # --- Colors
 
 # set colors from ~/.Xresources
-# set_from_resource $bg-col       i3wm.color0  #1d2021
-# set_from_resource $bg-col-light i3wm.color1  #3c3836
-# set_from_resource $bg-col-sel   i3wm.color2  #504945
-# set_from_resource $hi-col       i3wm.color3  #665c54
-# set_from_resource $fg-col-dark  i3wm.color4  #bdae93
-# set_from_resource $fg-col       i3wm.color5  #d5c4a1
-# set_from_resource $fg-col-light i3wm.color6  #ebdbb2
-# set_from_resource $bg-col-light i3wm.color7  #fbf1c7
+set_from_resource $color00 i3wm.color0  #282828
+set_from_resource $color01 i3wm.color1  #fb4934
+set_from_resource $color02 i3wm.color2  #b8bb26
+set_from_resource $color03 i3wm.color3  #fabd2f
+set_from_resource $color04 i3wm.color4  #83a598
+set_from_resource $color05 i3wm.color5  #d3869b
+set_from_resource $color06 i3wm.color6  #8ec07c
+set_from_resource $color07 i3wm.color7  #d5c4a1
+set_from_resource $color08 i3wm.color8  #665c54
+set_from_resource $color09 i3wm.color9  #fb4934
+set_from_resource $color10 i3wm.color10 #b8bb26
+set_from_resource $color11 i3wm.color11 #fabd2f
+set_from_resource $color12 i3wm.color12 #83a598
+set_from_resource $color13 i3wm.color13 #d3869b
+set_from_resource $color14 i3wm.color14 #8ec07c
+set_from_resource $color15 i3wm.color15 #fbf1c7
+set_from_resource $color16 i3wm.color16 #fe8019
+set_from_resource $color17 i3wm.color17 #d65d0e
+set_from_resource $color18 i3wm.color18 #3c3836
+set_from_resource $color19 i3wm.color19 #504945
+set_from_resource $color20 i3wm.color20 #bdae93
+set_from_resource $color21 i3wm.color21 #ebdbb2
 
-# set_from_resource $red          i3wm.color8  #fb4934
-# set_from_resource $orange       i3wm.color9  #fe8019
-# set_from_resource $yellow       i3wm.color10 #fabd2f
-# set_from_resource $green        i3wm.color11 #b8bb26
-# set_from_resource $teal         i3wm.color12 #8ec07c
-# set_from_resource $lightblue    i3wm.color13 #83a598
-# set_from_resource $pink         i3wm.color14 #d3869b
-# set_from_resource $orange-dark  i3wm.color15 #d65d0e
-
-set $bg-col       #1d2021
-set $bg-col-light #3c3836
-set $bg-col-sel   #504945
-set $hi-col       #665c54
-set $fg-col-dark  #bdae93
-set $fg-col       #d5c4a1
-set $fg-col-light #ebdbb2
-set $bg-col-light #fbf1c7
-
-set $red          #fb4934
-set $orange       #fe8019
-set $yellow       #fabd2f
-set $green        #b8bb26
-set $teal         #8ec07c
-set $lightblue    #83a598
-set $pink         #d3869b
-set $orange-dark  #d65d0e
 
 # --- Apperance
 
@@ -78,24 +66,24 @@ hide_edge_borders smart_no_gaps
 gaps inner 4
 
 # window colors
-# class                 border          backgr.         text            indicator   child_border
-client.focused          $orange-dark    $bg-col         $fg-col         $teal       $orange-dark
-client.focused_inactive $yellow         $bg-col-light   $fg-col-dark    $teal       $orange
-client.unfocused        $fg-col-light   $bg-col-light   $fg-col-dark    $teal       $orange
-client.urgent           $red            $bg-col-sel     $fg-col-sel     $teal       $pink  
-client.placeholder      $green          $bg-col         $fg-col         $teal       $orange
+# class                  border    backgr.   text      indicator child_border
+client.focused           $color17  $color00  $color15  $color06  $color17
+client.focused_inactive  $color03  $color08  $color21  $color06  $color16
+client.unfocused         $color20  $color08  $color21  $color06  $color16
+client.urgent            $color01  $color16  $color21  $color06  $color05
+client.placeholder       $color02  $color00  $color15  $color06  $color16
 
-client.background       $bg-col
+client.background        $color00
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     # Bar position
     position top
-	
+
     # Use i3bar with transparency
     i3bar_command i3bar --transparency
-    
+
     # Show information through conky
     # status_command "$HOME/.local/bin/i3status-conky.sh"
     # Show information through i3blocks
@@ -106,15 +94,15 @@ bar {
     colors {
         # class     color
         background  #1d2021A0
-        statusline  $fg-col
-        separator   $fg-col-dark
+        statusline  $color15
+        separator   $color21
 
-        # class             border          background      text  
-        focused_workspace   $orange         $orange-dark    $fg-col
-        active_workspace    $lightblue      $teal           $fg-col
-        inactive_workspace  $bg-col-dark    $bg-col         $fg-col-dark
-        urgent_workspace    $orange-dark    $red            $fg-col
-        binding_mode        $bg-col-dark    $red            $fg-col
+        # class             border     background text  
+        focused_workspace   $color16   $color17   $color15
+        active_workspace    $color04   $color06   $color15
+        inactive_workspace  $color18   $color00   $color21
+        urgent_workspace    $color17   $color01   $color15
+        binding_mode        $color18   $color01   $color15
     }
 }
 
