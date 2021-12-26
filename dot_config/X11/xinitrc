@@ -36,6 +36,9 @@ xset s off &
 # Enable numlock
 numlockx &
 
+# Launch notification daemon
+dunst &
+
 # Autostart programs
 xdg-autostart-launcher --both &
 
