@@ -1,0 +1,45 @@
+# Screenshooting
+Print
+    scrot "$HOME"/Pictures/'%F-%T_$wx$h'.png && \
+        notify-send 'Took Screenshot' "~/Pictures/`date +'%Y-%m-%d'`_`xrandr | grep ' connected' | sed 's/\S* \S* \(\S*\)[+]\S*[+].*$/\1/; 1q'`.png"
+
+# Media control
+XF86AudioRaiseVolume
+    pamixer -i 5 && audio-notify.sh
+
+XF86AudioLowerVolume
+    pamixer -d 5 && audio-notify.sh
+
+XF86AudioMute
+    pamixer -t && audio-notify.sh
+
+# Brightness Control
+XF86MonBrightnessUp
+    xbacklight -percievd -inc 5 && brightnes-notify.sh
+
+XF86MonBrightnessDown
+    xbacklight -percievd -dec 5 && brightnes-notify.sh
+
+# Dmenu/Rofi
+super + d
+    rofi -modi drun,run -show drun
+
+# Launch Programs
+super + Return
+    "$TERMINAL"
+
+super + F2
+    "$BROWSER"
+
+super + shift + F2
+    qutebrowser --target private-window
+
+super + F3
+    ranger
+
+# Shutdown
+super + shift + s
+    dmenu-prompt.sh 'Shutdown computer?' 'i3exit shutdown'
+
+super + shift + p
+    dmenu-prompt.sh 'Restart computer?' 'i3exit reboot'
