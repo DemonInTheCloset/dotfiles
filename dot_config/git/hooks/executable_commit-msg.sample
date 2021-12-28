@@ -1,0 +1,76 @@
+#!/usr/bin/env python
+from argparse import ArgumentParser, Namespace
+from collections.abc import Iterable
+from pathlib import Path
+import re
+
+GIT_START_OF_DIFF: str = "# ------------------------ >8 ------------------------"
+
+def extract_commit_msg(lines: Iterable[str]) -> Iterable[str]:
+    """Extract commit message from a list of lines"""
+    for line in lines:
+        if line[0] != '#':
+            yield line
+        elif line.rstrip() == GIT_START_OF_DIFF:
+            break
+        else:
+            continue
+
+
+def valid_commit_msg(msg: Iterable[str]) -> bool:
+    """Checks if a commit message is valid"""
+    subject, *rest = msg
+    subject = subject.strip()
+
+    if len(subject) > 50:
+        print(f"Error: Subject line too long {len(subject)} > 50")
+        return False
+
+    if not subject:
+        print("Error: Subject is empty")
+        return False
+
+    if re.match(r"(fix|feat)(\(.*\))?: [A-Z].*[^.]", subject) is None:
+        print("Error: Wrong subject format")
+        return False
+
+    if rest:
+        empty, *rest = rest
+
+        if empty.strip():
+            print("Error: Line after the subject not empty\ngot: \"{empty}\"")
+            return False
+
+        for line in rest:
+            line = line.strip()
+            if len(line) > 72:
+                print(f"Error: \"{line}\" is too long\n{len(line)} > 72")
+                return False
+
+    return True
+
+
+def cli_args() -> Namespace:
+    """Read and validate CLI Arguments"""
+    parser = ArgumentParser(description="A git hook to validate a git commit message")
+
+    parser.add_argument('PATH', help="Path to the commit message")
+
+    return parser.parse_args()
+
+
+def main() -> None:
+    """Script entry point"""
+    args = cli_args()
+    
+    commit = Path(args.PATH)
+
+    with commit.open('r') as fp:
+        if not valid_commit_msg(extract_commit_msg(fp.readlines())):
+            print("Commit Unsuccessful")
+            exit(1)
+
+
+if __name__ == "__main__":
+    main()
+
