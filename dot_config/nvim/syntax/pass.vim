@@ -3,7 +3,7 @@ if exists("b:current_syntax")
 endif
 
 syntax match passUrl /\v\S+$/ contains=passUrlGlob
-syntax match passUrlGlob /\v\*/
+syntax match passUrlGlob /\v(\*)|(\|)|(\()|(\))/
 
 syntax match passText /\v\S+/
 syntax match passNote /\v^\S+:/
