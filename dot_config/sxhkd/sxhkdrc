@@ -24,9 +24,12 @@ XF86MonBrightnessDown
 super + d
     rofi -modi drun,run -show drun
 
+super + p
+    passmenu
+
 # Launch Programs
 super + Return
-    "$TERMINAL"
+    kitty
 
 super + F2
     "$BROWSER"
