@@ -40,7 +40,7 @@ numlockx &
 dunst &
 
 # Autostart programs
-xdg-autostart-launcher --both &
+dex --autostart --term kitty --environment i3 &
 
 # Start Window Manager
 exec i3
