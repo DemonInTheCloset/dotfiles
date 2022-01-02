@@ -1,4 +1,4 @@
 function passinsert() {
-    [ -z "$1" ] && echo 'Must provide an entry name' && exit 1
+    [ -z "$1" ] && echo 'Must provide an entry name' && return 1
     [ -n "$1" ] && pass insert "$1" && pass edit "$1"
 } 
