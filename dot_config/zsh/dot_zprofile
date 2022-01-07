@@ -5,6 +5,9 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 
 # Start X server if on TTY1
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    # Create Xauthority file
+    touch $XAUTHORITY
+
     # Make sure i3 isn't running before starting it
     pgrep i3 || startx "$XDG_CONFIG_HOME"/X11/xinitrc -- "$XDG_CONFIG_HOME"/X11/xserverrc vt"${XDG_VTNR}"
 fi

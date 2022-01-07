@@ -15,10 +15,10 @@ XF86AudioMute
 
 # Brightness Control
 XF86MonBrightnessUp
-    xbacklight -percievd -inc 5 && brightnes-notify.sh
+    xbacklight -perceived -inc 5 && brightness-notify.sh
 
 XF86MonBrightnessDown
-    xbacklight -percievd -dec 5 && brightnes-notify.sh
+    xbacklight -perceived -dec 5 && brightness-notify.sh
 
 # Dmenu/Rofi
 super + d
