@@ -4,21 +4,15 @@ Print
         notify-send 'Took Screenshot' "~/Pictures/`date +'%Y-%m-%d'`_`xrandr | grep ' connected' | sed 's/\S* \S* \(\S*\)[+]\S*[+].*$/\1/; 1q'`.png"
 
 # Media control
-XF86AudioRaiseVolume
-    pamixer -i 5 && audio-notify.sh
-
-XF86AudioLowerVolume
-    pamixer -d 5 && audio-notify.sh
+XF86Audio{Raise,Lower}Volume
+    pamixer --{increase,decrease} 5 && audio-notify.sh
 
 XF86AudioMute
-    pamixer -t && audio-notify.sh
+    pamixer --toggle-mute && audio-notify.sh
 
 # Brightness Control
-XF86MonBrightnessUp
-    xbacklight -perceived -inc 5 && brightness-notify.sh
-
-XF86MonBrightnessDown
-    xbacklight -perceived -dec 5 && brightness-notify.sh
+XF86MonBrightness{Up,Down}
+    xbacklight -perceived -{inc,dec} 5 && brightness-notify.sh
 
 # Dmenu/Rofi
 super + d
@@ -39,6 +33,9 @@ super + shift + F2
 
 super + F3
     ranger
+
+super + shift + v
+    kitty -- mpv `xclip -o -selection clipboard`
 
 # Shutdown
 super + shift + s
