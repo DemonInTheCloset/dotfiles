@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case "$PINENTRY_USER_DATA" in
+    gtk)
+        exec /usr/bin/pinentry-gtk-2 "$@"
+        ;;
+    curses)
+        exec /usr/bin/pinentry-curses "$@"
+        ;;
+    none)
+        exit 1
+        ;;
+    *)
+        exec /usr/bin/pinentry-gtk-2 "$@"
+        ;;
+esac
