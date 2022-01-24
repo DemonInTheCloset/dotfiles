@@ -20,6 +20,7 @@ return require("packer").startup({
 
 		-- Time tracking
 		use("wakatime/vim-wakatime")
+		use("tweekmonster/startuptime.vim")
 
 		-- ColorScheme
 		use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
@@ -29,6 +30,9 @@ return require("packer").startup({
 
 		-- Jump hints
 		use("unblevable/quick-scope")
+
+		-- Align Text
+		use("RRethy/nvim-align")
 
 		-- Async commands
 		use("tpope/vim-dispatch")
@@ -48,6 +52,7 @@ return require("packer").startup({
 		use("hrsh7th/cmp-cmdline") -- Commands completion
 		use("saadparwaiz1/cmp_luasnip") -- Snippet support
 		use("hrsh7th/nvim-cmp")
+		use("jose-elias-alvarez/null-ls.nvim") -- Formatting support
 
 		-- Snippet support
 		use("L3MON4D3/LuaSnip")
@@ -58,6 +63,7 @@ return require("packer").startup({
 		-- Filetype Highlighting
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 		use({ "baskerville/vim-sxhkdrc", ft = "sxhkdrc" })
+		use({ "https://gitlab.com/DemonInTheCloset/porth-vim.git", ft = "porth" })
 
 		-- Fuzzy find
 		use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })

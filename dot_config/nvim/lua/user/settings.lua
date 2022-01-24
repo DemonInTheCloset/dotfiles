@@ -47,8 +47,3 @@ vim.opt.shortmess:append("c") -- Don't pass messages to ins-completion-menu
 vim.o.cmdheight = 3 -- Give more space for messages
 vim.o.backup = false -- Some LSPs have problems with backups
 vim.o.writebackup = false
-
--- Syntax
--- vim.g.vim_markdown_math = 1     -- Highlight LaTeX math inside markdown files
--- vim.g.vim_markdown_folding_disabled = 1     -- Disable folding
--- vim.g.vim_markdown_fenced_languages = {'c', 'rust', 'python', 'haskell'}
