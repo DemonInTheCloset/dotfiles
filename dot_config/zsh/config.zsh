@@ -24,11 +24,7 @@ typeset -U LS_COLORS
 eval $(dircolors)
 
 # Set prompt
-# source "$ZDOTDIR/prompt.zsh"
-# source "$ZDOTDIR/activate_prompt.zsh"
-
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-# prompt off
-# powerline-daemon -q
-# . /usr/share/powerline/bindings/zsh/powerline.zsh
+# Remind me about aliases
+source /usr/share/zsh/plugins/alias-tips/alias-tips.plugin.zsh

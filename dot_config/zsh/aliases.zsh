@@ -43,6 +43,12 @@ alias sourcevenv='source .venv/bin/activate'
 # ssh aliases
 alias sshpi=ssh "$ALARMUSER@$ALARMPI"
 
+# Yay aliases
+alias yu='yay -Syu'
+alias yy='yay -Syyu'
+alias ys='yay -Ss'
+alias yS='yay -S'
+
 # zsh aliases
 alias zshconfig="$VISUAL $ZDOTDIR"/config.zsh
 alias sourcezshrc="source $ZDOTDIR"/.zshrc
