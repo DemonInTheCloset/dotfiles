@@ -1,24 +1,30 @@
 local CONFIG_PATH = (os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")) .. "/nvim"
 
--- Pat to Python environment
+-- Path to Python environment
 vim.g.python3_host_prog = CONFIG_PATH .. "/.venv/bin/python"
 
 -- Appearance
+vim.opt.number = true -- Show line numbers
 vim.opt.relativenumber = true -- Show relative line numbers
 vim.opt.colorcolumn = "80" -- Color column 80
 vim.opt.cursorline = true -- Highlight selected line
 vim.opt.wrap = false -- Long lines don't wrap
 vim.opt.signcolumn = "number" -- Merge line numbers with coc messages
 vim.g.gruvbox_italic = 1 -- Allow italic font
-vim.g.airline_powerline_fonts = 1 -- Allow powerline fonts for the status line
+
 -- In list mode show tabs and leading and trailing spaces
 vim.opt.listchars = { tab = "==>", trail = "·", lead = "·" }
+
 -- Colors
-vim.o.termguicolors = true -- Allow Truecolor Support
+if vim.fn.has("termguicolors") == 1 then
+    vim.o.termguicolors = true -- Allow Truecolor Support
+end
 vim.cmd("colorscheme gruvbox") -- Set colorscheme
+
 -- Folds
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- Statusbar
 vim.o.laststatus = 2 -- Statusbar is always visible
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
