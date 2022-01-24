@@ -2,17 +2,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-local servers = {
-	"clangd",
-	"hls",
-	"jsonls",
-	"pyright",
-	"rust_analyzer",
-	"sumneko_lua",
-	"vimls",
-}
-
-local function on_attach(client, bufnr)
+local function on_attach(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
@@ -26,31 +16,52 @@ local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then
 	return
 end
-for _, lsp in ipairs(servers) do
-	local conf = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-	}
-	if lsp == "sumneko_lua" then
-		conf["settings"] = {
-			Lua = {
-				runtime = {
-					version = "LuaJIT",
-					-- Setup your lua path
-					path = runtime_path,
-				},
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { "vim" },
-				},
-				workspace = {
-					-- Make the server aware of Neovim runtime files
-					library = vim.api.nvim_get_runtime_file("", true),
-				},
+
+lspconfig["clangd"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { "clangd", "--clang-tidy" },
+})
+lspconfig["hls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig["jsonls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { "vscode-json-languageserver", "--stdio" },
+})
+lspconfig["pyright"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig["remark_ls"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+lspconfig["rust_analyzer"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+lspconfig["sumneko_lua"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+				path = runtime_path,
 			},
-		}
-	elseif lsp == "jsonls" then
-		conf["cmd"] = { "vscode-json-languageserver", "--stdio" }
-	end
-	lspconfig[lsp].setup(conf)
-end
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+		},
+	},
+})
+lspconfig["vimls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
