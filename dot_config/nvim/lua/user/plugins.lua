@@ -40,6 +40,9 @@ return require("packer").startup({
 		-- Git integration
 		use("tpope/vim-fugitive")
 
+		-- nnoremap ... Functions in Lua
+		use("svermeulen/vimpeccable")
+
 		-- Language Server configuration
 		use("neovim/nvim-lspconfig")
 		use("onsails/lspkind-nvim")
@@ -63,35 +66,37 @@ return require("packer").startup({
 		-- Filetype Highlighting
 		use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 		use({ "baskerville/vim-sxhkdrc", ft = "sxhkdrc" })
-		use({ "https://gitlab.com/DemonInTheCloset/porth-vim.git", ft = "porth" })
+		use({ "https://gitlab.com/DemonInTheCloset/porth-vim.git" })
+
+		use({ "iamcco/markdown-preview.nvim", ft = "markdown", run = "yarn install" })
 
 		-- Fuzzy find
 		use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
 		use("nvim-telescope/telescope-fzy-native.nvim") -- C binary for fzy
 
 		--[[ Old FT higlights
--- Plug 'godlygeek/tabular'
-use 'godlygeek/tabular'
--- " Markdown Plugins
--- Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-use { 'plasticboy/vim-markdown', ft = 'markdown' }
--- " Python Plugins
--- Plug1 'psf/black', { 'branch': 'main', 'for': 'python' }
-use { 'psf/black', branch = 'main', ft = 'python' }
--- " Haskell Plugins
--- Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
-use { 'neovimhaskell/haskell-vim', ft = 'haskell' }
--- Plug 'twinside/vim-hoogle', {'for': 'haskell'}      " Hoolge search
-use {'twinside/vim-hoogle', ft = 'haskell'}
--- " Rust Plugins
--- Plug 'rust-lang/rust.vim', {'for': 'rust'}
-use { 'rust-lang/rust.vim', ft= 'rust'}
--- " Simple X Hotkey Daemon
--- Plug 'baskerville/vim-sxhkdrc', {'for': 'sxhkdrc'}
--- " TOML Plugins
--- Plug 'cespare/vim-toml', {'branch': 'main', 'for': 'toml'}
-use {'cespare/vim-toml', branch= 'main', ft= 'toml'}
---]]
+        -- Plug 'godlygeek/tabular'
+        use 'godlygeek/tabular'
+        -- " Markdown Plugins
+        -- Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+        use { 'plasticboy/vim-markdown', ft = 'markdown' }
+        -- " Python Plugins
+        -- Plug1 'psf/black', { 'branch': 'main', 'for': 'python' }
+        use { 'psf/black', branch = 'main', ft = 'python' }
+        -- " Haskell Plugins
+        -- Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+        use { 'neovimhaskell/haskell-vim', ft = 'haskell' }
+        -- Plug 'twinside/vim-hoogle', {'for': 'haskell'}      " Hoolge search
+        use {'twinside/vim-hoogle', ft = 'haskell'}
+        -- " Rust Plugins
+        -- Plug 'rust-lang/rust.vim', {'for': 'rust'}
+        use { 'rust-lang/rust.vim', ft= 'rust'}
+        -- " Simple X Hotkey Daemon
+        -- Plug 'baskerville/vim-sxhkdrc', {'for': 'sxhkdrc'}
+        -- " TOML Plugins
+        -- Plug 'cespare/vim-toml', {'branch': 'main', 'for': 'toml'}
+        use {'cespare/vim-toml', branch= 'main', ft= 'toml'}
+        --]]
 
 		-- Do bootstrap
 		if packer_bootstrap then
