@@ -3,10 +3,11 @@ vim.cmd("filetype plugin on")
 vim.g.mapleader = " "
 
 -- Continue reading configuration even if it contains an error
-local function prequire(module)
-    local ok, ret = pcall(require, module)
+local function prequire(...)
+    local ok, ret = pcall(require, ...)
     if not ok then
-        print('Error: require("' .. module .. '") failed')
+        print('Error: require("' .. ... .. '") failed')
+        return nil
     end
     return ret
 end
@@ -89,8 +90,27 @@ treesitter.setup({
 -- [[ nvim keymaps ]] --
 local vimp = prequire("vimp")
 
-vimp.nnoremap("<leader>m<CR>", ":Make %<CR>")
-vimp.nnoremap("<leader>`<CR>", ":Dispatch %<CR>")
+-- Vim Dispatch
+vimp.nnoremap("<leader>m<CR>", "<cmd>Make %<CR>")
+vimp.nnoremap("<leader>`<CR>", "<cmd>Dispatch %<CR>")
+
+-- Quickfix List
+vimp.nnoremap("<leader>qo", "<cmd>Copen<CR>")
+vimp.nnoremap("<leader>qq", "<cmd>cclose<CR>")
+vimp.nnoremap("<leader>qj", "<cmd>cnext<CR>")
+vimp.nnoremap("<leader>qk", "<cmd>cprev<CR>")
+
+-- Diagnostics
+vimp.nnoremap("<leader>dj", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+vimp.nnoremap("<leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+
+-- Telescope
+vimp.nnoremap("<leader>ff", "<cmd>Telescope find_files<CR>")
+vimp.nnoremap("<leader>fg", "<cmd>Telescope live_grep<CR>")
+vimp.nnoremap("<leader>fb", "<cmd>Telescope buffers<CR>")
+vimp.nnoremap("<leader>fd", "<cmd>Telescope diagnostics<CR>")
+vimp.nnoremap("<leader>fq", "<cmd>Telescope quickfix<CR>")
+vimp.nnoremap("<leader>fa", "<cmd>Telescope lsp_code_actions<CR>")
 
 -- [[ nvim-cmp config ]] --
 local cmp = prequire("cmp")
@@ -104,8 +124,6 @@ local snippets = {
         luasnip.lsp_expand(args.body)
     end,
 }
-
--- lspkind.init()
 
 cmp.setup({
     snippet = snippets,
@@ -169,14 +187,6 @@ local function on_attach(_, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-
-    -- Diagnostics
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-
-    -- Telescope
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>td", "<cmd>Telescope diagnostics<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ta", "<cmd>Telescope lsp_code_actions<CR>", opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
