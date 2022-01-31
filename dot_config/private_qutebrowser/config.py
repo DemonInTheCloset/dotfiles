@@ -21,6 +21,7 @@ def read_xresources(prefix: str) -> dict[str, str]:
     return props
 
 
+"""
 xresources = read_xresources("*")
 # print(f"{xresources=}")
 
@@ -347,3 +348,4 @@ c.colors.tabs.pinned.selected.odd.fg = c.colors.tabs.selected.odd.fg
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 c.colors.webpage.bg = bg4
+"""
