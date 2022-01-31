@@ -36,18 +36,18 @@ alias ls='ls --color=auto'
 # nvim aliases
 alias nvimconfig="$VISUAL $CONFIG"/nvim/init.lua
 
+# paru aliases
+alias pu='paru -Syu'
+alias py='paru -Syyu'
+alias ps='paru -Ss'
+alias pS='paru -S'
+
 # Python aliases
 alias mkvenv='virtualenv .venv'
 alias sourcevenv='source .venv/bin/activate'
 
 # ssh aliases
 alias sshpi=ssh "$ALARMUSER@$ALARMPI"
-
-# Yay aliases
-alias yu='yay -Syu'
-alias yy='yay -Syyu'
-alias ys='yay -Ss'
-alias yS='yay -S'
 
 # zsh aliases
 alias zshconfig="$VISUAL $ZDOTDIR"/config.zsh
