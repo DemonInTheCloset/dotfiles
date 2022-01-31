@@ -1,5 +1,6 @@
 -- Enable Filetype Plugin
 vim.cmd("filetype plugin on")
+vim.g.mapleader = " "
 
 -- Continue reading configuration even if it contains an error
 local function source_config(file)
@@ -18,3 +19,4 @@ source_config("user/statusline")
 source_config("user/augroups")
 source_config("user/telescope")
 source_config("user/plugconf")
+source_config("user/maps")
