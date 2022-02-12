@@ -1,0 +1,6 @@
+# Ignore README
+README.md
+# Ignore Pkg lists
+*.txt
+# Ignore Setup script
+setup.sh
