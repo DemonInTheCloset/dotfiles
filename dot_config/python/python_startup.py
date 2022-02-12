@@ -1,0 +1,27 @@
+import atexit
+import os
+import readline
+
+"""
+Sets ~/.python_history to $XDG_STATE_HOME/python/history
+"""
+
+histfile = os.path.join(
+    os.environ.get(
+        "XDG_STATE_HOME",
+        default=os.path.join(os.path.expanduser("~"), ".local", "state"),
+    ),
+    "python",
+    "history",
+)
+
+try:
+    readline.read_history_file(histfile)
+    # default history len is -1 (infinite), which may grow unruly
+    readline.set_history_length(1000)
+except FileNotFoundError:
+    # if $XDG_STATE_HOME/python/ does not exist, create it
+    if not os.path.isdir(os.path.dirname(histfile)):
+        os.makedirs(os.path.dirname(histfile), mode=0o700)
+
+atexit.register(readline.write_history_file, histfile)
