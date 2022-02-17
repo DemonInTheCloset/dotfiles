@@ -39,6 +39,7 @@ return require("packer").startup({
 
 		-- Git integration
 		use("tpope/vim-fugitive")
+        use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
 		-- nnoremap ... Functions in Lua
 		use("svermeulen/vimpeccable")

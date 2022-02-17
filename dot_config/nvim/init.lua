@@ -87,6 +87,15 @@ treesitter.setup({
     indent = { enable = true },
 })
 
+-- [[ snippets ]] --
+local luasnip = prequire("luasnip")
+local fmt = prequire("luasnip.extras.fmt").fmt
+local i = luasnip.insert_node
+local rep = prequire("luasnip.extras").rep
+luasnip.snippets.tex = {
+    luasnip.s("begin", fmt("\\begin{{{}}}\n    {}\n\\end{{{}}}", { i(1), i(2), rep(1) })),
+}
+
 -- [[ nvim keymaps ]] --
 local vimp = prequire("vimp")
 
@@ -112,13 +121,26 @@ vimp.nnoremap("<leader>fd", "<cmd>Telescope diagnostics<CR>")
 vimp.nnoremap("<leader>fq", "<cmd>Telescope quickfix<CR>")
 vimp.nnoremap("<leader>fa", "<cmd>Telescope lsp_code_actions<CR>")
 
+-- LSP
+local function lsp_set_keymaps(bufnr, opts)
+    -- LSP actions
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>A", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+
+    -- LSP goto ...
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+end
+
 -- [[ nvim-cmp config ]] --
 local cmp = prequire("cmp")
 
 local lspkind = prequire("lspkind")
 local lspk_format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
 
-local luasnip = prequire("luasnip")
+-- local  luasnip = prequire("luasnip")
 local snippets = {
     expand = function(args)
         luasnip.lsp_expand(args.body)
@@ -178,15 +200,7 @@ local function on_attach(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- Keymaps
-    -- LSP actions
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>A", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-
-    -- LSP goto ...
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    lsp_set_keymaps(bufnr, opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -258,6 +272,9 @@ null_ls.setup({
 
 -- [[ telescope ]] --
 prequire("telescope").load_extension("fzy_native")
+
+-- [[ neogit ]] --
+prequire("neogit").setup()
 
 -- [[ statusline ]] --
 local statusline = prequire("lualine")
