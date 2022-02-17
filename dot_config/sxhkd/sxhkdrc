@@ -25,6 +25,9 @@ super + p
 super + Return
     kitty
 
+super + n
+    nvim-qt $HOME
+
 super + F2
     "$BROWSER"
 
