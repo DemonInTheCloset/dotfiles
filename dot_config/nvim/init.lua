@@ -88,13 +88,7 @@ treesitter.setup({
 })
 
 -- [[ snippets ]] --
-local luasnip = prequire("luasnip")
-local fmt = prequire("luasnip.extras.fmt").fmt
-local i = luasnip.insert_node
-local rep = prequire("luasnip.extras").rep
-luasnip.snippets.tex = {
-    luasnip.s("begin", fmt("\\begin{{{}}}\n    {}\n\\end{{{}}}", { i(1), i(2), rep(1) })),
-}
+local luasnip = prequire("user/snippets")
 
 -- [[ nvim keymaps ]] --
 local vimp = prequire("vimp")
