@@ -91,29 +91,32 @@ treesitter.setup({
 local luasnip = prequire("user/snippets")
 
 -- [[ nvim keymaps ]] --
-local vimp = prequire("vimp")
-
 -- Vim Dispatch
-vimp.nnoremap("<leader>m<CR>", "<cmd>Make %<CR>")
-vimp.nnoremap("<leader>`<CR>", "<cmd>Dispatch %<CR>")
+local noremap = { noremap = true }
+vim.api.nvim_set_keymap("n", "<leader>m<CR>", "<cmd>Make %<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>`<CR>", "<cmd>Dispatch %<CR>", noremap)
 
 -- Quickfix List
-vimp.nnoremap("<leader>qo", "<cmd>Copen<CR>")
-vimp.nnoremap("<leader>qq", "<cmd>cclose<CR>")
-vimp.nnoremap("<leader>qj", "<cmd>cnext<CR>")
-vimp.nnoremap("<leader>qk", "<cmd>cprev<CR>")
+vim.api.nvim_set_keymap("n", "<leader>qo", "<cmd>Copen<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>cclose<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>qj", "<cmd>cnext<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>qk", "<cmd>cprev<CR>", noremap)
 
 -- Diagnostics
-vimp.nnoremap("<leader>dj", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-vimp.nnoremap("<leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+vim.api.nvim_set_keymap("n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next()<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", noremap)
 
 -- Telescope
-vimp.nnoremap("<leader>ff", "<cmd>Telescope find_files<CR>")
-vimp.nnoremap("<leader>fg", "<cmd>Telescope live_grep<CR>")
-vimp.nnoremap("<leader>fb", "<cmd>Telescope buffers<CR>")
-vimp.nnoremap("<leader>fd", "<cmd>Telescope diagnostics<CR>")
-vimp.nnoremap("<leader>fq", "<cmd>Telescope quickfix<CR>")
-vimp.nnoremap("<leader>fa", "<cmd>Telescope lsp_code_actions<CR>")
+vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>fa", "<cmd>Telescope lsp_code_actions<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", noremap)
+
+-- Miscellaneous
+vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h", noremap)
 
 -- LSP
 local function lsp_set_keymaps(bufnr, opts)

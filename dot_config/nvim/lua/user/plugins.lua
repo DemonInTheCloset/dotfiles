@@ -41,9 +41,6 @@ return require("packer").startup({
 		use("tpope/vim-fugitive")
         use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
-		-- nnoremap ... Functions in Lua
-		use("svermeulen/vimpeccable")
-
 		-- Language Server configuration
 		use("neovim/nvim-lspconfig")
 		use("onsails/lspkind-nvim")
