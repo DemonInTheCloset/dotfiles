@@ -116,7 +116,7 @@ vim.api.nvim_set_keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", nor
 vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", noremap)
 
 -- Miscellaneous
-vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h", noremap)
+vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h<CR>", noremap)
 
 -- LSP
 local function lsp_set_keymaps(bufnr, opts)
