@@ -67,8 +67,8 @@ gaps inner 4
 
 # window colors
 # class                  border    backgr.   text      indicator child_border
-client.focused           $color17  $color00  $color15  $color06  $color17
-client.focused_inactive  $color03  $color08  $color21  $color06  $color16
+client.focused           $color03  $color00  $color15  $color06  $color03
+client.focused_inactive  $color03  $color08  $color21  $color06  $color17
 client.unfocused         $color20  $color08  $color21  $color06  $color16
 client.urgent            $color01  $color16  $color21  $color06  $color05
 client.placeholder       $color02  $color00  $color15  $color06  $color16
@@ -98,8 +98,8 @@ bar {
         separator   $color21
 
         # class             border     background text  
-        focused_workspace   $color16   $color17   $color15
-        active_workspace    $color04   $color06   $color15
+        focused_workspace   $color17   $color16   $color15
+        active_workspace    $color16   $color03   $color15
         inactive_workspace  $color18   $color00   $color21
         urgent_workspace    $color17   $color01   $color15
         binding_mode        $color18   $color01   $color15
