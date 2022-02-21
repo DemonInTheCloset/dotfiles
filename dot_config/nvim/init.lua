@@ -117,6 +117,7 @@ vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", norema
 
 -- Miscellaneous
 vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h<CR>", noremap)
+vim.api.nvim_set_keymap("n", "<leader>git", "<cmd>Neogit<CR>", noremap)
 
 -- LSP
 local function lsp_set_keymaps(bufnr, opts)
