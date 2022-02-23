@@ -1,15 +1,14 @@
 # pylint: disable=C0111
-from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
+from qutebrowser.config.configfiles import ConfigAPI   # noqa: F401
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
 import subprocess
 
-config = config  # type: ignore
-c = c  # type: ignore
-config: ConfigAPI = config  # noqa: F821 pylint: disable=E0602,C0103
-c: ConfigContainer = c  # noqa: F821 pylint: disable=E0602,C0103
+config = config                                        # type: ignore
+c = c                                                  # type: ignore
+config: ConfigAPI = config                             # noqa: F821 pylint: disable=E0602,C0103
+c: ConfigContainer = c                                 # noqa: F821 pylint: disable=E0602,C0103
 
 config.load_autoconfig()
-
 
 def read_xresources(prefix: str) -> dict[str, str]:
     props = {}
@@ -20,6 +19,10 @@ def read_xresources(prefix: str) -> dict[str, str]:
         props[prop] = value
     return props
 
+# Keybindings
+config.bind(',y', 'hint links yank')
+config.bind(',d', 'hint links download')
+config.bind(',v', 'hint links spawn mpv --profile=1080p {hint-url}')
 
 """
 xresources = read_xresources("*")
