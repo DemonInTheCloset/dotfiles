@@ -269,7 +269,10 @@ null_ls.setup({
 })
 
 -- [[ telescope ]] --
-prequire("telescope").load_extension("fzy_native")
+local ok, _ = pcall(prequire("telescope").load_extension, "fzy_native")
+if not ok then
+    print("Error: Failed to load fzy_native extension")
+end
 
 -- [[ neogit ]] --
 prequire("neogit").setup()
