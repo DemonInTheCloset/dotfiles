@@ -1,4 +1,4 @@
 [user]
-	name = {{ (keepassxc "GnuPG GitHub").UserName }}
-	email = {{ (keepassxcAttribute "GnuPG GitHub" "UserEmail") }}
-	signingkey = {{ (keepassxcAttribute "GnuPG GitHub" "UserKey") }}
+	name = {{ (pass "dotfiles/git/public/name") }}
+	email = {{ (pass "dotfiles/git/public/email" ) }}
+	signingkey = {{ (pass "dotfiles/git/public/key" ) }}

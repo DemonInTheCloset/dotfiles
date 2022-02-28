@@ -1,4 +1,4 @@
 [user]
-	name = {{ (keepassxc "GnuPG University").UserName }}
-	email = {{ (keepassxcAttribute "GnuPG University" "UserEmail") }}
-	signingkey = {{ (keepassxcAttribute "GnuPG University" "UserKey") }}
+	name = {{ (pass "dotfiles/git/university/name") }}
+	email = {{ (pass "dotfiles/git/university/email") }}
+	signingkey = {{ (pass "dotfiles/git/university/key") }}
