@@ -34,6 +34,8 @@ alias la='ls -la --color=auto'
 alias ls='ls --color=auto'
 
 # nvim aliases
+alias ngit="nvim +:Neogit +:tabonly!"
+alias nview="nvim -R"
 alias nvimconfig="$VISUAL $CONFIG"/nvim/init.lua
 
 # paru aliases
