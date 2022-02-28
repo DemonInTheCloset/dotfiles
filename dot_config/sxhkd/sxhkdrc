@@ -38,7 +38,7 @@ super + F3
     ranger
 
 super + shift + v
-    kitty -- mpv --profile=1080p `xclip -o -selection clipboard`
+    mpv --fs --profile=1080p `xclip -o -selection clipboard`
 
 # Shutdown
 super + shift + s
