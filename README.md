@@ -8,30 +8,14 @@ My (@DemonInTheCloset) configuration files.
 - Configure rclone acording to the [documentation](https://rclone.org/docs/)
 It doesn't matter which service you use as long as you name it `Drive`
 
-### KeePassXC
+### Pass
 
-You need the following entries:
+Look at the directory `pass_example` in this repository:
 
-- `GnuPG GitHub`:
-  - UserName should be your GitHub UserName
-  - It should have the following attributes:
-    - `UserEmail` __(Your GitHub Email)__
-    - `UserKey` __(Your GitHub PGP Key)__
-- `GnuPG University`:
-  - UserName your University git UserName
-  - It should have the following attributes:
-    - `UserEmail` __(Your University Email)__
-    - `UserKey` __(Your University PGP Key)__
-- `RClone`:
-  - It should have the following attributes:
-    - `client_id` __(Your rclone client_id)__
-    - `client_secret` __(Your rclone client_secret)__
-    - `root_folder_id` __(Your rclone root folder id (can be empty))__
-    - `access_token` __(Your rclone access token)__
-    - `refresh_token` __(Your rclone refresh token)__
-- `RaspberryPi`:
-  - UserName the username for ssh to log in to
-  - URL the IP/URL of the RaspberryPi
+1. Copy the directory structure
+2. Populate files with data using `pass edit` or `pass insert`
+<!-- TODO: Improve documentation/add shellscript to create a base password
+database -->
 
 ## Common terminology
 
@@ -57,16 +41,12 @@ You need the following entries:
 
 ## Setup
 
-1. Prepare passwords database (it should be in `~/Passwords.kdbx`) (see
-[KeePassXC](#KeePassXC))
-2. Install `chezmoi`, `keepassxc`, and optionally an aur helper (`yay` in my case)
+1. Prepare passwords database (see [Pass](#Pass))
+2. Install `chezmoi`, `pass`, and optionally an aur helper (`paru` in my case)
 3. Run `chezmoi init DemonInTheCloset` (clones this git repo)
-4. Run `chezmoi apply ~/.config/chezmoi/chezmoi.toml` (applies chezmoi
-configuration to know where your passwords database is)
-5. Run `chezmoi apply` (copies these dotfiles)
-6. Install `neovim` from the official repos and `vim-plug` from the aur
-7. Run `cat pkglist_headless.txt | yay -S -` (optionally run
-`cat pkglist_headless.txt pkglist_gui.txt pkglist_aur.txt | yay -S -` instead)
+4. Run `chezmoi apply` (copies these dotfiles)
+5. Run `cat pkglist_headless.txt | pacman -S -` (optionally run
+`cat pkglist_headless.txt pkglist_gui.txt pkglist_aur.txt | paru -S -` instead)
 
 ## Post Setup
 
