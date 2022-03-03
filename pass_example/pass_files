@@ -1,0 +1,18 @@
+#!/bin/sh
+
+pass add 'dotfiles/git/personal/email'
+pass add 'dotfiles/git/personal/key'
+pass add 'dotfiles/git/personal/name'
+pass add 'dotfiles/git/public/email'
+pass add 'dotfiles/git/public/key'
+pass add 'dotfiles/git/public/name'
+pass add 'dotfiles/git/university/email'
+pass add 'dotfiles/git/university/key'
+pass add 'dotfiles/git/university/name'
+pass add 'dotfiles/raspberrypi/name'
+pass add 'dotfiles/raspberrypi/url'
+pass add 'dotfiles/rclone/access_token'
+pass add 'dotfiles/rclone/client_id'
+pass add 'dotfiles/rclone/client_secret'
+pass add 'dotfiles/rclone/refresh_token'
+pass add 'dotfiles/rclone/root_folder_id'
