@@ -51,6 +51,9 @@ alias sourcevenv='source .venv/bin/activate'
 # ssh aliases
 alias sshpi=ssh "$ALARMUSER@$ALARMPI"
 
+# startx
+alias startwm="startx $XDG_CONFIG_HOME/X11/xinitrc -- $XDG_CONFIG_HOME/X11/xserverrc vt$XDG_VTNR"
+
 # zsh aliases
 alias zshconfig="$VISUAL $ZDOTDIR"/config.zsh
 alias sourcezshrc="source $ZDOTDIR"/.zshrc
