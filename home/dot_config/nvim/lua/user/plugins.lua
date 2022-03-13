@@ -39,7 +39,7 @@ return require("packer").startup({
 
 		-- Git integration
 		use("tpope/vim-fugitive")
-        use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+		use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
 		-- Language Server configuration
 		use("neovim/nvim-lspconfig")
@@ -66,7 +66,7 @@ return require("packer").startup({
 		use({ "baskerville/vim-sxhkdrc", ft = "sxhkdrc" })
 		use({ "https://gitlab.com/DemonInTheCloset/porth-vim.git" })
 
-		use({ "iamcco/markdown-preview.nvim", ft = "markdown", run = "yarn install" })
+        use({ "iamcco/markdown-preview.nvim" })
 
 		-- Fuzzy find
 		use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })

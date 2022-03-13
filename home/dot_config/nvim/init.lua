@@ -263,9 +263,38 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.clang_format,
-        null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.google_java_format,
+        null_ls.builtins.formatting.latexindent,
+        null_ls.builtins.formatting.nginx_beautifier,
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.reorder_python_imports,
+        null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.shellharden,
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.taplo,
+
+        null_ls.builtins.diagnostics.checkmake,
+        null_ls.builtins.diagnostics.chktex,
+        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.diagnostics.trail_space,
+        -- null_ls.builtins.diagnostics.vulture,
+        null_ls.builtins.diagnostics.zsh,
+
+        null_ls.builtins.code_actions.shellcheck,
     },
+    -- Format On Save
+    on_attach = function(client)
+        if client.resolved_capabilities.document_formatting then
+            vim.cmd([[
+            augroup LspFormatting
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+            ]])
+        end
+    end,
 })
 
 -- [[ telescope ]] --
