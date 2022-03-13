@@ -49,7 +49,7 @@ super + shift + p
 
 # Auto Cliker
 super + F11
-    "$HOME"/.local/bin/auto_clicker
+    pgrep auto_clicker || "$HOME"/.local/bin/auto_clicker
 
 super + shift + F11
     "$HOME"/.local/bin/kill_auto_clicker
