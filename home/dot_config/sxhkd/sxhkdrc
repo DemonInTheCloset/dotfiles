@@ -5,14 +5,14 @@ Print
 
 # Media control
 XF86Audio{Raise,Lower}Volume
-    pamixer --{increase,decrease} 5 && "$HOME"/.local/bin/audio-notify.sh
+    pamixer --{increase,decrease} 5 && "$HOME"/.local/bin/audio-notify
 
 XF86AudioMute
-    pamixer --toggle-mute && "$HOME"/.local/bin/audio-notify.sh
+    pamixer --toggle-mute && "$HOME"/.local/bin/audio-notify
 
 # Brightness Control
 XF86MonBrightness{Up,Down}
-    xbacklight -perceived -{inc,dec} 5 && "$HOME"/.local/bin/brightness-notify.sh
+    xbacklight -perceived -{inc,dec} 5 && "$HOME"/.local/bin/brightness-notify
 
 # Dmenu/Rofi
 super + d
@@ -42,10 +42,10 @@ super + shift + v
 
 # Shutdown
 super + shift + s
-    "$HOME"/.local/bin/dmenu-prompt.sh 'Shutdown computer?' 'i3exit shutdown'
+    "$HOME"/.local/bin/dmenu-prompt 'Shutdown computer?' 'i3exit shutdown'
 
 super + shift + p
-    "$HOME"/.local/bin/dmenu-prompt.sh 'Restart computer?' 'i3exit reboot'
+    "$HOME"/.local/bin/dmenu-prompt 'Restart computer?' 'i3exit reboot'
 
 # Auto Cliker
 super + F11
