@@ -9,5 +9,5 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
     touch $XAUTHORITY
 
     # Make sure i3 isn't running before starting it
-    pgrep i3 || startx "$XDG_CONFIG_HOME"/X11/xinitrc -- "$XDG_CONFIG_HOME"/X11/xserverrc vt"${XDG_VTNR}"
+    pgrep i3 || exec startx "$XDG_CONFIG_HOME"/X11/xinitrc -- "$XDG_CONFIG_HOME"/X11/xserverrc vt"${XDG_VTNR}"
 fi
