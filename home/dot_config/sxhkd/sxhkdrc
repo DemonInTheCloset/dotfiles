@@ -21,6 +21,12 @@ super + d
 super + p
     passmenu
 
+super + F10
+    select-source
+
+super + shift + F10
+    select-sink
+
 # Launch Programs
 super + Return
     kitty
