@@ -1,4 +1,4 @@
-local luasnip = require("luasnip")
+local luasnip = require "luasnip"
 
 local fmt = require("luasnip.extras.fmt").fmt
 local i = luasnip.insert_node

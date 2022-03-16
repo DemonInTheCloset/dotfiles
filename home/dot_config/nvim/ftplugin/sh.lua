@@ -1,1 +1,1 @@
-vim.bo.makeprg="shellcheck %"
+vim.bo.makeprg = "shellcheck %"
