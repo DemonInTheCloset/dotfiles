@@ -1,0 +1,7 @@
+#!/bin/sh
+
+kitty_conf=~/.config/kitty
+kitty_theme="$kitty_conf"/theme.conf
+
+ln -sf "$kitty_conf"/themes/gruvbox_light.conf "$kitty_theme"
+kitty @ set-colors "$kitty_theme"
