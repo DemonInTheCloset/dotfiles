@@ -3,11 +3,14 @@
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
 export QT_QPA_PLATFORMTHEME='qt5ct'
 
-# Start X server if on TTY1
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+# Start X server if on tty1 or tty2
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
     # Create Xauthority file
     touch $XAUTHORITY
 
     # Make sure i3 isn't running before starting it
-    pgrep i3 || exec xinit -- :1
+    # pgrep i3 || exec xinit -- :"$XDG_VTNR"
+
+    # Start X server
+    exec xinit -- :"$XDG_VTNR"
 fi
