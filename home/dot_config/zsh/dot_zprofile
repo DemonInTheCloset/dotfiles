@@ -12,5 +12,5 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
     # pgrep i3 || exec xinit -- :"$XDG_VTNR"
 
     # Start X server
-    exec xinit -- :"$XDG_VTNR"
+    exec xinit -- :"$XDG_VTNR" && logout
 fi
