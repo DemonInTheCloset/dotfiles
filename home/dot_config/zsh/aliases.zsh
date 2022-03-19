@@ -30,7 +30,7 @@ alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 
 # ls aliases
-alias la='ls -la --color=auto'
+alias la='ls -lah --color=auto'
 alias ls='ls --color=auto'
 
 # nvim aliases
