@@ -1,7 +1,11 @@
 #!/usr/bin/zsh
 # Enviromnet variables
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
 export QT_QPA_PLATFORMTHEME='qt5ct'
+
+# Run ssh-agent if it hasn't been launched
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent)"
+fi
 
 # Start X server if on tty1 or tty2
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
@@ -10,6 +14,11 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
 
     # Make sure i3 isn't running before starting it
     # pgrep i3 || exec xinit -- :"$XDG_VTNR"
+
+    # Run dbus if it hasn't been launched
+    if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+        eval "$(dbus-launch --sh-syntax)"
+    fi
 
     # Start X server
     exec xinit -- :"$XDG_VTNR" && logout
