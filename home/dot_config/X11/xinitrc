@@ -33,14 +33,23 @@ fi
 xset -dpms &
 xset s off &
 
-# Enable numlock
-numlockx &
+# Core System Functionality
+dunst &    # Notification daemon
+numlockx & # Enable numlock
+picom -b & # Compositor
+sxhkd &    # Hotkey Daemon
+xwallpaper --zoom /usr/share/backgrounds/archlinux/awesome.png & # Wallpaper
+/usr/bin/pipewire &       # Audio Server
+/usr/bin/pipewire-pulse & # Pulse Server
+/usr/bin/wireplumber &    # Pipewire Media Manager
 
-# Launch notification daemon
-dunst &
-
-# Autostart programs
-dex --autostart --term kitty --environment i3 &
+# Program Autostart
+signal-desktop --start-in-tray &
+# KeePassXC.desktop
+# com.nextcloud.desktopclient.nextcloud.desktop
+# newsboat.desktop
+# qutebrowser.desktop
+# thunderbird.desktop
 
 # Start Window Manager
 exec i3
