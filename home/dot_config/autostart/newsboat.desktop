@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=NewsBoat
-GenericName=Internet News Reader
-Icon=internet-news-reader
-TryExec=/usr/bin/newsboat
-Exec=/usr/bin/newsboat -r
-Terminal=true
