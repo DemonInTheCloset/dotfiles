@@ -17,7 +17,7 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
 
     # Run dbus if it hasn't been launched
     if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
-        eval "$(dbus-launch --sh-syntax)"
+        export DBUS_SESSION_BUS_ADDRESS="$(dbus-daemon --session --syslog-only --print-address --fork --address=unix:path=$XDG_RUNTIME_DIR/dbus)"
     fi
 
     # Start X server
