@@ -1,5 +1,0 @@
-#!/bin/sh
-
-while true; do
-	xdotool click --repeat 10 --delay 20 1
-done &
