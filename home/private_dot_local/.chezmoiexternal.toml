@@ -1,0 +1,8 @@
+["bin"]
+type = "archive"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-03-25/scripts.tar.xz"
+exact = true
+["share/scripts"]
+type = "archive"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-03-25/config.tar.xz"
+exact = true
