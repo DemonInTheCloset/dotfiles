@@ -1,0 +1,11 @@
+{{ scriptsVersion := "2022-03-25" -}}
+[".local/bin"]
+type = "archive"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v{{ $scriptsVersion }}/scripts.tar.xz"
+exact = true
+stripComponents = 1
+[".config"]
+type = "archive"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v{{ $scriptsVersion }}/config.tar.xz"
+exact = true
+stripComponents = 1
