@@ -5,14 +5,14 @@ Print
 
 # Media control
 XF86Audio{Raise,Lower}Volume
-    pamixer --{increase,decrease} 5 && "$HOME"/.local/bin/audio-notify
+    pamixer --{increase,decrease} 5 && audio-notify
 
 XF86AudioMute
-    pamixer --toggle-mute && "$HOME"/.local/bin/audio-notify
+    pamixer --toggle-mute && audio-notify
 
 # Brightness Control
 XF86MonBrightness{Up,Down}
-    xbacklight -perceived -{inc,dec} 5 && "$HOME"/.local/bin/brightness-notify
+    xbacklight -perceived -{inc,dec} 5 && brightness-notify
 
 # Dmenu/Rofi
 super + d
@@ -21,24 +21,18 @@ super + d
 super + p
     passmenu
 
-super + F10
-    select-source
-
-super + shift + F10
-    select-sink
+super {,+ shift} + F10
+    select-{sink,source}
 
 # Launch Programs
 super + Return
     kitty
 
 super + n
-    nvim-qt $HOME
+    nvim-qt "$HOME"
 
-super + F2
-    "$BROWSER"
-
-super + shift + F2
-    qutebrowser --target private-window
+super {,+ shift} + F2
+    qutebrowser{, --target private-window}
 
 super + F3
     ranger
@@ -48,14 +42,14 @@ super + shift + v
 
 # Shutdown
 super + shift + s
-    "$HOME"/.local/bin/dmenu-prompt 'Shutdown computer?' 'i3exit shutdown'
+    dmenu-prompt 'Shutdown computer?' 'i3exit shutdown'
 
 super + shift + p
-    "$HOME"/.local/bin/dmenu-prompt 'Restart computer?' 'i3exit reboot'
+    dmenu-prompt 'Restart computer?' 'i3exit reboot'
 
 # Auto Cliker
 super + F11
-    pgrep auto_clicker || "$HOME"/.local/bin/auto_clicker
+    kill_auto_clicker
 
 super + shift + F11
-    "$HOME"/.local/bin/kill_auto_clicker
+    pgrep auto_clicker || auto_clicker
