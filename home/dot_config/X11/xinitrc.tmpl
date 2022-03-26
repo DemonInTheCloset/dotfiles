@@ -13,20 +13,20 @@ export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 
 # merge in defaults and keymaps
 
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources &
+if [ -f "$sysresources" ]; then
+	xrdb -merge "$sysresources" &
 fi
 
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap &
+if [ -f "$sysmodmap" ]; then
+	xmodmap "$sysmodmap" &
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources" &
+	xrdb -merge "$userresources" &
 fi
 
 if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap" &
+	xmodmap "$usermodmap" &
 fi
 
 # Disable screen blanking after 10 minues
@@ -34,14 +34,14 @@ xset -dpms &
 xset s off &
 
 # Core System Functionality
-dunst &    # Notification daemon
-numlockx & # Enable numlock
-picom -b & # Compositor
-sxhkd &    # Hotkey Daemon
+dunst &                                                          # Notification daemon
+numlockx &                                                       # Enable numlock
+picom -b &                                                       # Compositor
+sxhkd &                                                          # Hotkey Daemon
 xwallpaper --zoom /usr/share/backgrounds/archlinux/awesome.png & # Wallpaper
-/usr/bin/pipewire &       # Audio Server
-/usr/bin/pipewire-pulse & # Pulse Server
-/usr/bin/wireplumber &    # Pipewire Media Manager
+/usr/bin/pipewire &                                              # Audio Server
+/usr/bin/pipewire-pulse &                                        # Pulse Server
+/usr/bin/wireplumber &                                           # Pipewire Media Manager
 
 # Program Autostart
 signal-desktop --start-in-tray &
@@ -50,6 +50,9 @@ signal-desktop --start-in-tray &
 # newsboat.desktop
 # qutebrowser.desktop
 # thunderbird.desktop
+
+# Sync mail
+offlineimap -a {{ .id.personal.emailname }} 2>~/.local/share/offlineimap/{{ .id.personal.emailname }}-sync.log &
 
 # Start Window Manager
 exec i3
