@@ -34,15 +34,20 @@ alias la='ls -lah --color=auto'
 alias ls='ls --color=auto'
 
 # nvim aliases
-alias ngit="nvim +:Neogit +:tabonly!"
+alias ngit='nvim +:Neogit +:tabonly!'
+alias note='nvim +:setlocal\ buftype=nofile +:setlocal\ bufhidden=hide +:setlocal\ noswapfile'
 alias nview="nvim -R"
 alias nvimconfig="$VISUAL $CONFIG"/nvim/init.lua
 
 # paru aliases
-alias pu='paru -Syu'
-alias py='paru -Syyu'
-alias ps='paru -Ss'
-alias pS='paru -S'
+alias paruS='paru -S'
+alias paruSs='paru -Ss'
+alias paruSi='paru -Si'
+alias paruSyyu='paru -Syyu'
+alias paruRns='paru -Rns'
+alias paruQi='paru -Qi'
+alias paruQl='paru -Ql'
+alias paruQs='paru -Qs'
 
 # Python aliases
 alias mkvenv='virtualenv .venv'
