@@ -1,0 +1,14 @@
+{
+  "host": "imap.gmail.com",
+  "port": 993,
+  "tls": true,
+  "tlsOptions": {
+    "rejectUnauthorized": false
+  },
+  "username": "{{ .id.public.email }}",
+  "passwordCmd": "pass show Mail/{{ .id.public.email }} | sed -n 's/apppass: //p'",
+  "onNewMail": "mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc {{ .id.public.email }}",
+  "onNewMailPost": "",
+  "wait": 20,
+  "boxes": [ "INBOX" ]
+}
