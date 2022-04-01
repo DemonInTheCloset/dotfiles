@@ -51,5 +51,8 @@ signal-desktop --start-in-tray &
 # qutebrowser.desktop
 # thunderbird.desktop
 
+# Service Manager
+dinit >"$XDG_RUNTIME_DIR"/dinit.log &
+
 # Start Window Manager
 exec i3
