@@ -51,8 +51,5 @@ signal-desktop --start-in-tray &
 # qutebrowser.desktop
 # thunderbird.desktop
 
-# Sync mail
-offlineimap -a {{ .id.personal.emailname }} 2>~/.local/share/offlineimap/{{ .id.personal.emailname }}-sync.log &
-
 # Start Window Manager
 exec i3
