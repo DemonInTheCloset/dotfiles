@@ -1,0 +1,5 @@
+type = process
+command = /usr/bin/pipewire-pulse
+depends-on = pipewire
+depends-on = wireplumber
+logfile = $XDG_RUNTIME_DIR/dinit/pipewire-pulse.log

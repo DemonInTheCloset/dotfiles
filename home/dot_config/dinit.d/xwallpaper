@@ -1,0 +1,3 @@
+type = scripted
+command = /usr/bin/xwallpaper --zoom /usr/share/backgrounds/archlinux/awesome.png
+logfile = $XDG_RUNTIME_DIR/dinit/xwallpaper.log

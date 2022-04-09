@@ -1,0 +1,4 @@
+type = process
+command = /usr/bin/aw-watcher-afk
+depends-on = aw-server
+logfile = $XDG_RUNTIME_DIR/dinit/aw-watcher-afk.log

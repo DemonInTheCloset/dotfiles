@@ -1,0 +1,4 @@
+type = process
+command = /usr/bin/wireplumber
+depends-on = pipewire
+logfile = $XDG_RUNTIME_DIR/dinit/wireplumber.log

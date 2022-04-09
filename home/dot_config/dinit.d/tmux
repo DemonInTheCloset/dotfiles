@@ -1,0 +1,5 @@
+type = scripted
+command = /usr/bin/tmux new-session -s dinit -d
+stop-command = /usr/bin/tmux kill-session -t dinit
+restart = true
+logfile = $XDG_RUNTIME_DIR/dinit/tmux.log

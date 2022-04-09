@@ -1,0 +1,3 @@
+type = process
+command = /usr/bin/picom
+logfile = $XDG_RUNTIME_DIR/dinit/picom.log

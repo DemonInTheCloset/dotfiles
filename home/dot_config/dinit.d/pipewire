@@ -1,0 +1,3 @@
+type = process
+command = /usr/bin/pipewire
+logfile = $XDG_RUNTIME_DIR/dinit/pipewire.log
