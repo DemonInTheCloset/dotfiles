@@ -21,5 +21,7 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
     fi
 
     # Start X server
-    exec xinit -- :"$XDG_VTNR" && logout
+    xinit -- :"$XDG_VTNR"
+    dinitctl shutdown
+    logout
 fi
