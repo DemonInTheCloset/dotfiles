@@ -22,6 +22,7 @@ alias cdchezmoi="cd $XDG_DATA_HOME"/chezmoi
 
 # git aliases
 alias gmsg-hook='ln -sv '"$CONFIG"'/git/hooks/commit-msg.sample `git rev-parse --git-dir`/hooks/commit-msg'
+alias dategittag='git tag -a "v$(date -I)"'
 
 # grep aliases
 alias grep='grep --color=auto'
