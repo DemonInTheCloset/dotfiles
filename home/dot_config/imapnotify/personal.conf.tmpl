@@ -8,7 +8,7 @@
   "username": "{{ .id.personal.email }}",
   "passwordCmd": "pass show Mail/{{ .id.personal.email }} | sed -n 's/apppass: //p'",
   "onNewMail": "mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc {{ .id.personal.email }}",
-  "onNewMailPost": "",
+  "onNewMailPost": "notmuchnotify",
   "wait": 20,
   "boxes": [ "INBOX" ]
 }
