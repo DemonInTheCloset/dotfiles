@@ -4,9 +4,11 @@ My (@DemonInTheCloset) configuration files.
 
 ## System Requirements
 
-- ArchLinux __(I personally recommend the linux-zen kernel)__
+- ArtixLinux (with dinit) **(I personally recommend the linux-zen kernel)**
+  - Might work with Arch Linux, but you'd need to somehow get dinit as you user
+    services manager.
 - Configure rclone acording to the [documentation](https://rclone.org/docs/)
-It doesn't matter which service you use as long as you name it `Drive`
+  It doesn't matter which service you use as long as you name it `Drive`
 
 ### Pass
 
@@ -26,18 +28,18 @@ database -->
 - Enable (of a systemd Unit) see [systemd](https://wiki.archlinux.org/title/systemd#Using_units)
   - Autostart a systemd Unit. This can be done through:
     - `# systemctl enable my-unit.service` (For things that should always run
-    (ie. Networking))
+      (ie. Networking))
     - `$ systemctl enable --user my-unit.service` (For user spacific things (ie.
-    Cloud Sync))
+      Cloud Sync))
   - Autostart and run now:
     - `# systemctl enable --now my-unit.service`
     - `$ systemctl enable --now --user my-unit.service`
 - Start (of a systemd Unit) see [systemd](https://wiki.archlinux.org/title/systemd#Using_units)
   - Run a systemd Unit. This can be done through:
     - `# systemctl start my-unit.service` (For things that should always run (ie.
-    Networking))
+      Networking))
     - `$ systemctl start --user my-unit.service` (For user spacific things (ie.
-    Cloud Sync))
+      Cloud Sync))
 
 ## Setup
 
@@ -46,7 +48,7 @@ database -->
 3. Run `chezmoi init DemonInTheCloset` (clones this git repo)
 4. Run `chezmoi apply` (copies these dotfiles)
 5. Run `cat pkglist_headless.txt | pacman -S -` (optionally run
-`cat pkglist_headless.txt pkglist_gui.txt pkglist_aur.txt | paru -S -` instead)
+   `cat pkglist_headless.txt pkglist_gui.txt pkglist_aur.txt | paru -S -` instead)
 
 ## Post Setup
 
