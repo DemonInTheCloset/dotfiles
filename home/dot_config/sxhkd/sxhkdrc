@@ -21,18 +21,18 @@ super + d
 super + p
     passmenu
 
-super {,+ shift} + F10
+super {_,+ shift} + F10
     select-{sink,source}
 
 # Launch Programs
-super + Return
-    kitty
+super {_,+ shift} + Return
+    kitty {zsh,tmux new -As dinit}
 
 super + n
     nvim-qt "$HOME"
 
-super {,+ shift} + F2
-    qutebrowser{, --target private-window}
+super {_,+ shift} + F2
+    qutebrowser --target {auto,private-window}
 
 super + F3
     ranger
