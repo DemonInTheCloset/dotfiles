@@ -20,6 +20,7 @@ return require("packer").startup {
 
 		-- Time tracking
 		use "wakatime/vim-wakatime"
+		use "ActivityWatch/aw-watcher-vim"
 		use "tweekmonster/startuptime.vim"
 
 		-- ColorScheme
@@ -67,6 +68,7 @@ return require("packer").startup {
 		-- Filetype Highlighting
 		use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 		use { "baskerville/vim-sxhkdrc", ft = "sxhkdrc" }
+		use "chunkhang/vim-mbsync"
 		use { "https://gitlab.com/DemonInTheCloset/porth-vim.git" }
 
 		use { "iamcco/markdown-preview.nvim" }
