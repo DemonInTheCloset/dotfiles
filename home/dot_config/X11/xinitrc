@@ -34,14 +34,14 @@ xset -dpms &
 xset s off &
 
 # Core System Functionality
-dunst &                                                          # Notification daemon
-numlockx &                                                       # Enable numlock
-picom -b &                                                       # Compositor
-sxhkd &                                                          # Hotkey Daemon
-xwallpaper --zoom /usr/share/backgrounds/archlinux/awesome.png & # Wallpaper
-/usr/bin/pipewire &                                              # Audio Server
-/usr/bin/pipewire-pulse &                                        # Pulse Server
-/usr/bin/wireplumber &                                           # Pipewire Media Manager
+# dunst &    # Notification daemon
+numlockx & # Enable numlock
+# picom -b & # Compositor
+# sxhkd &                                                          # Hotkey Daemon
+# xwallpaper --zoom /usr/share/backgrounds/archlinux/awesome.png & # Wallpaper
+# /usr/bin/pipewire &                                              # Audio Server
+# /usr/bin/pipewire-pulse &                                        # Pulse Server
+# /usr/bin/wireplumber &                                           # Pipewire Media Manager
 
 # Program Autostart
 signal-desktop --start-in-tray &
@@ -52,7 +52,15 @@ signal-desktop --start-in-tray &
 # thunderbird.desktop
 
 # Service Manager
-dinit >"$XDG_RUNTIME_DIR"/dinit.log &
+mkdir "$XDG_RUNTIME_DIR"/dinit && dinit --log-file "$XDG_RUNTIME_DIR"/dinit/dinit.log &
+
+# Mail Notify
+for filename in "$XDG_CONFIG_HOME"/imapnotify/*.conf; do
+	mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc "$(basename "$filename" .conf)" &&
+		goimapnotify -conf "$filename" 2>"$XDG_DATA_HOME"/imapnotify/"$(basename "$filename" .conf)".log &
+done &
+
+notmuchnotify &
 
 # Start Window Manager
 exec i3
