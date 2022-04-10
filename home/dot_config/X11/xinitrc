@@ -52,15 +52,13 @@ signal-desktop --start-in-tray &
 # thunderbird.desktop
 
 # Service Manager
-mkdir "$XDG_RUNTIME_DIR"/dinit && dinit --log-file "$XDG_RUNTIME_DIR"/dinit/dinit.log &
+dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
 
 # Mail Notify
 for filename in "$XDG_CONFIG_HOME"/imapnotify/*.conf; do
-	mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc "$(basename "$filename" .conf)" &&
-		goimapnotify -conf "$filename" 2>"$XDG_DATA_HOME"/imapnotify/"$(basename "$filename" .conf)".log &
-done &
-
-notmuchnotify &
+	mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc "$(basename "$filename" .conf)" >>"$XDG_DATA_HOME"/isync/"$(basename "$filename" .conf)".log &&
+		goimapnotify -conf "$filename" 2>>"$XDG_DATA_HOME"/imapnotify/"$(basename "$filename" .conf)".log
+done && notmuchnotify &
 
 # Start Window Manager
 exec i3

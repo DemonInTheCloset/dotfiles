@@ -1,4 +1,4 @@
 type = process
 command = /usr/bin/aw-watcher-window
 depends-on = aw-server
-logfile = $XDG_RUNTIME_DIR/dinit/aw-watcher-window.log
+logfile = $XDG_DATA_HOME/dinit/aw-watcher-window.log

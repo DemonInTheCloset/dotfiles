@@ -1,4 +1,4 @@
 type = process
 command = /usr/bin/sxhkd
 restart = true
-logfile = $XDG_RUNTIME_DIR/dinit/sxhkd.log
+logfile = $XDG_DATA_HOME/dinit/sxhkd.log

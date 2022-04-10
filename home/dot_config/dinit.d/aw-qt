@@ -3,4 +3,4 @@ command = /usr/bin/aw-qt --autostart-modules none
 depends-on = aw-server
 depends-on = aw-watcher-afk
 depends-on = aw-watcher-window
-logfile = $XDG_RUNTIME_DIR/dinit/aw-qt.log
+logfile = $XDG_DATA_HOME/dinit/aw-qt.log
