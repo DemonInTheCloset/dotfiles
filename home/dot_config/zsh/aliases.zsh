@@ -34,6 +34,10 @@ alias ip='ip --color=auto'
 alias la='ls -lah --color=auto'
 alias ls='ls --color=auto'
 
+# mbsync aliases
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias mbsynca="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
+
 # nvim aliases
 alias ngit='nvim +:Neogit +:tabonly!'
 alias note='nvim +:setlocal\ buftype=nofile +:setlocal\ bufhidden=hide +:setlocal\ noswapfile'
