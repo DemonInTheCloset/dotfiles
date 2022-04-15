@@ -25,7 +25,7 @@ super {_,+ shift} + F10
     select-{sink,source}
 
 # Launch Programs
-super {_,+ shift} + Return
+super {+ shift,_} + Return
     kitty {zsh,tmux new -As dinit}
 
 super + n
