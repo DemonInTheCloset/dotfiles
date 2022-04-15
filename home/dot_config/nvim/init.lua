@@ -221,7 +221,6 @@ local lspconfig = prequire "lspconfig"
 lspconfig["clangd"].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	cmd = { "clangd", "--clang-tidy" },
 }
 lspconfig["hls"].setup {
 	on_attach = on_attach,
@@ -230,7 +229,6 @@ lspconfig["hls"].setup {
 lspconfig["jsonls"].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	cmd = { "vscode-json-languageserver", "--stdio" },
 }
 lspconfig["pyright"].setup {
 	on_attach = on_attach,
@@ -254,6 +252,9 @@ lspconfig["sumneko_lua"].setup {
 			},
 			workspace = {
 				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = {
+				enable = false,
 			},
 		},
 	},
@@ -303,7 +304,7 @@ null_ls.setup {
 			vim.cmd [[
             augroup LspFormatting
                 autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
             augroup END
             ]]
 		end
