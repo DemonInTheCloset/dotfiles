@@ -61,6 +61,7 @@ vim.o.wildmenu = true
 vim.o.hlsearch = true
 vim.o.incsearch = true
 vim.o.ignorecase = true -- Search ignores cases
+vim.o.smartcase = true -- Unless it has a capital letter
 
 -- Options recommended by CoC
 vim.o.updatetime = 300 -- Update every 300 ms
@@ -116,6 +117,10 @@ vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", norema
 -- Keep selection while indenting
 vim.api.nvim_set_keymap("v", ">", ">gv", noremap)
 vim.api.nvim_set_keymap("v", "<", "<gv", noremap)
+
+-- EasyAlign
+vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", {})
+vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
 
 -- Miscellaneous
 vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h<CR>", noremap)

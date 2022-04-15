@@ -33,7 +33,7 @@ return require("packer").startup {
 		use "unblevable/quick-scope"
 
 		-- Align Text
-		use "RRethy/nvim-align"
+		use "junegunn/vim-easy-align"
 
 		-- Async commands
 		use "tpope/vim-dispatch"
