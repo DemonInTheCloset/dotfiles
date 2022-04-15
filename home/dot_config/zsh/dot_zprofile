@@ -12,9 +12,6 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
     # Create Xauthority file
     touch $XAUTHORITY
 
-    # Make sure i3 isn't running before starting it
-    # pgrep i3 || exec xinit -- :"$XDG_VTNR"
-
     # Run dbus if it hasn't been launched
     if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
         export DBUS_SESSION_BUS_ADDRESS="$(dbus-daemon --session --syslog-only --print-address --fork --address=unix:path=$XDG_RUNTIME_DIR/dbus)"
