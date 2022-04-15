@@ -110,9 +110,12 @@ vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", nore
 vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", noremap)
 vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", noremap)
 vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>fa", "<cmd>Telescope lsp_code_actions<CR>", noremap)
 vim.api.nvim_set_keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", noremap)
 vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", noremap)
+
+-- Keep selection while indenting
+vim.api.nvim_set_keymap("v", ">", ">gv", noremap)
+vim.api.nvim_set_keymap("v", "<", "<gv", noremap)
 
 -- Miscellaneous
 vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h<CR>", noremap)
@@ -123,13 +126,7 @@ local function lsp_set_keymaps(bufnr, opts)
 	-- LSP actions
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"<leader>A",
-		"<cmd>lua vim.lsp.buf.code_action()<CR>",
-		opts
-	)
+	vim.api.nvim_set_keymap("n", "<leader>fa", "<cmd>Telescope lsp_code_actions<CR>", noremap)
 
 	-- LSP goto ...
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
