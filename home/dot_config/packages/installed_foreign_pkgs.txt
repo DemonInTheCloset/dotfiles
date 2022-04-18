@@ -1,6 +1,7 @@
 activitywatch-bin
 alias-tips-git
 checkmake
+dashbinsh
 google-java-format
 grub-hook
 gruvbox-dark-gtk
@@ -10,6 +11,7 @@ itch-bin
 jdtls
 mpv-thumbnail-script
 multimc-bin
+nerd-fonts-dejavu-complete
 nginxbeautifier
 nsxiv
 openrgb
