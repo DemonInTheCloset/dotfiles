@@ -92,57 +92,55 @@ local luasnip = prequire "user/snippets"
 
 -- [[ nvim keymaps ]] --
 -- Vim Dispatch
-local noremap = { noremap = true }
-vim.api.nvim_set_keymap("n", "<leader>m<CR>", "<cmd>Make %<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>`<CR>", "<cmd>Dispatch %<CR>", noremap)
+vim.keymap.set("n", "<leader>m<CR>", "<cmd>Make %<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>`<CR>", "<cmd>Dispatch %<CR>", { noremap = true })
 
 -- Quickfix List
-vim.api.nvim_set_keymap("n", "<leader>qo", "<cmd>Copen<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>cclose<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>qj", "<cmd>cnext<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>qk", "<cmd>cprev<CR>", noremap)
+vim.keymap.set("n", "<leader>qo", "<cmd>Copen<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>qq", "<cmd>cclose<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>qj", "<cmd>cnext<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>qk", "<cmd>cprev<CR>", { noremap = true })
 
 -- Diagnostics
-vim.api.nvim_set_keymap("n", "<leader>dj", "<cmd>lua vim.diagnostic.goto_next()<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>dk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", noremap)
+vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { noremap = true })
+vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { noremap = true })
 
 -- Telescope
-vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", noremap)
+local telescope_builtin = prequire "telescope.builtin"
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { noremap = true })
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { noremap = true })
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { noremap = true })
+vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { noremap = true })
+vim.keymap.set("n", "<leader>fd", telescope_builtin.diagnostics, { noremap = true })
+vim.keymap.set("n", "<leader>fq", telescope_builtin.quickfix, { noremap = true })
 
 -- Keep selection while indenting
-vim.api.nvim_set_keymap("v", ">", ">gv", noremap)
-vim.api.nvim_set_keymap("v", "<", "<gv", noremap)
+vim.keymap.set("v", ">", ">gv", { noremap = true })
+vim.keymap.set("v", "<", "<gv", { noremap = true })
 
 -- EasyAlign
-vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", {})
-vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {})
+vim.keymap.set({ "x", "n" }, "ga", "<Plug>(EasyAlign)", { noremap = false })
 
 -- Miscellaneous
-vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>cd %:p:h<CR>", noremap)
-vim.api.nvim_set_keymap("n", "<leader>git", "<cmd>Neogit<CR>", noremap)
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>git", "<cmd>Neogit<CR>", { noremap = true })
 
 -- LSP
-local function lsp_set_keymaps(bufnr, opts)
+local function lsp_set_keymaps(bufnr)
 	-- LSP actions
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<leader>fa", "<cmd>Telescope lsp_code_actions<CR>", noremap)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, buffer = bufnr })
+	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, buffer = bufnr })
+	vim.keymap.set(
+		"n",
+		"<leader>fa",
+		telescope_builtin.lsp_code_actions,
+		{ noremap = true, buffer = bufnr }
+	)
 
 	-- LSP goto ...
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(
-		bufnr,
-		"n",
-		"gt",
-		"<cmd>lua vim.lsp.buf.type_definition()<CR>",
-		opts
-	)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, buffer = bufnr })
+	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true, buffer = bufnr })
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, buffer = bufnr })
 end
 
 -- [[ nvim-cmp config ]] --
@@ -206,12 +204,11 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 local function on_attach(_, bufnr)
-	local opts = { noremap = true }
 	-- Omnifunc
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	-- Keymaps
-	lsp_set_keymaps(bufnr, opts)
+	lsp_set_keymaps(bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -356,41 +353,99 @@ statusline.setup {
 }
 
 -- [[ augroups ]] --
-local function define_augroup(name, autocmds)
-	vim.cmd("augroup " .. name)
-	vim.cmd "autocmd!"
-	autocmds()
-	vim.cmd "augroup END"
-end
+local open_folds = vim.api.nvim_create_augroup("OpenFolds", {})
+vim.api.nvim_create_autocmd(
+	"BufRead",
+	{ group = open_folds, pattern = "*", command = "silent! %foldopen!" }
+)
 
-define_augroup("OpenFolds", function()
-	vim.cmd "autocmd BufRead * silent! %foldopen!"
-end)
+local file_type_override = vim.api.nvim_create_augroup("FileTypeOverride", {})
+vim.api.nvim_create_autocmd("FileType", {
+	group = file_type_override,
+	pattern = { "c" },
+	-- Set indent width to 8 spaces and use tabs
+	callback = function()
+		vim.bo.tabstop = 8
+		vim.bo.shiftwidth = 8
+		vim.bo.expandtab = false
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = file_type_override,
+	pattern = { "porth", "haskell", "markdown" },
+	-- Set indent width to 2 spaces
+	callback = function()
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = file_type_override,
+	pattern = { "markdown", "tex" },
+	-- Set wrap at 80 characters
+	callback = function()
+		vim.bo.textwidth = 80
+		vim.wo.wrap = true
+	end,
+})
+vim.api.nvim_create_autocmd("TermOpen", {
+	group = file_type_override,
+	pattern = "*",
+	-- Don't show line numbers
+	callback = function()
+		vim.wo.number = false
+		vim.wo.relativenumber = false
+	end,
+})
 
-define_augroup("FTApperance", function()
-	vim.cmd "autocmd FileType c setlocal tabstop=8 shiftwidth=8 noexpandtab"
-	vim.cmd "autocmd FileType porth setlocal tabstop=2 shiftwidth=2"
-	vim.cmd "autocmd FileType haskell setlocal tabstop=2 shiftwidth=2"
-	vim.cmd "autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 textwidth=80 wrap"
-	vim.cmd "autocmd TermOpen * setlocal nonumber norelativenumber"
-end)
+local dispatch_compiler = vim.api.nvim_create_augroup("DispatchCompiler", {})
+vim.api.nvim_create_autocmd("FileType", {
+	group = dispatch_compiler,
+	pattern = "java",
+	callback = function()
+		vim.b.dispatch = "gradle build"
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = dispatch_compiler,
+	pattern = "python",
+	callback = function()
+		vim.b.dispatch = "mypy %"
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = dispatch_compiler,
+	pattern = "markdown",
+	callback = function()
+		vim.b.dispatch = "pandoc --pdf-engine=xelatex -f markdown % -o %.pdf"
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = dispatch_compiler,
+	pattern = { "tex", "plaintex" },
+	callback = function()
+		vim.b.dispatch = "latexmk -pvc -pdflua %"
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = dispatch_compiler,
+	pattern = { "sh", "bash" },
+	command = ":compiler shellcheck",
+})
+vim.api.nvim_create_autocmd("FileType", {
+	group = dispatch_compiler,
+	pattern = "porth",
+	command = ":compiler porth",
+})
 
-define_augroup("DispatchCompiler", function()
-	vim.cmd "autocmd FileType java let b:dispatch = 'gradle build'"
-	vim.cmd "autocmd FileType python let b:dispatch = 'mypy %'"
-	vim.cmd "autocmd FileType markdown let b:dispatch = 'pandoc --pdf-engine=xelatex -f markdown % -o %.pdf'"
-	vim.cmd "autocmd FileType tex let b:dispatch = 'latexmk -pvc -pdflua %'"
-	vim.cmd "autocmd FileType plaintex let b:dispatch = 'latexmk -pvc -pdf %'"
-	vim.cmd "autocmd FileType sh,bash :compiler shellcheck"
-	vim.cmd "autocmd FileType porth :compiler porth"
-end)
-
-define_augroup("TemplateFiles", function()
-	vim.cmd "autocmd BufNewFile *.py  0r ~/.config/nvim/templates/skeleton.py"
-	vim.cmd "autocmd BufNewFile *.zsh 0r ~/.config/nvim/templates/skeleton.zsh"
-end)
-
-define_augroup("TrimWhiteSpace", function()
-	vim.cmd "autocmd BufWritePre *.md :%s/\\s\\+$//e"
-	vim.cmd "autocmd BufWritePre *.py :%s/\\s\\+$//e"
-end)
+local template_files = vim.api.nvim_create_augroup("TemplateFiles", {})
+vim.api.nvim_create_autocmd("BufNewFile", {
+	group = template_files,
+	pattern = { "*.py", "*.zsh" },
+	callback = function(vals)
+		local extension = vals["match"]:match "[^.]+$"
+		-- Look for a file named skeleton.extension (ie. skeleton.py)
+		-- in ~/.config/nvim/templates/ and read it into the current file
+		vim.cmd("0r ~/.config/nvim/templates/skeleton." .. extension)
+	end,
+})
