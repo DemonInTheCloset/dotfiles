@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -x
+# Installed Foreign Packages Hash {{ include "dot_config/packages/installed_foreign_pkgs.txt" | sha256sum }}
+paru -S --needed - <{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_foreign_pkgs.txt" }}

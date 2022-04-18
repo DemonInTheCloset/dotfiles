@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -x
+# Installed Packages Hash {{ include "dot_config/packages/installed_pkgs.txt" | sha256sum }}
+sudo pacman -S --needed - < "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_pkgs.txt" }}"

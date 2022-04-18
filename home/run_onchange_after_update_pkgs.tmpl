@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -x
+# Packages Hash {{ include (joinPath .chezmoi.homeDir ".config/packages/pkglist.txt") | sha256sum }}
+cp "{{ joinPath .chezmoi.homeDir ".config/packages/pkglist.txt" }}" "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_pkgs.txt" }}"
