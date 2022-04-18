@@ -2,7 +2,6 @@ acpi
 acpilight
 alsa-firmware
 alsa-utils
-amd-ucode
 archlinux-wallpaper
 artix-backgrounds-extra
 artix-grub-theme
@@ -70,9 +69,6 @@ newsboat
 notmuch
 ntp-dinit
 numlockx
-nvidia
-nvidia-dkms
-nvidia-utils-dinit
 offlineimap
 onefetch
 openbsd-netcat
