@@ -28,7 +28,6 @@ chezmoi
 chromium
 clang
 cronie-dinit
-cuda
 dash
 dbus-dinit
 dex
