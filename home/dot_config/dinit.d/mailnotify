@@ -1,0 +1,3 @@
+type = internal
+waits-for = mailfetch
+waits-for.d = mailnotify.d
