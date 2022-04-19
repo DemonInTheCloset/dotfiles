@@ -21,6 +21,7 @@ python-reorder-python-imports
 stack-static
 taplo-cli
 tmux-plugin-manager
+urlview-xdg-git
 vim-language-server
 youtube-music-bin
 zoom
