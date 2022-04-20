@@ -3,5 +3,5 @@
 {{ if .dev.updatepkglists  }}
 set -x
 # Foreign Packages Hash {{ include (joinPath .chezmoi.homeDir ".config/packages/pkglist_foreign.txt") | sha256sum }}
-cp "{{ joinPath .chezmoi.homeDir ".config/packages/pkglist_foreign.txt" }}" "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_foreign_pkgs.txt" }}"
+cp -vu "{{ joinPath .chezmoi.homeDir ".config/packages/pkglist_foreign.txt" }}" "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_foreign_pkgs.txt" }}"
 {{ end }}
