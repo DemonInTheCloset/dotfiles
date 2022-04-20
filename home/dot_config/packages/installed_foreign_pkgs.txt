@@ -9,6 +9,8 @@ haskell-language-server-static
 i3exit
 itch-bin
 jdtls
+lib32-mangohud
+mangohud
 mpv-thumbnail-script
 multimc-bin
 nerd-fonts-dejavu-complete
@@ -18,6 +20,7 @@ openrgb
 paru
 protonup-qt
 python-reorder-python-imports
+rambox-bin
 stack-static
 taplo-cli
 tmux-plugin-manager

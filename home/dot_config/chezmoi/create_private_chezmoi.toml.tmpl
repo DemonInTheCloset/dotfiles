@@ -25,3 +25,6 @@ name = {{ $name | quote }}
 email = {{ $email | quote }}
 {{- $emailname = promptString "university emailname" -}}
 emailname = {{ $emailname | quote }}
+
+[data.dev]
+updatePackages = false
