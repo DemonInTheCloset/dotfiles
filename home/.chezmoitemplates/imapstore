@@ -1,0 +1,22 @@
+IMAPAccount {{ .email }}
+Host {{ .imapserver }}
+User {{ .imapuser }}
+PassCmd "pass show Mail/{{ .email }} | sed -n 's/apppass: //p'"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore {{ .email }}-remote
+Account {{ .email }}
+
+MaildirStore {{ .email }}-local
+SubFolders Verbatim
+Path ~/.local/share/mail/{{ .email }}/
+Inbox ~/.local/share/mail/{{ .email }}/Inbox
+
+Channel {{ .email }}
+Far :{{ .email }}-remote:
+Near :{{ .email }}-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+Create Both
+Expunge Both
+SyncState *

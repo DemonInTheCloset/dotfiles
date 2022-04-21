@@ -1,14 +1,1 @@
-{
-  "host": "{{ .id.university.mailserver }}",
-  "port": 993,
-  "tls": true,
-  "tlsOptions": {
-    "rejectUnauthorized": false
-  },
-  "username": "{{ .id.university.username }}",
-  "passwordCmd": "pass show Mail/{{ .id.university.email }} | sed -n 's/apppass: //p'",
-  "onNewMail": "mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc {{ .id.university.email }}",
-  "onNewMailPost": "notmuchnotify",
-  "wait": 20,
-  "boxes": [ "INBOX" ]
-}
+{{- template "imapnotify" .id.university -}}

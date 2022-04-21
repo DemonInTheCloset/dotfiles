@@ -1,0 +1,14 @@
+# # vim:filetype=msmtp
+# Set defaults for all following accounts.
+defaults
+auth on
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.cache/msmtp/msmtp.log
+
+{{ template "smtpaccount" .id.personal }}
+{{ template "smtpaccount" .id.public }}
+{{ template "smtpaccount" .id.university }}
+# Set a default account
+account default : {{ .id.personal.email }}
