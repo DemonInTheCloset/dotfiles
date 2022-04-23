@@ -28,8 +28,6 @@ checkbashisms
 chezmoi
 chromium
 clang
-connman
-connman-dinit
 cronie-dinit
 dash
 dbus-dinit
