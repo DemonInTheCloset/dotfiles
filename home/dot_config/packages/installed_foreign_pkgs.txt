@@ -20,7 +20,7 @@ openrgb
 paru
 protonup-qt
 python-reorder-python-imports
-rambox-bin
+rambox-pro-bin
 stack-static
 taplo-cli
 tmux-plugin-manager

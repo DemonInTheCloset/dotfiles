@@ -28,6 +28,8 @@ checkbashisms
 chezmoi
 chromium
 clang
+connman
+connman-dinit
 cronie-dinit
 dash
 dbus-dinit
@@ -88,6 +90,7 @@ keepassxc
 kitty
 lib32-fontconfig
 lib32-pipewire
+libappindicator-gtk3
 libreoffice-fresh
 libtool
 libvoikko
@@ -117,8 +120,6 @@ neofetch
 neomutt
 neovim
 neovim-qt
-network-manager-applet
-networkmanager
 newsboat
 notmuch
 noto-fonts-cjk
