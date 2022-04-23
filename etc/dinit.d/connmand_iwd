@@ -1,0 +1,7 @@
+type            = process
+command         = /usr/bin/connmand --wifi=iwd_agent -n
+smooth-recovery = true
+logfile         = /var/log/dinit/connman_iwd.log
+depends-on      = dbus
+depends-on      = udevd
+depends-on      = iwd
