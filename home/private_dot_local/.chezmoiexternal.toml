@@ -1,8 +1,8 @@
 ["bin"]
 type = "archive"
-url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-04-07/scripts.tar.xz"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-04-25/scripts.tar.xz"
 exact = true
 ["share/scripts"]
 type = "archive"
-url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-04-07/data.tar.xz"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-04-25/data.tar.xz"
 exact = true
