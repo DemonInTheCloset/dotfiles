@@ -16,7 +16,7 @@ Inbox ~/.local/share/mail/{{ .email }}/Inbox
 Channel {{ .email }}
 Far :{{ .email }}-remote:
 Near :{{ .email }}-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+Patterns INBOX Archive Drafts Sent
 Create Both
 Expunge Both
 SyncState *
