@@ -5,10 +5,7 @@
   "onNewMailPost": "notmuchnotify",
   "wait": 20,
   "boxes": [
-        "INBOX",
-        "Archive",
-        "Drafts",
-        "Sent"
+        "INBOX"
   ],
   "tls": true,
   "tlsOptions": {
