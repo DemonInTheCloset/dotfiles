@@ -1,3 +1,8 @@
 datefile () {
-    $EDITOR "$(date +'%Y-%m-%d')_$1"
+    base="$(echo "$1" | cut -f1 -d '.')"
+    if [ "$base" ]; then
+        $EDITOR "$(date +'%Y-%m-%d')_$1"
+    else
+        $EDITOR "$(date +'%Y-%m-%d')$1"
+    fi
 }
