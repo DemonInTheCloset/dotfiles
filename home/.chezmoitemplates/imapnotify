@@ -8,12 +8,12 @@
         "INBOX",
         "Archive",
         "Drafts",
-        "Sent",
+        "Sent"
   ],
   "tls": true,
   "tlsOptions": {
     "rejectUnauthorized": false
   },
   "host": "{{ .imapserver }}",
-  "port": {{ .imapport }},
+  "port": {{ .imapport }}
 }
