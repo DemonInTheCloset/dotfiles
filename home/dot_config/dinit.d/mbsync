@@ -1,4 +1,4 @@
 type = scripted
-command = /usr/bin/sh -c "/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
-stop-command = /usr/bin/sh -c "/usr/bin/mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
+command = /usr/bin/sh -c "echo '[dinit]' $(date -Iseconds) 'Starting...' && /usr/bin/mbsync -V -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
+stop-command = /usr/bin/sh -c "echo '[dinit]' $(date -Iseconds) 'Stopping...' && /usr/bin/mbsync -V -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
 logfile = $XDG_DATA_HOME/dinit/mbsync.log
