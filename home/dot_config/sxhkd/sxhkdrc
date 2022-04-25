@@ -14,6 +14,10 @@ XF86AudioMute
 XF86MonBrightness{Up,Down}
     xbacklight -perceived -{inc,dec} 5 && brightness-notify
 
+# Notifications Control
+super + F8
+    dunst-toggle
+
 # Dmenu/Rofi
 super + d
     rofi -modi drun,run -show drun
