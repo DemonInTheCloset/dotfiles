@@ -1,3 +1,3 @@
 type = process
-command = /usr/bin/dunst 
+command = /usr/bin/dunst -verbosity info --startup_notification true
 logfile = $XDG_DATA_HOME/dinit/dunst.log
