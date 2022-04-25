@@ -129,6 +129,7 @@ ntp
 ntp-dinit
 numlockx
 nuspell
+obsidian
 offlineimap
 onefetch
 openbsd-netcat
