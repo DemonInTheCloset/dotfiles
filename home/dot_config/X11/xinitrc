@@ -47,9 +47,6 @@ numlockx & # Enable numlock
 signal-desktop --start-in-tray &
 # KeePassXC.desktop
 # com.nextcloud.desktopclient.nextcloud.desktop
-# newsboat.desktop
-# qutebrowser.desktop
-# thunderbird.desktop
 
 # Service Manager
 dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
