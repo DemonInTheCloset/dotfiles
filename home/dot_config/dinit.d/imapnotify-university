@@ -1,5 +1,5 @@
 type = process
-command = /usr/bin/sh -c "/usr/bin/goimapnotify -debug -conf "$XDG_CONFIG_HOME"/imapnotify/university.conf"
+command = /usr/bin/sh -c "/usr/bin/goimapnotify -conf "$XDG_CONFIG_HOME"/imapnotify/university.conf"
 restart = yes
 restart-delay = 60
 logfile = $XDG_DATA_HOME/dinit/imapnotify-university.log
