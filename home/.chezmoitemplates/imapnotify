@@ -1,14 +1,19 @@
 {
-  "host": "{{ .imapserver }}",
-  "port": {{ .imapport }},
-  "tls": true,
-  "tlsOptions": {
-    "rejectUnauthorized": false
-  },
   "username": "{{ .imapuser }}",
   "passwordCmd": "pass show Mail/{{ .email }} | sed -n 's/apppass: //p'",
   "onNewMail": "mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc {{ .email }}",
   "onNewMailPost": "notmuchnotify",
   "wait": 20,
-  "boxes": [ "INBOX" ]
+  "boxes": [
+        "INBOX",
+        "Archive",
+        "Drafts",
+        "Sent",
+  ],
+  "tls": true,
+  "tlsOptions": {
+    "rejectUnauthorized": false
+  },
+  "host": "{{ .imapserver }}",
+  "port": {{ .imapport }},
 }
