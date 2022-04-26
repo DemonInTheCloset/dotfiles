@@ -312,10 +312,24 @@ null_ls.setup {
 }
 
 -- [[ telescope ]] --
-local ok, _ = pcall(prequire("telescope").load_extension, "fzy_native")
-if not ok then
-	print "Error: Failed to load fzy_native extension"
+local telescope = prequire "telescope"
+local function ptelescope_load_extension(extension)
+	local ok, _ = pcall(telescope.load_extension, extension)
+	if not ok then
+		print("Error[Telescope]: Failed to load " .. extension .. " extension")
+	end
 end
+
+telescope.setup {
+	extensions = {
+		["ui-select"] = {
+			prequire("telescope.themes").get_dropdown {},
+		},
+	},
+}
+
+ptelescope_load_extension "fzy_native"
+ptelescope_load_extension "ui-select"
 
 -- [[ neogit ]] --
 prequire("neogit").setup()
