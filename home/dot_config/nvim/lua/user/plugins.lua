@@ -69,13 +69,14 @@ return require("packer").startup {
 		use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 		use { "baskerville/vim-sxhkdrc", ft = "sxhkdrc" }
 		use "chunkhang/vim-mbsync"
-		use { "https://gitlab.com/DemonInTheCloset/porth-vim.git" }
+		use "https://gitlab.com/DemonInTheCloset/porth-vim.git"
 
-		use { "iamcco/markdown-preview.nvim" }
+		use "iamcco/markdown-preview.nvim"
 
 		-- Fuzzy find
 		use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
 		use "nvim-telescope/telescope-fzy-native.nvim" -- C binary for fzy
+		use "nvim-telescope/telescope-ui-select.nvim"
 
 		--[[ Old FT higlights
         -- Plug 'godlygeek/tabular'
