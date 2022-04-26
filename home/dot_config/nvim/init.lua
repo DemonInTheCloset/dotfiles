@@ -7,7 +7,7 @@ local function prequire(...)
 	local ok, ret = pcall(require, ...)
 	if not ok then
 		print('Error: require("' .. ... .. '") failed')
-		return nil
+		return {}
 	end
 	return ret
 end
@@ -130,10 +130,11 @@ local function lsp_set_keymaps(bufnr)
 	-- LSP actions
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, buffer = bufnr })
 	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, buffer = bufnr })
+	vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, { noremap = true, buffer = bufnr })
 	vim.keymap.set(
-		"n",
+		"v",
 		"<leader>fa",
-		telescope_builtin.lsp_code_actions,
+		vim.lsp.buf.range_code_action,
 		{ noremap = true, buffer = bufnr }
 	)
 
