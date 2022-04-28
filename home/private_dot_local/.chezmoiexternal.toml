@@ -1,4 +1,4 @@
-["bin"]
+["scripts"]
 type = "archive"
 url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-04-25/scripts.tar.xz"
 exact = true
