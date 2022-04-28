@@ -9,6 +9,7 @@ haskell-language-server-static
 i3exit
 itch-bin
 jdtls
+kotlin-language-server
 lib32-mangohud
 mangohud
 mpv-thumbnail-script

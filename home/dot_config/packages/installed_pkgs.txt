@@ -24,6 +24,7 @@ bluez-dinit
 bluez-utils
 brightnessctl
 btop
+calcurse
 checkbashisms
 chezmoi
 chromium
@@ -86,6 +87,7 @@ jdk-openjdk
 jq
 keepassxc
 kitty
+kotlin
 lib32-fontconfig
 lib32-pipewire
 libappindicator-gtk3
