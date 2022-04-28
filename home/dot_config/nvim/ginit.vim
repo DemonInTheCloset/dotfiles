@@ -17,9 +17,9 @@ if exists(':GuiPopupmenu')
     GuiPopupmenu 0
 endif
 
-" Enable GUI ScrollBar
+" Diable GUI ScrollBar
 if exists(':GuiScrollBar')
-    GuiScrollBar 1
+    GuiScrollBar 0
 endif
 
 " Right Click Context Menu (Copy-Cut-Paste)
