@@ -26,6 +26,7 @@ def read_xresources(prefix: str) -> dict[str, str]:
 config.bind(",y", "hint links yank")
 config.bind(",d", "hint links download")
 config.bind(",v", "hint links spawn mpv --fs --pause --profile=1080p {hint-url}")
+config.bind(",p", "spawn --userscript qute-pass")
 
 """
 xresources = read_xresources("*")
