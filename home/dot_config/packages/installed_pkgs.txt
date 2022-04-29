@@ -173,16 +173,13 @@ pyright
 python
 python-adblock
 python-black
-python-build
 python-colorama
 python-distro
-python-installer
-python-pep517
 python-pyudev
+python-tldextract
 python-tomli
 python-tzlocal
 python-virtualenv
-python-wheel
 qt5ct
 qutebrowser
 ranger
