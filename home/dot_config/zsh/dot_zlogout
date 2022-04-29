@@ -1,0 +1,4 @@
+# Shutdown user services when closing /dev/tty
+if [ "$TTY" = "/dev/tty$XDG_VTNR" ]; then
+    # dinitctl shutdown
+fi

@@ -49,7 +49,10 @@ signal-desktop --start-in-tray &
 # com.nextcloud.desktopclient.nextcloud.desktop
 
 # Service Manager
+export PINENTRY_USER_DATA='gtk'
 dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
+# Graphical Services
+dinitctl start graphical &
 
 # Start Window Manager
 exec i3
