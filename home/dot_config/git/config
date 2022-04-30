@@ -10,6 +10,9 @@
 	gpgsign = true
 	template = ~/.config/git/template/commit-message
 
+[includeIf "gitdir:~/.cache/paru/"]
+	path = ~/.config/git/configuration/git
+
 [includeIf "gitdir:~/.local/share/pass/"]
 	path = ~/.config/git/configuration/uni
 
