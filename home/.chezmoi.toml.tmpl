@@ -1,57 +1,79 @@
-{{ $personal_name := promptString "Personal Name" -}}
-{{ $personal_email := promptString "Personal Email" -}}
-{{ $personal_imapuser := promptString "Personal IMAP user" $personal_email -}}
-{{ $personal_imapserver := promptString "Personal IMAP server" "imap.gmail.com" -}}
-{{ $personal_smtpuser := promptString "Personal SMTP user" (trimSuffix "@gmail.com" $personal_email) -}}
-{{ $personal_smtpserver := promptString "Personal SMTP server" "smtp.gmail.com" -}}
+{{- $ids := list -}}
+{{- if not (hasKey . "identities") -}}
+    {{- $num_ids := promptInt "How many identities do you want to add?" 1 -}}
+    {{- range $ix := until $num_ids -}}
+        {{- $ids = promptString "Identity Name" "personal" | trim | lower | append $ids -}}
+    {{- else -}}
+        {{- fail "No identities setup" -}}
+    {{- end -}}
+{{- else -}}
+    {{- $ids = .identities -}}
+{{- end -}}
 
-{{ $public_name := promptString "Public Name" -}}
-{{ $public_email := promptString "Public Email" -}}
-{{ $public_imapuser := promptString "Public IMAP user" $public_email -}}
-{{ $public_imapserver := promptString "Public IMAP server" "imap.gmail.com" -}}
-{{ $public_smtpuser := promptString "Public SMTP user" (trimSuffix "@gmail.com" $public_email) -}}
-{{ $public_smtpserver := promptString "Public SMTP server" "smtp.gmail.com" -}}
+{{- define "setOrPromptString" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key | quote -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptString $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptString $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | quote -}}
+    {{- end -}}
+{{- end -}}
 
-{{ $university_name := promptString "University Name" $personal_name -}}
-{{ $university_email := promptString "University Email" -}}
-{{ $university_imapuser := promptString "University IMAP user" $university_email -}}
-{{ $university_imapserver := promptString "University IMAP server" "imap.gmail.com" -}}
-{{ $university_smtpuser := promptString "University SMTP user" (trimSuffix "@gmail.com" $university_email) -}}
-{{ $university_smtpserver := promptString "University SMTP server" "smtp.gmail.com" -}}
+{{- define "setOrPromptInt" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptInt $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptInt $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value -}}
+    {{- end -}}
+{{- end -}}
+
+{{- define "setOrPromptBool" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptBool $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptBool $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value -}}
+    {{- end -}}
+{{- end -}}
 
 [data]
-
-[data.id]
-
-[data.id.personal]
-name = {{ $personal_name | quote }}
-email = {{ $personal_email | quote }}
-imapport = "993"
-imapuser = {{ $personal_imapuser | quote }}
-imapserver = {{ $personal_imapserver | quote }}
-smtpport = "587"
-smtpuser = {{ $personal_smtpuser | quote }}
-smtpserver = {{ $personal_smtpserver | quote }}
-
-[data.id.public]
-name = {{ $public_name | quote }}
-email = {{ $public_email | quote }}
-imapport = "993"
-imapuser = {{ $public_imapuser | quote }}
-imapserver = {{ $public_imapserver | quote }}
-smtpport = "587"
-smtpuser = {{ $public_smtpuser | quote }}
-smtpserver = {{ $public_smtpserver | quote }}
-
-[data.id.university]
-name = {{ $university_name | quote }}
-email = {{ $university_email | quote }}
-imapport = "993"
-imapuser = {{ $university_imapuser | quote }}
-imapserver = {{ $university_imapserver | quote }}
-smtpport = "587"
-smtpuser = {{ $university_smtpuser | quote }}
-smtpserver = {{ $university_smtpserver | quote }}
-
+identities = {{ $ids | toJson }}
+{{ $data := . -}}
+{{- range $id := $ids }}
+[data.id.{{- $id -}}]
+    {{- $dict := dig "id" $id (dict) $data }}
+name       = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "name"                                                             }}
+email      = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "email"                                                            }}
+imapport   = {{ template "setOrPromptInt"    dict "name" $id "dict" $dict "key" "imapport" "default" 993                                           }}
+imapuser   = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "imapuser" "default" (get $dict "email")                           }}
+imapserver = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "imapserver" "default" "imap.gmail.com"                            }}
+smtpport   = {{ template "setOrPromptInt"    dict "name" $id "dict" $dict "key" "smtpport" "default" 993                                           }}
+smtpuser   = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "smtpuser" "default" (get $dict "email" | trimSuffix "@gmail.com") }}
+smtpserver = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "smtpserver" "default" "smtp.gmail.com"                            }}
+{{ else -}}
+    {{- fail "No Identities provided" -}}
+{{ end }}
 [data.dev]
-updatepkglists = false
+updatepkglists = {{ template "setOrPromptBool" dict "name" "(Dev only) Update Package Lists" "dict" .dev "key" "updatepkglists" "default" false }}
