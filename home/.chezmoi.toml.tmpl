@@ -59,6 +59,7 @@
 {{- end -}}
 
 [data]
+# First identity is the default
 identities = {{ $ids | toJson }}
 {{ $data := . -}}
 {{- range $id := $ids }}
