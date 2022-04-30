@@ -7,8 +7,8 @@ tls_starttls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 logfile ~/.cache/msmtp/msmtp.log
 
-{{ template "smtpaccount" .id.personal }}
-{{ template "smtpaccount" .id.public }}
-{{ template "smtpaccount" .id.university }}
+{{ range $id := .id -}}
+{{ template "smtpaccount" $id }}
+{{ end -}}
 # Set a default account
-account default : {{ .id.personal.email }}
+account default : {{ (first .identities | get .id).email }}
