@@ -102,6 +102,7 @@ llvm
 lm_sensors-dinit
 lshw
 lua-language-server
+lutris
 lxappearance-gtk3
 lynx
 m4
@@ -288,6 +289,7 @@ xournalpp
 xsettingsd
 xwallpaper
 yt-dlp
+yubikey-manager-qt
 zip
 zk
 zsh

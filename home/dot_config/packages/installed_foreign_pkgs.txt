@@ -1,5 +1,6 @@
 activitywatch-bin
 alias-tips-git
+bottles
 checkmake
 dashbinsh
 google-java-format
@@ -21,6 +22,7 @@ openrgb
 paru
 protonup-qt
 python-reorder-python-imports
+qbpm-git
 rambox-pro-bin
 stack-static
 taplo-cli
