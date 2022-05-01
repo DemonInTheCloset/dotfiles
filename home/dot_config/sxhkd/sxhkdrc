@@ -35,6 +35,9 @@ super {+ shift,_} + Return
 super + n
     nvim-qt "$HOME"
 
+super + F1
+    qbpm choose
+
 super {_,+ shift} + F2
     qutebrowser --target {auto,private-window}
 
