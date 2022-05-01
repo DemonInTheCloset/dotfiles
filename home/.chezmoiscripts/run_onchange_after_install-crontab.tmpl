@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+{{ $srcpath := (joinPath .chezmoi.homeDir ".config/cronie/crontab") -}}
+{{ $source := include $srcpath -}}
+{{ $target := output "crontab" "-l" -}}
+# Source hash: {{ $source | sha256sum  }}
+# Target hash: {{ $target | sha256sum  }}
+
+backup='{{ $srcpath }}.bak'
+
+crontab -T {{ $srcpath }}
+crontab -l | tee "$backup" | diff -y {{ $srcpath }} -
+echo "Saving old crontab to ${backup}..."
+crontab <{{ $srcpath }}
