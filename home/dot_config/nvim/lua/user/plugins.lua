@@ -46,6 +46,10 @@ return require("packer").startup {
 		use "neovim/nvim-lspconfig"
 		use "onsails/lspkind-nvim"
 		use "mfussenegger/nvim-jdtls" -- Java JDTLS support
+		use { "simrat39/rust-tools.nvim", requires = "nvim-lua/plenary.nvim" }
+
+		-- Debugging
+		use "mfussenegger/nvim-dap"
 
 		-- Completion Support
 		use "hrsh7th/cmp-nvim-lsp" -- Language server hints

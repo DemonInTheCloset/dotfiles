@@ -267,9 +267,12 @@ lspconfig["vimls"].setup {
 }
 
 -- [[ plugins ]] --
-local colorizer_conf = {}
-colorizer_conf["*"] = { names = false, RRGGBBAA = true }
-prequire("colorizer").setup(colorizer_conf)
+local colorizer = prequire "colorizer"
+colorizer.setup({}, { names = false, RRGGBBAA = true })
+
+-- [[ rust-tools ]]
+local rust_tools = prequire "rust-tools"
+rust_tools.setup {}
 
 -- [[ null_ls ]] --
 local lsp_formatting = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -306,14 +309,11 @@ null_ls.setup {
 	on_attach = function(client, bufnr)
 		if client.supports_method "textDocument/formatting" then
 			vim.api.nvim_clear_autocmds { group = lsp_formatting, buffer = bufnr }
-			vim.api.nvim_create_autocmd(
-				"BufWritePre",
-				{
-					group = lsp_formatting,
-					buffer = bufnr,
-					callback = vim.lsp.buf.formatting_seq_sync,
-				}
-			)
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = lsp_formatting,
+				buffer = bufnr,
+				callback = vim.lsp.buf.formatting_seq_sync,
+			})
 		end
 	end,
 }
