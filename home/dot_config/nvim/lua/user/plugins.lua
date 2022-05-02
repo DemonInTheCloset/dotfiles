@@ -14,7 +14,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Plugins
-return require("packer").startup {
+local packer = require "packer"
+return packer.startup {
 	function(use)
 		use "wbthomason/packer.nvim"
 
@@ -108,7 +109,7 @@ return require("packer").startup {
 
 		-- Do bootstrap
 		if packer_bootstrap then
-			require("packer").sync()
+			packer.sync()
 		end
 	end,
 	config = {
