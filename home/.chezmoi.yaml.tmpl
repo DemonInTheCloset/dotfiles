@@ -1,0 +1,106 @@
+{{- $ids := list -}}
+{{- if not (hasKey . "identities") -}}
+    {{- $num_ids := promptInt "How many identities do you want to add?" 1 -}}
+    {{- range $ix := until $num_ids -}}
+        {{- $ids = promptString "Identity Name" "personal" | trim | lower | append $ids -}}
+    {{- else -}}
+        {{- fail "No identities setup" -}}
+    {{- end -}}
+{{- else -}}
+    {{- $ids = .identities -}}
+{{- end -}}
+
+{{- define "setOrDefault" -}}
+    {{- $value := .default -}}
+    {{- if hasKey .dict .key -}}
+        {{- $value = get .dict .key -}}
+    {{- end -}}
+    {{- $value | toYaml | indent .indent -}}
+{{- end -}}
+
+{{- define "setOrPromptString" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key | quote -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptString $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptString $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | toYaml | indent .indent -}}
+    {{- end -}}
+{{- end -}}
+
+{{- define "setOrPromptInt" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptInt $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptInt $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | toYaml | indent .indent -}}
+    {{- end -}}
+{{- end -}}
+
+{{- define "setOrPromptBool" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptBool $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptBool $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | toYaml | indent .indent -}}
+    {{- end -}}
+{{- end -}}
+
+data:
+  # First identity is the default ("personal", "public", and "university" are treated specially)
+  identities:
+{{ $ids | toYaml | indent 4 }}
+  # SSH default public hosts (hosts to use with "public" identity)
+  ssh_public_hosts:
+{{ template "setOrDefault" dict "dict" . "key" "ssh_public_hosts" "default" (list (dict "host" "github.com" "user" "git") (dict "host" "gitlab.com" "user" "git")) "indent" 4 }}
+  # SSH default personal hosts (hosts to use with "personal" identity)
+  ssh_personal_hosts:
+{{ template "setOrDefault" dict "dict" . "key" "ssh_personal_hosts" "default" (list) "indent" 4 }}
+  id:
+{{- $data := . -}}
+{{- range $id := $ids }}
+    {{ $id }}: {{- $dict := dig "id" $id (dict) $data }}
+      name:
+        {{ template "setOrPromptString" dict "indent" 8 "name" $id "dict" $dict "key" "name"                                                             }}
+      email:
+        {{ template "setOrPromptString" dict "indent" 8 "name" $id "dict" $dict "key" "email"                                                            }}
+      imapport:
+        {{ template "setOrPromptInt"    dict "indent" 8 "name" $id "dict" $dict "key" "imapport" "default" 993                                           }}
+      imapuser:
+        {{ template "setOrPromptString" dict "indent" 8 "name" $id "dict" $dict "key" "imapuser" "default" (get $dict "email")                           }}
+      imapserver:
+        {{ template "setOrPromptString" dict "indent" 8 "name" $id "dict" $dict "key" "imapserver" "default" "imap.gmail.com"                            }}
+      smtpport:
+        {{ template "setOrPromptInt"    dict "indent" 8 "name" $id "dict" $dict "key" "smtpport" "default" 993                                           }}
+      smtpuser:
+        {{ template "setOrPromptString" dict "indent" 8 "name" $id "dict" $dict "key" "smtpuser" "default" (get $dict "email" | trimSuffix "@gmail.com") }}
+      smtpserver:
+        {{ template "setOrPromptString" dict "indent" 8 "name" $id "dict" $dict "key" "smtpserver" "default" "smtp.gmail.com"                            }}
+      # SSH Hosts to override with this identity
+      ssh_override:
+{{ template "setOrDefault" dict "indent" 8 "dict" $dict "key" "ssh_override" "default" (list) -}}
+{{ else -}}
+    {{- fail "No Identities provided" -}}
+{{- end }}
+  dev:
+    updatepkglists: {{ template "setOrPromptBool" dict "indent" 1 "name" "(Dev only) Update Package Lists" "dict" .dev "key" "updatepkglists" "default" false }}
