@@ -44,6 +44,14 @@ alias note='nvim +:setlocal\ buftype=nofile +:setlocal\ bufhidden=hide +:setloca
 alias nview="nvim -R"
 alias nvimconfig="$VISUAL $CONFIG"/nvim/init.lua
 
+# neomutt aliases
+alias nm='neomutt'
+alias nmsync='neomutt && mbsync -c '"$XDG_CONFIG_HOME"'/isync/mbsyncrc -a'
+
+# newsboat aliases
+alias nb='newsboat'
+alias nbr='newsboat -r'
+
 # paru aliases
 alias paruS='paru -S'
 alias paruSs='paru -Ss'
