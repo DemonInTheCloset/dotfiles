@@ -1,0 +1,35 @@
+# Use faster chiphers by default
+Ciphers aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+
+# Setup Public Hosts
+{{ range $host := .ssh_public_hosts -}}
+Host {{ .host }}
+    HostName {{ .host }}
+    User {{ .user }}
+    IdentityFile ~/.ssh/id_ed25519_public
+    IdentitiesOnly yes
+
+{{ end -}}
+# Setup Personal Hosts
+{{ range $host := .ssh_personal_hosts -}}
+Host {{ .host }}
+    HostName {{ .host }}
+    User {{ .user }}
+    IdentityFile ~/.ssh/id_ed25519_personal
+    IdentitiesOnly yes
+
+{{ end -}}
+# Override hosts
+{{- $data := . -}}
+{{- range $name := .identities -}}
+    {{- $id := dig "id" $name (dict) $data }}
+    {{- if hasKey $id "ssh_override" -}}
+        {{- range $host := get $id "ssh_override" }}
+Host {{ $name | title }}{{ .name }}
+    HostName {{ .host }}
+    User {{ .user }}
+    IdentityFile ~/.ssh/id_ed25519_{{ $name }}
+    IdentitiesOnly yes
+        {{ end -}}
+    {{ end -}}
+{{ end -}}
