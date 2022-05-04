@@ -236,10 +236,6 @@ lspconfig["pyright"].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 }
-lspconfig["rust_analyzer"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
 lspconfig["sumneko_lua"].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -272,7 +268,13 @@ colorizer.setup({}, { names = false, RRGGBBAA = true })
 
 -- [[ rust-tools ]]
 local rust_tools = prequire "rust-tools"
-rust_tools.setup {}
+rust_tools.setup {
+	-- Send these options to NeoVim
+	server = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	},
+}
 
 -- [[ null_ls ]] --
 local lsp_formatting = vim.api.nvim_create_augroup("LspFormatting", {})
