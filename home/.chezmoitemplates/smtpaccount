@@ -3,4 +3,4 @@ host {{ .smtpserver }}
 port {{ .smtpport }}
 from {{ .email }}
 user {{ .smtpuser }}
-passwordeval "pass show Mail/{{ .email }} | sed 's/^apppass: \(.*\)/\1/p'"
+passwordeval "pass show Mail/{{ .email }} | sed -n 's/^apppass: \(.*\)/\1/p'"
