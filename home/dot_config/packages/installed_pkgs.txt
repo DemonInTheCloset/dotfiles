@@ -29,7 +29,6 @@ checkbashisms
 chezmoi
 chromium
 clang
-cmake
 cronie-dinit
 dash
 dbus-dinit
@@ -179,6 +178,7 @@ python-black
 python-colorama
 python-distro
 python-pyudev
+python-setuptools-scm
 python-tldextract
 python-tomli
 python-tzlocal
@@ -188,7 +188,6 @@ qutebrowser
 ranger
 rclone
 reflector
-rhash
 ripgrep
 riscv64-linux-gnu-gcc
 rofi
