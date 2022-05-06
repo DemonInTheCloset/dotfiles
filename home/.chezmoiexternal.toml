@@ -1,3 +1,11 @@
+[".local/scripts"]
+type = "archive"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-05-06/scripts.tar.xz"
+exact = true
+[".local/share/scripts"]
+type = "archive"
+url = "https://github.com/DemonInTheCloset/scripts/releases/download/v2022-05-06/data.tar.xz"
+exact = true
 [".config/neomutt/powerline"]
 type = "git-repo"
 url = "https://github.com/sheoak/neomutt-powerline-nerdfonts.git"
