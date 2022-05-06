@@ -1,0 +1,21 @@
+# Where to read mail from
+set mailcap_path = ~/.config/neomutt/mailcap
+
+source ~/.config/neomutt/settings
+source ~/.config/neomutt/powerline/colors/gruvbox-powerline.neomuttrc
+source ~/.config/neomutt/powerline/powerline.neomuttrc
+source ~/.config/neomutt/mappings
+
+# Accounts
+bind index,pager i noop
+source ~/.config/neomutt/accounts/public
+folder-hook $folder 'source ~/.config/neomutt/accounts/public'
+macro index,pager i3 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/public<enter><change-folder>!<enter>;<check-stats>' "switch to public account"
+
+source ~/.config/neomutt/accounts/university
+folder-hook $folder 'source ~/.config/neomutt/accounts/university'
+macro index,pager i2 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/university<enter><change-folder>!<enter>;<check-stats>' "switch to university account"
+
+source ~/.config/neomutt/accounts/personal
+folder-hook $folder 'source ~/.config/neomutt/accounts/personal'
+macro index,pager i1 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal<enter><change-folder>!<enter>;<check-stats>' "switch to personal account"

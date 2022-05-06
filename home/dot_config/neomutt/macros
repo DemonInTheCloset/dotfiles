@@ -1,0 +1,4 @@
+# vim: ft=neomuttrc
+
+# View options
+macro pager \ck <pipe-entry>'urlview'<enter> 'Follow links with urlview'

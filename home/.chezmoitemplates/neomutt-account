@@ -1,0 +1,29 @@
+# vim:ft=neomuttrc
+# Identity
+set realname = "{{ .name }}"
+set from = "{{ .email }}"
+alias me {{ .name }} <{{ .email }}>
+
+# Mailbox
+set mbox_type = Maildir
+set folder = "~/.local/share/mail/{{ .email }}/"
+set trash = +Trash
+set record = +Sent
+set spoolfile = +Inbox
+set postponed = +Drafts
+
+# Cache
+set header_cache = "~/.cache/neomutt/{{ .email }}/headers"
+set message_cachedir = "~/.cache/neomutt/{{ .email }}/bodies"
+
+# Sendmail
+set sendmail = "msmtp -a {{ .email }}"
+
+# Remove Conflicts
+unmailboxes *
+unalternates *
+unset signature
+unmacro index o
+
+# Set Mailboxes
+mailboxes !

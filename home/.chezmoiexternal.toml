@@ -1,0 +1,4 @@
+[".config/neomutt/powerline"]
+type = "git-repo"
+url = "https://github.com/sheoak/neomutt-powerline-nerdfonts.git"
+refreshPeriod = "168h"
