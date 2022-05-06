@@ -45,7 +45,6 @@ alias nview="nvim -R"
 alias nvimconfig="$VISUAL $CONFIG"/nvim/init.lua
 
 # neomutt aliases
-alias nm='neomutt'
 alias nmsync='neomutt && mbsync -c '"$XDG_CONFIG_HOME"'/isync/mbsyncrc -a'
 
 # newsboat aliases
