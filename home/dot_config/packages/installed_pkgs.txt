@@ -178,7 +178,6 @@ python-black
 python-colorama
 python-distro
 python-pyudev
-python-setuptools-scm
 python-tldextract
 python-tomli
 python-tzlocal
