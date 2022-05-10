@@ -35,11 +35,11 @@ super {+ shift,_} + Return
 super + n
     nvim-qt "$HOME"
 
-super + F1
-    qbpm choose
+super {_,+ shift} + F1
+    qbpm choose --target {auto,private-window}
 
 super {_,+ shift} + F2
-    qutebrowser --target {auto,private-window}
+    qbpm launch default --target {auto,private-window}
 
 super + F3
     ranger
