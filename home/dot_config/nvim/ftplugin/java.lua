@@ -3,12 +3,48 @@ if not ok then
 	return
 end
 
+local function scandir(dir)
+	local pfile = io.popen('ls -a "' .. dir .. '"', "r")
+
+	if not pfile then
+		return {}
+	end
+
+	local i = 0
+	local t = {}
+	for filename in pfile:lines() do
+		i = i + 1
+		t[i] = filename
+	end
+
+	return t
+end
+
+local function find_equinox_launcher(install)
+	local launcher = "org.eclipse.equinox.launcher_"
+	local plugins = install .. "/jdtls/plugins/"
+	for _, filename in ipairs(scandir(plugins)) do
+		if filename:sub(1, #launcher) == launcher then
+			return plugins .. filename
+		end
+	end
+end
+
 -- TODO: Use .git / mvnw / gradlew to find the project name
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = vim.env.XDG_DATA_HOME .. "/nvim-jdtls/" .. project_name
--- TODO: Error out outside Linux
--- TODO: copy system files if this path doesn't exist
+-- FIXME: Error out outside Linux
+-- Copy gloal config if local down't exist
+-- local global_config = jdtls_install .. "/jdtls/config_linux/config.ini"
+local jdtls_install = "/usr/share/java"
 local config_dir = vim.env.XDG_DATA_HOME .. "/jdtls/config"
+-- TODO: programatically find this file
+local jdtls_jar = find_equinox_launcher(jdtls_install)
+
+if not jdtls_jar then
+	print("[ERROR] Couldn't find equinox launcher in " .. jdtls_install)
+	return
+end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -28,9 +64,8 @@ local config = {
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
 
-		-- TODO: programatically find this file
 		"-jar",
-		"/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+		jdtls_jar,
 
 		"-configuration",
 		config_dir,
