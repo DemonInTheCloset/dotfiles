@@ -11,8 +11,9 @@ i3exit
 itch-bin
 jdtls
 kotlin-language-server
-lib32-mangohud
-mangohud
+lib32-mangohud-x11
+mangohud-common-x11
+mangohud-x11
 mpv-thumbnail-script
 multimc-bin
 nerd-fonts-dejavu-complete
