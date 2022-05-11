@@ -1,7 +1,6 @@
-local ok, jdtls = pcall(require, "jdtls")
-if not ok then
-	return
-end
+local prequire = require("user.util").prequire
+
+local jdtls = prequire "jdtls"
 
 local function scandir(dir)
 	local pfile = io.popen('ls -a "' .. dir .. '"', "r")
@@ -73,10 +72,13 @@ local config = {
 		workspace_dir,
 	},
 
+	-- Run my on attach function
+	on_attach = prequire("user.lspconfig").on_attach,
+
 	-- TODO: Maybe change
 	-- This is the default if not provided, you can remove it. Or adjust as needed.
 	-- One dedicated LSP server & client will be started per unique root_dir
-	root_dir = require("jdtls.setup").find_root { ".git", "mvnw", "gradlew" },
+	root_dir = prequire("jdtls.setup").find_root { ".git", "mvnw", "gradlew" },
 
 	-- Here you can configure eclipse.jdt.ls specific settings
 	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request

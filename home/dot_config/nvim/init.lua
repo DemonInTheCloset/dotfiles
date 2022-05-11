@@ -4,15 +4,8 @@ vim.g.do_filetype_lua = 1 -- Use filetype.lua
 vim.cmd "filetype plugin on"
 vim.g.mapleader = " "
 
--- Continue reading configuration even if it contains an error
-local function prequire(...)
-	local ok, ret = pcall(require, ...)
-	if not ok then
-		print('Error: require("' .. ... .. '") failed')
-		return {}
-	end
-	return ret
-end
+local user_util = require "user.util"
+local prequire = user_util.prequire
 
 prequire "user/plugins"
 
@@ -127,25 +120,6 @@ vim.keymap.set({ "x", "n" }, "ga", "<Plug>(EasyAlign)", { noremap = false })
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:p:h<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>git", "<cmd>Neogit<CR>", { noremap = true })
 
--- LSP
-local function lsp_set_keymaps(bufnr)
-	-- LSP actions
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, buffer = bufnr })
-	vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, buffer = bufnr })
-	vim.keymap.set("n", "<leader>fa", vim.lsp.buf.code_action, { noremap = true, buffer = bufnr })
-	vim.keymap.set(
-		"v",
-		"<leader>fa",
-		vim.lsp.buf.range_code_action,
-		{ noremap = true, buffer = bufnr }
-	)
-
-	-- LSP goto ...
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, buffer = bufnr })
-	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { noremap = true, buffer = bufnr })
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, buffer = bufnr })
-end
-
 -- [[ nvim-cmp config ]] --
 local cmp = prequire "cmp"
 
@@ -201,66 +175,8 @@ cmp.setup.cmdline(":", {
 	}),
 })
 
--- [[ LSP config ]] --
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-local function on_attach(_, bufnr)
-	-- Omnifunc
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	-- Keymaps
-	lsp_set_keymaps(bufnr)
-end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local cmp_lsp = prequire "cmp_nvim_lsp"
-capabilities = cmp_lsp.update_capabilities(capabilities)
-
-local lspconfig = prequire "lspconfig"
-
-lspconfig["clangd"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-lspconfig["hls"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-lspconfig["jsonls"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-lspconfig["pyright"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-lspconfig["sumneko_lua"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-				path = runtime_path,
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-}
-lspconfig["vimls"].setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
+-- [[ LSP configuration ]] --
+local user_lspconfig = prequire "user.lspconfig"
 
 -- [[ plugins ]] --
 local colorizer = prequire "colorizer"
@@ -271,8 +187,8 @@ local rust_tools = prequire "rust-tools"
 rust_tools.setup {
 	-- Send these options to NeoVim
 	server = {
-		on_attach = on_attach,
-		capabilities = capabilities,
+		on_attach = user_lspconfig.on_attach,
+		capabilities = user_lspconfig.capabilities,
 	},
 }
 
