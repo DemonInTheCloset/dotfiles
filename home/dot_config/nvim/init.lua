@@ -312,7 +312,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 vim.api.nvim_create_autocmd("FileType", {
 	group = file_type_override,
-	pattern = { "porth", "haskell", "markdown" },
+	pattern = { "porth", "haskell", "markdown", "java" },
 	-- Set indent width to 2 spaces
 	callback = function()
 		vim.bo.tabstop = 2
