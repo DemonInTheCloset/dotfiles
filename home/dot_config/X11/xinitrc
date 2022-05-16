@@ -33,26 +33,14 @@ fi
 xset -dpms &
 xset s off &
 
-# Core System Functionality
-# dunst &    # Notification daemon
 numlockx & # Enable numlock
-# picom -b & # Compositor
-# sxhkd &                                                          # Hotkey Daemon
-# xwallpaper --zoom /usr/share/backgrounds/archlinux/awesome.png & # Wallpaper
-# /usr/bin/pipewire &                                              # Audio Server
-# /usr/bin/pipewire-pulse &                                        # Pulse Server
-# /usr/bin/wireplumber &                                           # Pipewire Media Manager
 
 # Program Autostart
 signal-desktop --start-in-tray &
-# KeePassXC.desktop
-# com.nextcloud.desktopclient.nextcloud.desktop
+"$HOME"/.local/bin/autostart.sh &
 
 # Service Manager
-export PINENTRY_USER_DATA='gtk'
 dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
-# Graphical Services
-dinitctl start graphical &
 
 # Start Window Manager
 exec i3
