@@ -19,6 +19,13 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
 
     export PINENTRY_USER_DATA='gtk'
 
+    # Select Window Manager
+    if [ "$XDG_VTNR" -eq 2 ]; then
+        export WINDOW_MANAGER='awesome'
+    else
+        export WINDOW_MANAGER='i3'
+    fi
+
     # Start X server
     xinit -- :"$XDG_VTNR"
     logout

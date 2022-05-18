@@ -36,11 +36,10 @@ xset s off &
 numlockx & # Enable numlock
 
 # Program Autostart
-signal-desktop --start-in-tray &
 "$HOME"/.local/bin/autostart.sh &
 
 # Service Manager
 dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
 
 # Start Window Manager
-exec i3
+exec "$WINDOW_MANAGER"

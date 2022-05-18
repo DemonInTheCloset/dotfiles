@@ -2,6 +2,9 @@
 
 logdir="$XDG_DATA_HOME"/dinit
 
+# Signal
+signal-desktop --start-in-tray >>"$logdir"/signal.log &
+
 # activitywatch
 /usr/bin/aw-watcher-afk >>"$logdir"/aw-watcher-afk.log &
 /usr/bin/aw-watcher-window >>"$logdir"/aw-watcher-window.log &
