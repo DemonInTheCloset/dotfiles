@@ -1,11 +1,12 @@
----------------------------
--- Default awesome theme --
----------------------------
+--------------------------------------
+-- My override of the Default Theme --
+--------------------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+local gears = require("gears")
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
@@ -13,22 +14,46 @@ local theme = {}
 
 theme.font = "sans 8"
 
-theme.bg_normal = "#282828"
-theme.bg_focus = "#3c3836"
-theme.bg_urgent = "#fb4934"
-theme.bg_minimize = "#504945"
+------ COLORS --------------
+theme.colors = {
+	white = "#ebddb2",
+	grey = "#928374",
+	darkGrey = "#3c3836",
+	black = "#282828",
+
+	red = "#cc241d",
+	green = "#98971a",
+	yellow = "#d79921",
+	blue = "#458588",
+	purple = "#b16286",
+	aqua = "#689d6a",
+	orange = "#d65d0e",
+
+	lightRed = "#fb4934",
+	lightGreen = "#b8bb26",
+	lightYellow = "#fabd2f",
+	lightBlue = "#83a598",
+	lightPurple = "#d3869b",
+	lightAqua = "#83c07c",
+	lightOrange = "#fe8019",
+}
+
+theme.bg_normal = theme.colors.black
+theme.bg_focus = theme.colors.darkGrey
+theme.bg_urgent = theme.colors.lightRed
+theme.bg_minimize = theme.colors.grey
 theme.bg_systray = theme.bg_normal
 
-theme.fg_normal = "#ebdbb2"
+theme.fg_normal = theme.colors.white
 theme.fg_focus = "#fbf1c7"
 theme.fg_urgent = "#fbf1c7"
 theme.fg_minimize = "#fbf1c7"
 
 theme.useless_gap = dpi(0)
 theme.border_width = dpi(1)
-theme.border_normal = "#282828"
-theme.border_focus = "#fabd2f"
-theme.border_marked = "#fe8019"
+theme.border_normal = theme.colors.black
+theme.border_focus = theme.colors.lightYellow
+theme.border_marked = theme.colors.lightOrange
 
 -- There are other variable sets
 -- overriding the default one when
@@ -49,10 +74,24 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
--- notification_[width|height|margin]
--- notification_[border_color|border_width|shape|opacity]
+theme.notification_padding = dpi(8)
+theme.notification_timeout = 5
+theme.notification_max_width = dpi(400)
+theme.notification_position = "top_right"
+theme.notification_action_shape_normal = gears.shape.rounded_rect
+theme.notification_action_bg_normal = theme.colors.black
+theme.notification_icon_size = dpi(96)
+theme.notification_icon_size_normal = dpi(96)
+theme.notification_icon_size_selected = dpi(96)
+theme.notification_font = theme.font
+theme.notification_bg = theme.colors.darkGrey
+theme.notification_fg = theme.colors.white
+theme.notification_border_width = 0
+theme.notification_border_color = theme.colors.darkGrey .. "99"
+theme.notification_opacity = 1.00
+theme.notification_margin = dpi(8)
+-- theme.notification_width = dpi(400)
+theme.notification_spacing = dpi(8)
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -118,7 +157,7 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "Papirus-Dark"
 
 return theme
 
