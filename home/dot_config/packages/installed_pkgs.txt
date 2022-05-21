@@ -10,6 +10,7 @@ aspell
 atril
 autoconf
 automake
+awesome
 base
 bat
 bc
@@ -29,7 +30,6 @@ checkbashisms
 chezmoi
 chromium
 clang
-cmake
 cronie-dinit
 dash
 dbus-dinit
@@ -179,7 +179,6 @@ python-black
 python-colorama
 python-distro
 python-pyudev
-python-setuptools-scm
 python-tldextract
 python-tomli
 python-tzlocal
@@ -189,7 +188,6 @@ qutebrowser
 ranger
 rclone
 reflector
-rhash
 ripgrep
 riscv64-linux-gnu-gcc
 rofi
@@ -197,7 +195,6 @@ rsync
 rtmpdump
 rust-analyzer
 rustup
-scdoc
 scrot
 sed
 shellcheck
@@ -250,6 +247,7 @@ wireshark-qt
 xclip
 xcursor-simpleandsoft
 xdotool
+xf86-input-wacom
 xf86-video-vesa
 xfce4-settings
 xfconf

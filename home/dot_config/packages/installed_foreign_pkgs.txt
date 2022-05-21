@@ -8,6 +8,7 @@ grub-hook
 gruvbox-dark-gtk
 haskell-language-server-static
 i3exit
+icoextract
 itch-bin
 jdtls
 kotlin-language-server
