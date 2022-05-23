@@ -254,6 +254,9 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
+			wibox.widget.textbox("  |  "),
+			awful.widget.watch("sh -c \"acpi | sed 's/^.*: \\(\\S\\+\\), \\(\\S\\+%\\).*/\\1: \\2/'\"", 30),
+			wibox.widget.textbox("  |  "),
 			mykeyboardlayout,
 			wibox.widget.systray(),
 			s.mylayoutbox,
