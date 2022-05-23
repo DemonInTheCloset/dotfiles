@@ -65,6 +65,7 @@ gettext
 ghc
 gimp
 git
+gnome-todo
 goimapnotify
 gradle
 grep
@@ -90,7 +91,9 @@ keepassxc
 kitty
 kotlin
 lib32-fontconfig
+lib32-libpulse
 lib32-pipewire
+lib32-vkd3d
 libappindicator-gtk3
 libreoffice-fresh
 libtool
@@ -195,6 +198,8 @@ rsync
 rtmpdump
 rust-analyzer
 rustup
+samba
+samba-dinit
 scrot
 sed
 shellcheck
@@ -227,6 +232,7 @@ tk
 tlp
 tlp-dinit
 tmux
+todoman
 traceroute
 tree
 ttc-iosevka
@@ -237,12 +243,15 @@ unzip
 valgrind
 vi
 vim
+vkd3d
 vscode-json-languageserver
 wget
 which
 whois
 wine
+wine-gecko
 wine-mono
+winetricks
 wireshark-qt
 xclip
 xcursor-simpleandsoft
