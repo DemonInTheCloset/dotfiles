@@ -76,7 +76,12 @@ return packer.startup {
 		use "chunkhang/vim-mbsync"
 		use "https://gitlab.com/DemonInTheCloset/porth-vim.git"
 
-		use "iamcco/markdown-preview.nvim"
+		use {
+			"iamcco/markdown-preview.nvim",
+			run = function()
+				vim.fn["mkdp#util#install"]()
+			end,
+		}
 
 		-- Fuzzy find
 		use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
