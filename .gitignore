@@ -1,0 +1,3 @@
+# ignore generated files
+home/dot_config/neomutt/accounts/
+!home/dot_config/neomutt/accounts/.keep

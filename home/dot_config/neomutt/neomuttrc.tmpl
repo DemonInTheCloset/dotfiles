@@ -1,0 +1,16 @@
+# Where to read mail from
+set mailcap_path = ~/.config/neomutt/mailcap
+
+source ~/.config/neomutt/settings
+source ~/.config/neomutt/powerline/colors/gruvbox-powerline.neomuttrc
+source ~/.config/neomutt/powerline/powerline.neomuttrc
+source ~/.config/neomutt/mappings
+
+# Accounts
+bind index,pager i noop
+{{- $n := len .identities }}
+{{ range $ix,$id := reverse .identities }}
+source ~/.config/neomutt/accounts/{{ $id }}
+folder-hook $folder 'source ~/.config/neomutt/accounts/{{ $id }}'
+macro index,pager i{{ sub $n $ix }} '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/{{ $id }}<enter><change-folder>!<enter>;<check-stats>' "switch to {{ $id }} account"
+{{ end -}}

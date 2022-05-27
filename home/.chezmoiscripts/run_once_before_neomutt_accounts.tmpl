@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -xe
+
+{{- $data := . }}
+{{ $srcDir := .chezmoi.sourceDir }}
+{{ range $id := .identities }}
+    {{- $dict := dig "id" $id (dict) $data -}}
+    {{- $fpath := list $id ".tmpl" | join "" | joinPath $srcDir "dot_config" "neomutt" "accounts" -}}
+    {{- $text := list "{{- template \"neomutt-account\" .id." $id " -}}" | join "" -}}
+echo {{ $text | squote }} > {{ $fpath | squote }}
+{{ end -}}
