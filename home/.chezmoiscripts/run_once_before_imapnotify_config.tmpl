@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -xe
+
+{{- $data := . }}
+{{ $srcDir := .chezmoi.sourceDir }}
+{{ range $id := .identities }}
+    {{- $dict := dig "id" $id (dict) $data -}}
+    {{- $fpath := list $id "conf" "tmpl" | join "." | joinPath $srcDir "dot_config" "imapnotify" -}}
+    {{- $text := list "{{- template \"imapnotify\" .id." $id " -}}" | join "" -}}
+echo {{ $text | squote }} > {{ $fpath | squote }}
+{{ end -}}
