@@ -1,6 +1,6 @@
 {{- $ids := list -}}
 {{- if not (hasKey . "identities") -}}
-    {{- $num_ids := promptInt "How many identities do you want to add?" 1 -}}
+    {{- $num_ids := promptInt "How many identities do you want to add?" 1 | int -}}
     {{- range $ix := until $num_ids -}}
         {{- $ids = promptString "Identity Name" "personal" | trim | lower | append $ids -}}
     {{- else -}}
@@ -8,6 +8,18 @@
     {{- end -}}
 {{- else -}}
     {{- $ids = .identities -}}
+{{- end -}}
+
+{{- $gitids := list -}}
+{{- if not (hasKey . "gitids") -}}
+    {{- $num_ids := promptInt "How many git identities do you want to add?" 1 | int -}}
+    {{- range $ix := until $num_ids -}}
+        {{- $gitids = promptString "Identity Name" "public" | trim | lower | append $gitids -}}
+    {{- else -}}
+        {{- fail "No identities setup" -}}
+    {{- end -}}
+{{- else -}}
+    {{- $gitids = .gitids -}}
 {{- end -}}
 
 {{- define "setOrDefault" -}}
@@ -41,7 +53,7 @@
         {{- $prompt := list .name .key | join " " | title -}}
         {{- $value := "" -}}
         {{- if hasKey . "default" -}}
-            {{- $value = promptInt $prompt .default -}}
+            {{- $value = promptInt $prompt .default | int -}}
         {{- else -}}
             {{- $value = promptInt $prompt -}}
         {{- end -}}
@@ -70,6 +82,9 @@ data:
   # First identity is the default ("personal", "public", and "university" are treated specially)
   identities:
 {{ $ids | toYaml | indent 4 }}
+  # Identities to use with git
+  gitids:
+{{ $gitids | toYaml | indent 4 }}
   # SSH default public hosts (hosts to use with "public" identity)
   ssh_public_hosts:
 {{ template "setOrDefault" dict "dict" . "key" "ssh_public_hosts" "default" (list (dict "host" "github.com" "user" "git") (dict "host" "gitlab.com" "user" "git")) "indent" 4 }}
