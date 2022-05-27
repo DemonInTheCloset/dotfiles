@@ -4,3 +4,6 @@ home/dot_config/neomutt/accounts/
 
 home/dot_config/imapnotify/
 !home/dot_config/imapnotify/.keep
+
+home/dot_config/git/configuration/
+!home/dot_config/git/configuration/.keep

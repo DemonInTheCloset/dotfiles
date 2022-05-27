@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -xe
+
+{{- $data := . }}
+{{ $basepath := joinPath .chezmoi.sourceDir "dot_config" "git" "configuration" }}
+{{ range $id := .gitids }}
+    {{- $dict := dig "id" $id (dict) $data -}}
+    {{- $fpath := list $id "tmpl" | join "." | joinPath $basepath -}}
+    {{- $text := list "{{- template \"gituser\" (set .id." $id " \"id\" \"" $id "\") -}}" | join "" -}}
+echo {{ $text | squote }} > {{ $fpath | squote }}
+{{ end -}}
+

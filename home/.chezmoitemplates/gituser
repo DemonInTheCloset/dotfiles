@@ -1,0 +1,5 @@
+{{- $entry := list "dotfiles" "git" .id "key" | join "/" -}}
+[user]
+    name = {{ .name }}
+    email = {{ .email }}
+    signingkey = {{ pass $entry }}

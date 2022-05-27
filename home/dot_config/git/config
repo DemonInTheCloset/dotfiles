@@ -11,16 +11,16 @@
 	template = ~/.config/git/template/commit-message
 
 [includeIf "gitdir:~/.cache/paru/"]
-	path = ~/.config/git/configuration/git
+	path = ~/.config/git/configuration/public
 
 [includeIf "gitdir:~/.local/share/pass/"]
-	path = ~/.config/git/configuration/uni
+	path = ~/.config/git/configuration/personal
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
-	path = ~/.config/git/configuration/git
+	path = ~/.config/git/configuration/public
 
 [includeIf "gitdir:~/Programming/"]
-	path = ~/.config/git/configuration/git
+	path = ~/.config/git/configuration/public
 
 [includeIf "gitdir:~/University/"]
-	path = ~/.config/git/configuration/uni
+	path = ~/.config/git/configuration/university
