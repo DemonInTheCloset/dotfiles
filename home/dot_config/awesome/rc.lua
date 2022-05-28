@@ -411,7 +411,13 @@ local clientkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "m", function(c)
 		c.maximized_horizontal = not c.maximized_horizontal
 		c:raise()
-	end, { description = "(un)maximize horizontally", group = "client" })
+	end, { description = "(un)maximize horizontally", group = "client" }),
+	awful.key({ modkey, "Control", "Shift" }, "a", function()
+		if client.focus then
+			local tags = client.focus.screen.tags
+			client.focus:tags(tags)
+		end
+	end, { description = "move focused client to all tags", group = "tag" })
 )
 
 -- Bind all key numbers to tags.
