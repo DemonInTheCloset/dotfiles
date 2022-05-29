@@ -95,6 +95,7 @@ lib32-libpulse
 lib32-pipewire
 lib32-vkd3d
 libappindicator-gtk3
+libcurl-gnutls
 libreoffice-fresh
 libtool
 libvoikko
