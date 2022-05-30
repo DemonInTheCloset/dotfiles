@@ -55,13 +55,13 @@ end
 
 -- {{{ Notification Theming
 local icon_theme = "Papirus-Dark"
-local icon_path = "/usr/share/icons/" .. icon_theme .. "/32x32"
+local icon_path = "/usr/share/icons/" .. icon_theme .. "/32x32/"
 naughty.config.icon_formats = { "svg", "png" }
 naughty.config.icon_dirs = {
-	icon_path .. "apps",
-	icon_path .. "actions",
-	icon_path .. "devices",
-	icon_path .. "status",
+	icon_path .. "apps/",
+	icon_path .. "actions/",
+	icon_path .. "devices/",
+	icon_path .. "status/",
 }
 -- }}}
 

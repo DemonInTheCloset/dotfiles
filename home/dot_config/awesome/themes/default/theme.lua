@@ -78,7 +78,9 @@ theme.notification_padding = dpi(8)
 theme.notification_timeout = 5
 theme.notification_max_width = dpi(400)
 theme.notification_position = "top_right"
-theme.notification_action_shape_normal = gears.shape.rounded_rect
+theme.notification_shape = function(cr, width, height)
+	gears.shape.octogon(cr, width, height, dpi(10))
+end
 theme.notification_action_bg_normal = theme.colors.black
 theme.notification_icon_size = dpi(96)
 theme.notification_icon_size_normal = dpi(96)
