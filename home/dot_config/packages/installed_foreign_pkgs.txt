@@ -3,6 +3,7 @@ alias-tips-git
 bottles
 checkmake
 dashbinsh
+git-ignore
 google-java-format
 grub-hook
 gruvbox-dark-gtk
