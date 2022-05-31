@@ -65,6 +65,7 @@ gettext
 ghc
 gimp
 git
+github-cli
 gnome-todo
 goimapnotify
 gradle
