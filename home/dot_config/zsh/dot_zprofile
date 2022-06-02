@@ -29,7 +29,27 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 2 ]; then
     # Start X server
     xinit -- :"$XDG_VTNR"
     logout
-elif [ "${XDG_VTNR}" -gt 2 ]; then
+elif [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 7 ]; then
+    # Logging in using Ly
+
+    # Create Xauthority file
+    touch $XAUTHORITY
+
+    # Run dbus if it hasn't been launched
+    if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+        export DBUS_SESSION_BUS_ADDRESS="$(dbus-daemon --session --syslog-only --print-address --fork --address=unix:path=$XDG_RUNTIME_DIR/dbus)"
+    fi
+
+    export PINENTRY_USER_DATA='gtk'
+
+    # Select Window Manager
+    export WINDOW_MANAGER='awesome'
+
+    # Start X server
+    xinit -- :"$XDG_VTNR"
+    logout
+elif [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -gt 2 ]; then
     # Service Manager
     dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log>/dev/null&
+    alias logout='dinitctl shutdown && logout'
 fi

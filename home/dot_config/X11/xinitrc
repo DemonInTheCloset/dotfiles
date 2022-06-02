@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Set Default Values
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME"/.config}"
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-"$HOME"/.cache}"
+XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME"/.local/share}"
+
 userresources=$XDG_CONFIG_HOME/X11/xresources
 usermodmap=$XDG_CONFIG_HOME/X11/xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -42,4 +47,4 @@ numlockx & # Enable numlock
 dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
 
 # Start Window Manager
-exec "$WINDOW_MANAGER"
+exec "${WINDOW_MANAGER:=awesome}"
