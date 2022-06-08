@@ -12,30 +12,30 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "sans 8"
+theme.font = "DejaVuSansMono Nerd Font 8"
 
 ------ COLORS --------------
 theme.colors = {
-	white = "#ebddb2",
-	grey = "#928374",
-	darkGrey = "#3c3836",
-	black = "#282828",
+    white = "#ebddb2",
+    grey = "#928374",
+    darkGrey = "#3c3836",
+    black = "#282828",
 
-	red = "#cc241d",
-	green = "#98971a",
-	yellow = "#d79921",
-	blue = "#458588",
-	purple = "#b16286",
-	aqua = "#689d6a",
-	orange = "#d65d0e",
+    red = "#cc241d",
+    green = "#98971a",
+    yellow = "#d79921",
+    blue = "#458588",
+    purple = "#b16286",
+    aqua = "#689d6a",
+    orange = "#d65d0e",
 
-	lightRed = "#fb4934",
-	lightGreen = "#b8bb26",
-	lightYellow = "#fabd2f",
-	lightBlue = "#83a598",
-	lightPurple = "#d3869b",
-	lightAqua = "#83c07c",
-	lightOrange = "#fe8019",
+    lightRed = "#fb4934",
+    lightGreen = "#b8bb26",
+    lightYellow = "#fabd2f",
+    lightBlue = "#83a598",
+    lightPurple = "#d3869b",
+    lightAqua = "#83c07c",
+    lightOrange = "#fe8019",
 }
 
 theme.bg_normal = theme.colors.black
@@ -79,7 +79,7 @@ theme.notification_timeout = 5
 theme.notification_max_width = dpi(400)
 theme.notification_position = "top_right"
 theme.notification_shape = function(cr, width, height)
-	gears.shape.octogon(cr, width, height, dpi(10))
+    gears.shape.octogon(cr, width, height, dpi(10))
 end
 theme.notification_action_bg_normal = theme.colors.black
 theme.notification_icon_size = dpi(96)
