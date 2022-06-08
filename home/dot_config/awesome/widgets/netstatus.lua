@@ -20,13 +20,13 @@ return awful.widget.watch(
 		for ifname, info in pairs(interfaces) do
 			ifname = ifname:sub(1, 1)
 			if ifname == "w" and info["state"] == "DOWN" then
-				state = state .. " 睊"
+				state = state .. " 睊 "
 			elseif ifname == "w" and info["state"] == "UP" then
-				state = state .. " 直: " .. info["ip"]
+				state = state .. " 直  " .. info["ip"]
 			elseif ifname == "e" and info["state"] == "DOWN" then
-				state = state .. " "
+				state = state .. "  "
 			elseif ifname == "e" and info["state"] == "UP" then
-				state = state .. " : " .. info["ip"]
+				state = state .. "   " .. info["ip"]
 			end
 		end
 		widget:set_text(state)
