@@ -6,6 +6,7 @@ local textclock = require("widgets/textclock")
 local battery = require("widgets/battery")
 local netstatus = require("widgets/netstatus")
 local volume = require("widgets/volume")
+local brightness = require("widgets/brightness")
 local keyboardlayout = require("widgets/keyboardlayout")
 
 return function(s)
@@ -26,6 +27,8 @@ return function(s)
 			netstatus,
 			wibox.widget.textbox("  "),
 			volume,
+			wibox.widget.textbox("  "),
+			brightness,
 			wibox.widget.textbox("  "),
 			battery,
 			wibox.widget.textbox("  "),
