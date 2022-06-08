@@ -45,7 +45,8 @@ alias mbsynca="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
 alias ngit='nvim +:Neogit +:tabonly!'
 alias note='nvim +:setlocal\ buftype=nofile +:setlocal\ bufhidden=hide +:setlocal\ noswapfile'
 alias nview="nvim -R"
-alias nvimconfig="$VISUAL $CONFIG"/nvim/init.lua
+alias nvimconfig="$VISUAL $XDG_CONFIG_HOME"/nvim/init.lua
+alias nvimupdate="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
 # neomutt aliases
 alias nmsync='neomutt && mbsync -c '"$XDG_CONFIG_HOME"'/isync/mbsyncrc -a'
