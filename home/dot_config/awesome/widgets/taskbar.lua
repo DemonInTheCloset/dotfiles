@@ -5,6 +5,7 @@ local launcher = require("widgets/launcher")
 local textclock = require("widgets/textclock")
 local battery = require("widgets/battery")
 local netstatus = require("widgets/netstatus")
+local volume = require("widgets/volume")
 local keyboardlayout = require("widgets/keyboardlayout")
 
 return function(s)
@@ -23,6 +24,8 @@ return function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			netstatus,
+			wibox.widget.textbox("  "),
+			volume,
 			wibox.widget.textbox("  "),
 			battery,
 			wibox.widget.textbox("  "),
