@@ -3,27 +3,41 @@ local vicious = require("vicious")
 local gears = require("gears")
 local wibox = require("wibox")
 
-local batbox = wibox.widget({
-	{
-		max_value = 1,
-		widget = wibox.widget.progressbar,
-		shape = gears.shape.rounded_bar,
-		border_width = 0.5,
-		border_color = "#3c3836",
-		color = {
-			type = "linear",
-			from = { 0, 0 },
-			to = { 0, 30 },
-			stops = { { 0, "#b8bb26" }, { 0.5, "#83c07c" }, { 1, "#fb4934" } },
-		},
-	},
-	forced_height = 10,
-	forced_width = 8,
-	direction = "east",
-	color = beautiful.fg_widget,
-	layout = wibox.container.rotate,
-})
+local batbar = wibox.widget.progressbar()
+local battext = wibox.widget.textbox()
 
-vicious.register(batbox, vicious.widgets.bat, "$2", 61, "BAT0")
+local batbox = wibox.layout.margin(
+	wibox.widget({
+		{
+			max_value = 1,
+			widget = batbar,
+			shape = gears.shape.rounded_bar,
+			border_width = 0.5,
+			border_color = "#3c3836",
+			color = {
+				type = "linear",
+				from = { 0, 0 },
+				to = { 0, 30 },
+				stops = { { 0, "#b8bb26" }, { 0.5, "#83c07c" }, { 1, "#fb4934" } },
+			},
+		},
+		{
+			widget = battext,
+			align = "center",
+		},
+		forced_height = 8,
+		forced_width = 28,
+		direction = "east",
+		color = beautiful.fg_widget,
+		layout = wibox.layout.stack,
+	}),
+	1,
+	1,
+	2,
+	2
+)
+
+vicious.register(batbar, vicious.widgets.bat, "$2", 61, "BAT0")
+vicious.register(battext, vicious.widgets.bat, "$2%", 61, "BAT0")
 
 return batbox
