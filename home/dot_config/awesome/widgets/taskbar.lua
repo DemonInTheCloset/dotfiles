@@ -1,9 +1,11 @@
 local awful = require("awful")
 local wibox = require("wibox")
 
+-- Widgets
 local launcher = require("widgets/launcher")
 local textclock = require("widgets/textclock")
 local battery = require("widgets/battery")
+local cpu = require("widgets/cpu")
 local netstatus = require("widgets/netstatus")
 local volume = require("widgets/volume")
 local brightness = require("widgets/brightness")
@@ -31,6 +33,7 @@ return function(s)
 			brightness,
 			wibox.widget.textbox("  "),
 			battery,
+			cpu,
 			wibox.widget.textbox("  "),
 			textclock,
 			wibox.widget.textbox("  "),
