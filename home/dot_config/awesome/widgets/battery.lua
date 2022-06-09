@@ -18,7 +18,7 @@ local batbox = wibox.layout.margin(
 				type = "linear",
 				from = { 0, 0 },
 				to = { 0, 30 },
-				stops = { { 0, "#b8bb26" }, { 0.5, "#83c07c" }, { 1, "#fb4934" } },
+				stops = { { 0, "#98971a" }, { 0.5, "#689d6a" }, { 1, "#cc241d" } },
 			},
 		},
 		{
