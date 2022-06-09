@@ -92,11 +92,13 @@ keepassxc
 kitty
 kotlin
 lib32-fontconfig
+lib32-libpng12
 lib32-libpulse
 lib32-pipewire
 lib32-vkd3d
 libappindicator-gtk3
 libcurl-gnutls
+libpng12
 libreoffice-fresh
 libtool
 libvoikko
@@ -108,8 +110,10 @@ llvm
 lm_sensors-dinit
 lshw
 lua-language-server
+luarocks
 lutris
 lxappearance-gtk3
+ly
 lynx
 m4
 make
@@ -122,6 +126,7 @@ mpv
 msmtp
 musl
 mypy
+namcap
 nasm
 neofetch
 neomutt
@@ -244,9 +249,11 @@ udiskie
 unzip
 valgrind
 vi
+vicious
 vim
 vkd3d
 vscode-json-languageserver
+weechat
 wget
 which
 whois
