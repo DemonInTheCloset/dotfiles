@@ -122,9 +122,26 @@ treesitter.setup {
 }
 
 -- [[ snippets ]] --
-local luasnip = prequire "user/snippets"
+local luasnip = prequire "luasnip"
+luasnip.config.setup { update_events = "TextChanged,TextChangedI" }
+
+local luasnip_loader = prequire "luasnip.loaders.from_lua"
+luasnip_loader.load { paths = CONFIG_PATH .. "/snippets" }
 
 -- [[ nvim keymaps ]] --
+-- Completion Snippets
+vim.keymap.set({ "i", "s" }, "<C-n>", function()
+	if luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set({ "i", "s" }, "<C-p>", function()
+	if luasnip.jumpable(-1) then
+		luasnip.jump(-1)
+	end
+end, { noremap = true, silent = true })
+vim.keymap.set("i", "<C-u>", require "luasnip.extras.select_choice", { noremap = true })
+
 -- Vim Dispatch
 vim.keymap.set("n", "<leader>m<CR>", "<cmd>Make %<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>`<CR>", "<cmd>Dispatch %<CR>", { noremap = true })
@@ -162,27 +179,17 @@ vim.keymap.set("n", "<leader>git", "<cmd>Neogit<CR>", { noremap = true })
 -- [[ nvim-cmp config ]] --
 local cmp = prequire "cmp"
 
-local lspkind = prequire "lspkind"
-local lspk_format = lspkind.cmp_format { with_text = false, maxwidth = 50 }
-
--- local  luasnip = prequire("luasnip")
-local snippets = {
-	expand = function(args)
-		luasnip.lsp_expand(args.body)
-	end,
-}
-
 cmp.setup {
-	snippet = snippets,
-	mapping = {
-		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<C-y>"] = cmp.config.disable,
-		["<C-e>"] = cmp.mapping {
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		},
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert {
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm { select = true },
 	},
 	sources = cmp.config.sources({
@@ -194,7 +201,7 @@ cmp.setup {
 		{ name = "buffer" },
 	}),
 	formatting = {
-		format = lspk_format,
+		format = prequire("lspkind").cmp_format { with_text = false, maxwidth = 50 },
 	},
 }
 
