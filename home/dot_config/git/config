@@ -13,6 +13,9 @@
 [includeIf "gitdir:~/.cache/paru/"]
 	path = ~/.config/git/configuration/public
 
+[includeIf "gitdir:~/.config/"]
+	path = ~/.config/git/configuration/public
+
 [includeIf "gitdir:~/.local/share/pass/"]
 	path = ~/.config/git/configuration/personal
 
