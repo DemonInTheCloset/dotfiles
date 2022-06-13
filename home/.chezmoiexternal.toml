@@ -10,3 +10,7 @@ exact = true
 type = "git-repo"
 url = "https://github.com/sheoak/neomutt-powerline-nerdfonts.git"
 refreshPeriod = "168h"
+[".config/nvim"]
+type = "git-repo"
+url = "https://github.com/DemonInTheCloset/nvim-config.git"
+refreshPeriod = "168h"
