@@ -2,8 +2,10 @@ activitywatch-bin
 alias-tips-git
 bottles
 checkmake
+chromium-widevine
 dashbinsh
 git-ignore
+gomuks
 google-java-format
 grub-hook
 gruvbox-dark-gtk
@@ -27,7 +29,6 @@ python-reorder-python-imports
 qbpm-git
 rambox-pro-bin
 stack-static
-taplo-cli
 tmux-plugin-manager
 urlview-xdg-git
 vim-language-server
