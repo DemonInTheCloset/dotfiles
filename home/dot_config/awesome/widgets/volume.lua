@@ -6,7 +6,7 @@ return awful.widget.watch("pamixer --get-volume pamixer --get-mute", 10, functio
 
 	if mute == "true" or volume == "0" then
 		widget:set_text("婢 " .. volume .. "%")
-	else
+	elseif volume then
 		widget:set_text("墳 " .. volume .. "%")
 	end
 end)
