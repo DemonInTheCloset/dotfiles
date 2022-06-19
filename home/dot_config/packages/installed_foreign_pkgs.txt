@@ -14,6 +14,7 @@ i3exit
 itch-bin
 jdtls
 kotlin-language-server
+lain-git
 lib32-mangohud
 mangohud
 mangohud-common
