@@ -11,14 +11,12 @@ alias cdz="cd $ZDOTDIR"
 alias cdlb="cd $HOME"/.local/bin
 alias cdpass="cd $PASSWORD_STORE_DIR"
 
-alias cdpc="cd $PROGRAMMING"/C
-alias cdpcpp="cd $PROGRAMMING"/Cpp
-alias cdpd="cd $PROGRAMMING"/D
-alias cdphs="cd $PROGRAMMING"/Haskell
-alias cdppy="cd $PROGRAMMING"/Python
-alias cdprs="cd $PROGRAMMING"/Rust
-
 alias cdchezmoi="cd $XDG_DATA_HOME"/chezmoi
+
+# cd + fzy aliases
+alias fcdc="cd $CONFIG"/'"$(ls "$CONFIG" | fzy)"'
+alias fcdp="cd $PROGRAMMING"/'"$(ls "$PROGRAMMING" | fzy)"'
+alias fcdu="cd $UNIVERSITY"/'"$(ls "$UNIVERSITY" | fzy)"'
 
 # git aliases
 alias gmsg-hook='ln -sv '"$CONFIG"'/git/hooks/commit-msg.sample `git rev-parse --git-dir`/hooks/commit-msg'
