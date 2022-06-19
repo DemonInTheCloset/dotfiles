@@ -52,48 +52,24 @@ end
 -- }}}
 
 -- {{{ Notification Theming
-local icon_theme = "Papirus-Dark"
-local icon_path = "/usr/share/icons/" .. icon_theme .. "/32x32/"
-naughty.config.icon_formats = { "svg", "png" }
-naughty.config.icon_dirs = {
-	icon_path .. "apps/",
-	icon_path .. "actions/",
-	icon_path .. "devices/",
-	icon_path .. "status/",
-}
+naughty.config.icon_formats = config.icon_formats
+naughty.config.icon_dirs = config.icon_dirs
 -- }}}
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default/theme.lua")
-beautiful.wallpaper = "/usr/share/backgrounds/archlinux/awesome.png"
+beautiful.wallpaper = config.wallpaper
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-local modkey = "Mod4"
+local modkey = config.modkey
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = {
-	-- awful.layout.suit.floating,
-	awful.layout.suit.spiral,
-	awful.layout.suit.tile,
-	awful.layout.suit.tile.left,
-	awful.layout.suit.tile.bottom,
-	awful.layout.suit.tile.top,
-	-- awful.layout.suit.fair,
-	-- awful.layout.suit.fair.horizontal,
-	-- awful.layout.suit.spiral.dwindle,
-	-- awful.layout.suit.max,
-	-- awful.layout.suit.max.fullscreen,
-	-- awful.layout.suit.magnifier,
-	-- awful.layout.suit.corner.nw,
-	-- awful.layout.suit.corner.ne,
-	-- awful.layout.suit.corner.sw,
-	-- awful.layout.suit.corner.se,
-}
+awful.layout.layouts = config.layouts
 -- }}}
 
 -- {{{ Menu
