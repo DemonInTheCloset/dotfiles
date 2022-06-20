@@ -269,6 +269,7 @@ wireshark-qt
 xclip
 xcursor-simpleandsoft
 xdotool
+xf86-input-libinput
 xf86-input-wacom
 xf86-video-vesa
 xfce4-settings
@@ -280,6 +281,7 @@ xorg-fonts-100dpi
 xorg-fonts-75dpi
 xorg-iceauth
 xorg-mkfontscale
+xorg-server
 xorg-server-devel
 xorg-server-xephyr
 xorg-server-xnest
