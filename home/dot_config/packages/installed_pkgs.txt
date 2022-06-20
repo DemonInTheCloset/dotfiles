@@ -176,6 +176,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pkgconf
+polybar
 powerline
 prettier
 pulseaudio-alsa
