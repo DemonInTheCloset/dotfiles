@@ -161,18 +161,15 @@ awful.screen.connect_for_each_screen(function(s)
 		end)
 	))
 	-- Create a taglist widget
-	s.mytaglist = awful.widget.taglist({
-		screen = s,
-		filter = awful.widget.taglist.filter.all,
-		buttons = taglist_buttons,
-	})
+	s.mytaglist = require("widgets/taglist")(s, taglist_buttons)
 
 	-- Create a tasklist widget
-	s.mytasklist = awful.widget.tasklist({
-		screen = s,
-		filter = awful.widget.tasklist.filter.currenttags,
-		buttons = tasklist_buttons,
-	})
+	s.mytasklist = require("widgets/tasklist")(s, tasklist_buttons)
+	-- awful.widget.tasklist({
+	-- 	screen = s,
+	-- 	filter = awful.widget.tasklist.filter.currenttags,
+	-- 	buttons = tasklist_buttons,
+	-- })
 
 	-- Create the wibox
 	s.mywibox = require("widgets/taskbar")(s)
