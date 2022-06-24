@@ -1,5 +1,5 @@
-local lain = require("lain")
-local wibox = require("wibox")
+local lain = require 'lain'
+local wibox = require 'wibox'
 
 local lsep = lain.util.separators.arrow_left
 local rsep = lain.util.separators.arrow_right
@@ -17,17 +17,17 @@ return {
 
 		return output
 	end,
-	bat = lain.widget.bat({
+	bat = lain.widget.bat {
 		settings = function()
-			if bat_now.status == "N/A" then
+			if bat_now.status == 'N/A' then
 				return
 			end
-			widget:set_markup(bat_now.status .. ": " .. bat_now.perc .. "% ")
+			widget:set_markup(bat_now.status .. ': ' .. bat_now.perc .. '% ')
 		end,
-	}),
-	cpu = lain.widget.cpu({
+	},
+	cpu = lain.widget.cpu {
 		settings = function()
-			widget:set_markup("CPU: " .. cpu_now.usage .. "%")
+			widget:set_markup('CPU: ' .. cpu_now.usage .. '%')
 		end,
-	}),
+	},
 }

@@ -1,9 +1,9 @@
-local awful = require("awful")
-local wibox = require("wibox")
+local awful = require 'awful'
+local wibox = require 'wibox'
 -- local gears = require("gears")
 -- local naughty = require("naughty")
 
-local widgets_lain = require("widgets/lain")
+local widgets_lain = require 'widgets/lain'
 
 -- local function table_keys(table)
 -- 	local s = ""
@@ -14,7 +14,7 @@ local widgets_lain = require("widgets/lain")
 -- end
 
 return function(screen, buttons)
-	return awful.widget.tasklist({
+	return awful.widget.tasklist {
 		screen = screen,
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = buttons,
@@ -22,32 +22,32 @@ return function(screen, buttons)
 			{
 				{
 					{
-						widget = widgets_lain.rsep("#3c3836", "alpha"),
+						widget = widgets_lain.rsep('#3c3836', 'alpha'),
 					},
 					{
 						{
 							{
-								id = "icon_role",
+								id = 'icon_role',
 								widget = wibox.widget.imagebox,
 							},
 							margins = 2,
 							widget = wibox.container.margin,
 						},
 						{
-							id = "text_role",
+							id = 'text_role',
 							widget = wibox.widget.textbox,
 						},
 						layout = wibox.layout.fixed.horizontal,
 					},
 					{
-						widget = widgets_lain.rsep("alpha", "#3c3836"),
+						widget = widgets_lain.rsep('alpha', '#3c3836'),
 					},
 					layout = wibox.layout.align.horizontal,
 				},
 				widget = wibox.container.margin,
 			},
-			id = "background_role",
+			id = 'background_role',
 			widget = wibox.container.background,
 		},
-	})
+	}
 end

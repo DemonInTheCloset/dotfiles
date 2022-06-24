@@ -1,20 +1,20 @@
-local awful = require("awful")
-local wibox = require("wibox")
+local awful = require 'awful'
+local wibox = require 'wibox'
 
-local widgets_lain = require("widgets/lain")
+local widgets_lain = require 'widgets/lain'
 
 return function(s, taglist_buttons)
-	return awful.widget.taglist({
+	return awful.widget.taglist {
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		widget_template = {
 			{
 				{
-					widget = widgets_lain.rsep("#282828", "alpha"),
+					widget = widgets_lain.rsep('#282828', 'alpha'),
 				},
 				{
 					{
-						id = "text_role",
+						id = 'text_role',
 						widget = wibox.widget.textbox,
 					},
 					left = 1,
@@ -22,13 +22,13 @@ return function(s, taglist_buttons)
 					widget = wibox.container.margin,
 				},
 				{
-					widget = widgets_lain.rsep("alpha", "#282828"),
+					widget = widgets_lain.rsep('alpha', '#282828'),
 				},
 				layout = wibox.layout.align.horizontal,
 			},
-			id = "background_role",
+			id = 'background_role',
 			widget = wibox.container.background,
 		},
 		buttons = taglist_buttons,
-	})
+	}
 end
