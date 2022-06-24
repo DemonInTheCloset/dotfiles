@@ -4,6 +4,7 @@ bottles
 checkmake
 chromium-widevine
 dashbinsh
+electron11-bin
 git-ignore
 gomuks
 google-java-format
