@@ -22,7 +22,7 @@ return function(screen, buttons)
 			{
 				{
 					{
-						widget = widgets_lain.rsep('#3c3836', 'alpha'),
+						widget = widgets_lain.rsep('#282828', 'alpha'),
 					},
 					{
 						{
@@ -40,7 +40,7 @@ return function(screen, buttons)
 						layout = wibox.layout.fixed.horizontal,
 					},
 					{
-						widget = widgets_lain.rsep('alpha', '#3c3836'),
+						widget = widgets_lain.rsep('alpha', '#282828'),
 					},
 					layout = wibox.layout.align.horizontal,
 				},

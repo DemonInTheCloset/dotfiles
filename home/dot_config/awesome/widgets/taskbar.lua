@@ -19,6 +19,9 @@ local widgets_lain = require 'widgets/lain'
 local bat_widget = widgets_lain.bat.widget or widgets_battery
 local cpu_widget = widgets_lain.cpu.widget or widgets_cpu
 
+local bgcol = '#282828'
+local sepcol = '#3c3836'
+
 return function(s)
 	local taskbar = awful.wibar {
 		position = 'top',
@@ -36,20 +39,20 @@ return function(s)
 			widget_launcher,
 			widgets_lain.rsep('#3c3836', '#282828'),
 			s.mytaglist,
-			widgets_lain.rsep('#282828', '#3c3836'),
+			-- widgets_lain.rsep('#282828', '#3c3836'),
 			s.mypromptbox,
 		},
 		s.mytasklist, -- Middle widget
-		widgets_lain.arrows('#3c3836', '#282828', { -- Right Widgets
+		widgets_lain.rarrows(bgcol, sepcol, { -- Right Widgets
 			{ color = '#458588', widget = widget_netstatus },
 			{ color = '#689d6a', widget = widget_volume },
-			{ color = '#3c3836', widget = widget_brightness },
+			{ color = bgcol, widget = widget_brightness },
 			{ color = '#98971a', widget = bat_widget },
 			{ color = '#d65d0e', widget = cpu_widget },
 			{ color = '#d65d0e', widget = widget_textclock },
-			{ color = '#3c3836', widget = widget_keyboardlayout },
-			{ color = '#282828', widget = wibox.widget.systray() },
-			{ color = '#3c3836', widget = s.mylayoutbox },
+			{ color = bgcol, widget = widget_keyboardlayout },
+			{ color = bgcol, widget = wibox.widget.systray() },
+			{ color = bgcol, widget = s.mylayoutbox },
 		}, {
 			layout = wibox.layout.fixed.horizontal,
 		}),
