@@ -14,6 +14,9 @@ local theme = {}
 
 theme.font = 'DejaVuSansMono Nerd Font 8'
 
+--- Lain
+theme.separators_width = 5
+
 ------ COLORS --------------
 theme.colors = {
 	white = '#ebddb2',
