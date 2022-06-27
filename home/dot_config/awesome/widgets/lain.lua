@@ -30,7 +30,16 @@ return {
 			if bat_now.status == 'N/A' then
 				return
 			end
-			widget:set_markup(bat_now.status .. ': ' .. bat_now.perc .. '% ')
+			local status = ''
+			if bat_now.status == 'Discharging' then
+				status = ''
+			elseif bat_now.status == 'Charging' then
+				status = ''
+			elseif bat_now.status == 'Not Charging' or bat_now.status == 'Full' then
+				status = ''
+			end
+
+			widget:set_markup(status .. ': ' .. bat_now.perc .. '% ')
 		end,
 	},
 	cpu = lain.widget.cpu {
