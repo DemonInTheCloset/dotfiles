@@ -19,6 +19,7 @@ lain-git
 lib32-mangohud
 mangohud
 mangohud-common
+mprocs
 mpv-thumbnail-script
 multimc-bin
 nerd-fonts-dejavu-complete
