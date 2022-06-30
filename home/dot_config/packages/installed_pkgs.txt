@@ -67,6 +67,7 @@ ghc
 gimp
 git
 github-cli
+glow
 gnome-todo
 goimapnotify
 gradle
