@@ -35,6 +35,7 @@ stack-static
 tmux-plugin-manager
 urlview-xdg-git
 vim-language-server
+xdg-ninja
 youtube-music-bin
 zoom
 zsh-theme-powerlevel10k-git

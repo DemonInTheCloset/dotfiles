@@ -186,12 +186,12 @@ pv
 pwndbg
 py3status
 pypy3
-pyright
 python
 python-adblock
 python-black
 python-colorama
 python-distro
+python-lsp-server
 python-pyudev
 python-tldextract
 python-tomli
