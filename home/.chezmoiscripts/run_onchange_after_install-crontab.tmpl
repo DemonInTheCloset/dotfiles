@@ -11,6 +11,6 @@ set -e
 backup='{{ $srcpath }}.bak'
 
 crontab -T {{ $srcpath }}
-crontab -l | tee "$backup" | diff -y {{ $srcpath }} -
+crontab -l | tee "$backup" | diff -y {{ $srcpath }} - || echo 'WARN: Crontab changed'
 echo "Saving old crontab to ${backup}..."
 crontab <{{ $srcpath }}
