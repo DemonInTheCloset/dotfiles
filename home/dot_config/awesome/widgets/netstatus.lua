@@ -5,15 +5,23 @@ return awful.widget.watch(
 	10,
 	function(widget, stdout)
 		local interfaces = {}
+
 		for line in stdout:gmatch '%b[]' do
+			if not line:match '%b""' then
+				goto continue
+			end
+
 			local ifname = line:match('%b""'):gsub('"', '')
 			local state = line:match(',%b""'):gsub('[,"]', '')
 			local ip = (line:match ',%b"",%b""' or ''):gsub(',%b"",', ''):gsub('"', '')
+
 			if state == 'UP' then
 				interfaces[ifname] = { state = state, ip = ip }
 			elseif state == 'DOWN' then
 				interfaces[ifname] = { state = state, ip = '' }
 			end
+
+			::continue::
 		end
 
 		local state = ''
