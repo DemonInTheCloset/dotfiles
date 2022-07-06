@@ -34,13 +34,18 @@ cronie-dinit
 dash
 dbus-dinit
 dex
+dfmt
 dhcpcd
 dhcpcd-dinit
 dinit
 dinit-base
 dinit-rc
 discord
+dmd
 dmenu
+docker
+docker-compose
+docker-dinit
 dunst
 efibootmgr
 electron
@@ -230,6 +235,7 @@ taplo-cli
 tcc
 termdown
 texinfo
+texlab
 texlive-bibtexextra
 texlive-fontsextra
 texlive-formatsextra
