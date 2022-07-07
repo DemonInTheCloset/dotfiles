@@ -17,6 +17,7 @@ jdtls
 kotlin-language-server
 lain-git
 lib32-mangohud
+ly
 mangohud
 mangohud-common
 mprocs
@@ -26,6 +27,7 @@ nerd-fonts-dejavu-complete
 nginxbeautifier
 nsxiv
 openrgb
+pam-gnupg
 paru
 protonup-qt
 python-reorder-python-imports
