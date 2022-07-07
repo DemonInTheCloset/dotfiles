@@ -180,13 +180,13 @@ local globalkeys = gears.table.join(
 		group = 'launcher',
 	}),
 	awful.key({ modkey }, 'F2', function()
-		awful.spawn 'qbpm choose --target auto'
+		awful.spawn 'qbpm launch default --target auto'
 	end, { description = 'open a qutebrowser window (default profile)', group = 'launcher' }),
 	awful.key(
 		{ modkey, 'Shift' },
 		'F2',
 		function()
-			awful.spawn 'qbpm choose --target private-window'
+			awful.spawn 'qbpm launch default --target private-window'
 		end,
 		{ description = 'open a qutebrowser private window (default profile)', group = 'launcher' }
 	),
