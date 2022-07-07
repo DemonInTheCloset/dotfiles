@@ -5,6 +5,7 @@ local config = require 'config'
 local modkey = config.modkey
 local menubar = require 'menubar'
 
+-- Glocal Keybindings
 local globalkeys = gears.table.join(
 	awful.key(
 		{ modkey },
@@ -60,9 +61,6 @@ local globalkeys = gears.table.join(
 	end, { description = 'go back', group = 'client' }),
 
 	-- Standard program
-	awful.key({ modkey }, 'Return', function()
-		awful.spawn(config.terminal)
-	end, { description = 'open a terminal', group = 'launcher' }),
 	awful.key(
 		{ modkey, 'Control' },
 		'r',
@@ -122,10 +120,56 @@ local globalkeys = gears.table.join(
 			history_path = awful.util.get_cache_dir() .. '/history_eval',
 		}
 	end, { description = 'lua execute prompt', group = 'awesome' }),
-	-- Menubar
-	awful.key({ modkey }, 'p', function()
-		menubar.show()
-	end, { description = 'show the menubar', group = 'launcher' })
+
+	-- Originally SXHKD
+	awful.key({ modkey }, 'd', function()
+		awful.spawn 'rofi -modi drun,run -show drun'
+	end, { description = 'Run program (rofi)', group = 'launcher' }),
+	awful.key({ modkey }, 'F10', function()
+		awful.spawn 'select-sink'
+	end, { description = 'Select default audio sink', group = 'audio' }),
+	awful.key({ modkey, 'Shift' }, 'F10', function()
+		awful.spawn 'select-source'
+	end, { description = 'Select default audio source', group = 'audio' }),
+	-- SXHKD programs
+	awful.key({ modkey }, 'Return', function()
+		awful.spawn(config.terminal .. ' tmux new -As default')
+	end, { description = 'open a terminal with tmux', group = 'launcher' }),
+	awful.key({ modkey, 'Shift' }, 'Return', function()
+		awful.spawn(config.terminal)
+	end, { description = 'open a terminal', group = 'launcher' }),
+	awful.key({ modkey }, 'n', function()
+		awful.spawn.with_shell 'nvim-qt "$HOME"'
+	end, { description = 'open nvim-qt at $HOME', group = 'launcher' }),
+	awful.key({ modkey }, 'F1', function()
+		awful.spawn 'qbpm choose --target auto'
+	end, { description = 'open a qutebrowser window (choose profile) ', group = 'launcher' }),
+	awful.key({ modkey, 'Shift' }, 'F1', function()
+		awful.spawn 'qbpm choose --target private-window'
+	end, {
+		description = 'open a qutebrowser private window (choose profile)',
+		group = 'launcher',
+	}),
+	awful.key({ modkey }, 'F2', function()
+		awful.spawn 'qbpm choose --target auto'
+	end, { description = 'open a qutebrowser window (default profile)', group = 'launcher' }),
+	awful.key(
+		{ modkey, 'Shift' },
+		'F2',
+		function()
+			awful.spawn 'qbpm choose --target private-window'
+		end,
+		{ description = 'open a qutebrowser private window (default profile)', group = 'launcher' }
+	),
+	awful.key({ modkey, 'Shift' }, 'v', function()
+		awful.spawn.with_shell 'mpv --profile=1080p "$(xclip -o -selection clipboard)"'
+	end, { description = 'open mpv with the url in the clipboard', group = 'launcher' }),
+	awful.key({ modkey, 'Shift' }, 's', function()
+		awful.spawn "dmenu-prompt 'Shutdown?' 'sudo poweroff'"
+	end, { description = 'prompt for shutdown', group = 'exit' }),
+	awful.key({ modkey, 'Shift' }, 'p', function()
+		awful.spawn "dmenu-prompt 'Restart?' 'sudo reboot'"
+	end, { description = 'prompt for restart', group = 'exit' })
 )
 
 -- Bind all key numbers to tags.
@@ -171,66 +215,72 @@ for i = 1, 9 do
 	)
 end
 
+-- Client Keybindings
+local clientkeys = gears.table.join(
+	awful.key({ modkey }, 'f', function(c)
+		c.fullscreen = not c.fullscreen
+		c:raise()
+	end, { description = 'toggle fullscreen', group = 'client' }),
+	awful.key({ modkey, 'Shift' }, 'c', function(c)
+		c:kill()
+	end, { description = 'close', group = 'client' }),
+	awful.key(
+		{ modkey, 'Control' },
+		'space',
+		awful.client.floating.toggle,
+		{ description = 'toggle floating', group = 'client' }
+	),
+	awful.key({ modkey, 'Control' }, 'Return', function(c)
+		c:swap(awful.client.getmaster())
+	end, { description = 'move to master', group = 'client' }),
+	awful.key({ modkey }, 'o', function(c)
+		c:move_to_screen()
+	end, { description = 'move to screen', group = 'client' }),
+	awful.key({ modkey }, 't', function(c)
+		c.ontop = not c.ontop
+	end, { description = 'toggle keep on top', group = 'client' }),
+	awful.key({ modkey }, 'n', function(c)
+		-- The client currently has the input focus, so it cannot be
+		-- minimized, since minimized clients can't have the focus.
+		c.minimized = true
+	end, { description = 'minimize', group = 'client' }),
+	awful.key({ modkey }, 'm', function(c)
+		c.maximized = not c.maximized
+		c:raise()
+	end, { description = '(un)maximize', group = 'client' }),
+	awful.key({ modkey, 'Control' }, 'm', function(c)
+		c.maximized_vertical = not c.maximized_vertical
+		c:raise()
+	end, { description = '(un)maximize vertically', group = 'client' }),
+	awful.key({ modkey, 'Shift' }, 'm', function(c)
+		c.maximized_horizontal = not c.maximized_horizontal
+		c:raise()
+	end, { description = '(un)maximize horizontally', group = 'client' }),
+	awful.key({ modkey, 'Control', 'Shift' }, 'a', function()
+		if client.focus then
+			local tags = client.focus.screen.tags
+			client.focus:tags(tags)
+		end
+	end, { description = 'move focused client to all tags', group = 'tag' })
+)
+
+-- Mousebuttons on client
+local clientbuttons = gears.table.join(
+	awful.button({}, 1, function(c)
+		c:emit_signal('request::activate', 'mouse_click', { raise = true })
+	end),
+	awful.button({ modkey }, 1, function(c)
+		c:emit_signal('request::activate', 'mouse_click', { raise = true })
+		awful.mouse.client.move(c)
+	end),
+	awful.button({ modkey }, 3, function(c)
+		c:emit_signal('request::activate', 'mouse_click', { raise = true })
+		awful.mouse.client.resize(c)
+	end)
+)
+
 return {
 	globalkeys = globalkeys,
-	clientkeys = gears.table.join(
-		awful.key({ modkey }, 'f', function(c)
-			c.fullscreen = not c.fullscreen
-			c:raise()
-		end, { description = 'toggle fullscreen', group = 'client' }),
-		awful.key({ modkey, 'Shift' }, 'c', function(c)
-			c:kill()
-		end, { description = 'close', group = 'client' }),
-		awful.key(
-			{ modkey, 'Control' },
-			'space',
-			awful.client.floating.toggle,
-			{ description = 'toggle floating', group = 'client' }
-		),
-		awful.key({ modkey, 'Control' }, 'Return', function(c)
-			c:swap(awful.client.getmaster())
-		end, { description = 'move to master', group = 'client' }),
-		awful.key({ modkey }, 'o', function(c)
-			c:move_to_screen()
-		end, { description = 'move to screen', group = 'client' }),
-		awful.key({ modkey }, 't', function(c)
-			c.ontop = not c.ontop
-		end, { description = 'toggle keep on top', group = 'client' }),
-		awful.key({ modkey }, 'n', function(c)
-			-- The client currently has the input focus, so it cannot be
-			-- minimized, since minimized clients can't have the focus.
-			c.minimized = true
-		end, { description = 'minimize', group = 'client' }),
-		awful.key({ modkey }, 'm', function(c)
-			c.maximized = not c.maximized
-			c:raise()
-		end, { description = '(un)maximize', group = 'client' }),
-		awful.key({ modkey, 'Control' }, 'm', function(c)
-			c.maximized_vertical = not c.maximized_vertical
-			c:raise()
-		end, { description = '(un)maximize vertically', group = 'client' }),
-		awful.key({ modkey, 'Shift' }, 'm', function(c)
-			c.maximized_horizontal = not c.maximized_horizontal
-			c:raise()
-		end, { description = '(un)maximize horizontally', group = 'client' }),
-		awful.key({ modkey, 'Control', 'Shift' }, 'a', function()
-			if client.focus then
-				local tags = client.focus.screen.tags
-				client.focus:tags(tags)
-			end
-		end, { description = 'move focused client to all tags', group = 'tag' })
-	),
-	clientbuttons = gears.table.join(
-		awful.button({}, 1, function(c)
-			c:emit_signal('request::activate', 'mouse_click', { raise = true })
-		end),
-		awful.button({ modkey }, 1, function(c)
-			c:emit_signal('request::activate', 'mouse_click', { raise = true })
-			awful.mouse.client.move(c)
-		end),
-		awful.button({ modkey }, 3, function(c)
-			c:emit_signal('request::activate', 'mouse_click', { raise = true })
-			awful.mouse.client.resize(c)
-		end)
-	),
+	clientkeys = clientkeys,
+	clientbuttons = clientbuttons,
 }
