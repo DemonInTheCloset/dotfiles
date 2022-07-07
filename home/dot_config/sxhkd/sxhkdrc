@@ -30,7 +30,7 @@ super {_,+ shift} + F10
 
 # Launch Programs
 super {+ shift,_} + Return
-    kitty {zsh,tmux new -As dinit}
+    kitty {zsh,tmux new -As default}
 
 super + n
     nvim-qt "$HOME"
