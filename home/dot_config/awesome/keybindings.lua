@@ -122,15 +122,44 @@ local globalkeys = gears.table.join(
 	end, { description = 'lua execute prompt', group = 'awesome' }),
 
 	-- Originally SXHKD
-	awful.key({ modkey }, 'd', function()
-		awful.spawn 'rofi -modi drun,run -show drun'
-	end, { description = 'Run program (rofi)', group = 'launcher' }),
+	awful.key({}, 'XF86AudioRaiseVolume', function()
+		awful.spawn 'pamixer --increase 5'
+		-- TODO: Notify
+	end, { description = 'raise volume', group = 'audio' }),
+	awful.key({}, 'XF86AudioLowerVolume', function()
+		awful.spawn 'pamixer --decrease 5'
+		-- TODO: Notify
+	end, { description = 'lower volume', group = 'audio' }),
+	awful.key({}, 'XF86AudioMute', function()
+		awful.spawn 'pamixer --toggle-mute'
+		-- TODO: Notify
+	end, { description = 'mute volume', group = 'audio' }),
 	awful.key({ modkey }, 'F10', function()
 		awful.spawn 'select-sink'
 	end, { description = 'Select default audio sink', group = 'audio' }),
 	awful.key({ modkey, 'Shift' }, 'F10', function()
 		awful.spawn 'select-source'
 	end, { description = 'Select default audio source', group = 'audio' }),
+	awful.key({}, 'XF86MonBrightnessUp', function()
+		awful.spawn 'xbacklight -perceived -inc 5'
+		-- TODO: Notify
+	end, { description = 'increase monitor brightness', group = 'brightness' }),
+	awful.key({}, 'XF86MonBrightnessDown', function()
+		awful.spawn 'xbacklight -perceived -dec 5'
+		-- TODO: Notify
+	end, { description = 'decrease monitor brightness', group = 'brightness' }),
+	awful.key({}, 'Print', function()
+		awful.spawn 'flameshot full'
+	end, { description = 'take a screenshot', group = 'launcher' }),
+	awful.key({ 'Shift' }, 'Print', function()
+		awful.spawn 'flameshot gui'
+	end, { description = 'take a screenshot (select region)', group = 'launcher' }),
+	awful.key({ modkey }, 'd', function()
+		awful.spawn 'rofi -modi drun,run -show drun'
+	end, { description = 'Run program (rofi)', group = 'launcher' }),
+	awful.key({ modkey }, 'p', function()
+		awful.spawn 'passmenu'
+	end, { description = 'open a password selection', group = 'launcher' }),
 	-- SXHKD programs
 	awful.key({ modkey }, 'Return', function()
 		awful.spawn(config.terminal .. ' tmux new -As default')
