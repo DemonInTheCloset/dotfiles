@@ -66,6 +66,7 @@ gradle
 grep
 groff
 grub
+grub-theme-vimix
 gtk-engine-murrine
 gtk-engines
 gzip

@@ -27,7 +27,7 @@ nerd-fonts-dejavu-complete
 nginxbeautifier
 nsxiv
 openrgb
-pam-gnupg
+pam-gnupg-git
 paru
 protonup-qt
 python-reorder-python-imports
