@@ -13,4 +13,8 @@ refreshPeriod = "168h"
 [".config/nvim"]
 type = "git-repo"
 url = "https://github.com/DemonInTheCloset/nvim-config.git"
-refreshPeriod = "168h"
+refreshPeriod = "24h"
+[".config/awesome"]
+type = "git-repo"
+url = "https://github.com/DemonInTheCloset/awesome-config.git"
+refreshPeriod = "24h"
