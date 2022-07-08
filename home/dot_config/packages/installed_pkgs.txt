@@ -47,6 +47,7 @@ fd
 file
 findutils
 firefox
+flameshot
 flatpak
 flex
 fzf
@@ -247,6 +248,7 @@ vim
 vkd3d
 vscode-json-languageserver
 weechat
+wezterm
 wget
 which
 whois
