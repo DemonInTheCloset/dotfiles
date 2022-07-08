@@ -41,10 +41,7 @@ xset s off &
 numlockx & # Enable numlock
 
 # Program Autostart
-"$HOME"/.local/bin/autostart.sh &
-
-# Service Manager
-dinit --log-file "$XDG_DATA_HOME"/dinit/dinit.log &
+# "$HOME"/.local/bin/autostart.sh &
 
 # Start Window Manager
 exec "${WINDOW_MANAGER:=awesome}"
