@@ -7,7 +7,7 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	tab_bar_at_bottom = true,
 	-- -- Window
-	window_background_image = "/usr/share/backgrounds/archlinux/awesome.png",
+	window_background_image = "/usr/share/backgrounds/archlinux/wave.png",
 	-- -- Color Scheme
 	color_scheme = "Gruvbox Dark",
 	-- Font
