@@ -1,6 +1,7 @@
 activitywatch-bin
 alias-tips-git
 bottles
+cava
 checkmake
 chromium-widevine
 dashbinsh
