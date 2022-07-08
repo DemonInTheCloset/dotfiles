@@ -3,5 +3,5 @@
 {{ if .dev.updatepkglists  }}
 set -x
 # Packages Hash {{ include (joinPath .chezmoi.homeDir ".config/packages/pkglist.txt") | sha256sum }}
-sed '/ucode/d;/mesa/d;/amd/d;/intel/d;/radeon/d;/nvidia/d;/cuda/d' "{{ joinPath .chezmoi.homeDir ".config/packages/pkglist.txt" }}" > "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_pkgs.txt" }}"
+sed '/ucode/d;/mesa/d;/amd/d;/intel/d;/radeon/d;/nvidia/d;/cuda/d;/dinit/d;/systemd/d;' "{{ joinPath .chezmoi.homeDir ".config/packages/pkglist.txt" }}" > "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_pkgs.txt" }}"
 {{ end }}
