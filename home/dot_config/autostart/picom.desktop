@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Picom
+Comment=A standalone compositor for Xorg
+Exec=picom -b
+OnlyShowIn=Awesome;
+StartupNotify=false
+Type=Application
