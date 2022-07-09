@@ -1,0 +1,12 @@
+[Unit]
+Description=Mailbox synchronization service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync --all --verbose --config %E/isync/mbsyncrc
+ExecStartPost=/usr/bin/notmuch new
+Environment="PASSWORD_STORE_DIR=%h/.local/share/pass"
+Environment="NOTMUCH_CONFIG=%E/notmuch/notmuchrc"
+
+[Install]
+WantedBy=default.target
