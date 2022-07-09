@@ -7,6 +7,7 @@ chromium-widevine
 dashbinsh
 electron11-bin
 git-ignore
+glmark2-git
 gomuks
 google-java-format
 grub-hook
