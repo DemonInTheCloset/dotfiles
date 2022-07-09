@@ -11,6 +11,13 @@ return {
 	window_background_opacity = 0.8,
 	-- -- Color Scheme
 	color_scheme = "Gruvbox Dark",
+	-- -- BEL feedback
+	-- visual_bell = {
+	-- 	fade_in_duration_ms = 50,
+	-- 	fade_out_duration_ms = 50,
+	-- 	target = "BackgroundColor",
+	-- },
+	-- audible_bell = "Disabled",
 	-- Font
 	font = wezterm.font("Iosevka Term Extended", { weight = "Medium" }),
 	font_size = 11.0,
