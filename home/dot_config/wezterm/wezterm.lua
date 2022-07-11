@@ -26,5 +26,5 @@ return {
 		{ name = "unix" },
 	},
 	-- Default Arguments (connect to multiplexing session)
-	default_gui_startup_args = { "connect", "unix" },
+	-- default_gui_startup_args = { "connect", "unix" },
 }
