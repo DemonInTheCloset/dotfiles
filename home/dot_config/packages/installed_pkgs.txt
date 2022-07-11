@@ -136,6 +136,7 @@ ntfs-3g
 ntp
 numlockx
 nuspell
+nvme-cli
 obsidian
 offlineimap
 onefetch
@@ -229,7 +230,6 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
-thunderbird
 tk
 tlp
 tmux
