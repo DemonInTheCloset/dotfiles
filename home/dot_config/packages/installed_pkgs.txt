@@ -38,9 +38,11 @@ dmenu
 docker
 docker-compose
 dunst
+dust
 efibootmgr
 electron
 entr
+exa
 fakeroot
 fasm
 fd
@@ -59,6 +61,7 @@ gdb-dashboard
 gettext
 ghc
 gimp
+git-delta
 github-cli
 glow
 gnome-todo
@@ -75,6 +78,7 @@ hledger
 hlint
 hspell
 htop
+hyperfine
 i2c-tools
 i3-gaps
 i3blocks
@@ -202,12 +206,14 @@ rtmpdump
 rust-analyzer
 samba
 scrot
+sd
 sed
 shellcheck
 shellharden
 shfmt
 signal-desktop
 smartmontools
+starship
 steam
 strace
 stylua
@@ -216,6 +222,7 @@ sxhkd
 sysstat
 taplo-cli
 tcc
+tealdeer
 termdown
 texinfo
 texlab
@@ -234,6 +241,7 @@ tk
 tlp
 tmux
 todoman
+tokei
 traceroute
 tree
 ttc-iosevka
