@@ -24,7 +24,7 @@ typeset -U LS_COLORS
 eval $(dircolors)
 
 # Set prompt
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Remind me about aliases
 source /usr/share/zsh/plugins/alias-tips/alias-tips.plugin.zsh

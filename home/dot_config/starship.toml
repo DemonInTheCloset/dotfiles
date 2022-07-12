@@ -1,0 +1,25 @@
+# Left prompt
+format = "$time$directory$sudo$status$character"
+# Right prompt
+right_format = "$all"
+add_newline = false
+
+# Timeout after 80ms (Fast or Bust)
+command_timeout = 80
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+
+
+[status]
+format = "[$signal_name$common_meaning$maybe_int](red)"
+symbol = "[✗](bold red)"
+disabled = false
+
+[sudo]
+disabled = false
+
+[time]
+format = "[$time](bold yellow) "
+disabled = false
