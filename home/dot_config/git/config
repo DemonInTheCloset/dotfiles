@@ -41,3 +41,8 @@
 
 [includeIf "gitdir:~/University/"]
 	path = ~/.config/git/configuration/university
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
