@@ -4,6 +4,7 @@ cava
 checkmake
 chromium-widevine
 dashbinsh
+edex-ui-bin
 electron11-bin
 git-ignore
 glmark2-git
