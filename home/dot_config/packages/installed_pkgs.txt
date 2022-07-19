@@ -29,6 +29,7 @@ chromium
 clang
 cronie
 dash
+dbus-broker
 dex
 dfmt
 dhcpcd
