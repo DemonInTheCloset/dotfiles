@@ -32,7 +32,6 @@ dash
 dbus-broker
 dex
 dfmt
-dhcpcd
 discord
 dmd
 dmenu
@@ -133,6 +132,7 @@ neomutt
 neovim
 neovim-qt
 newsboat
+nix
 notmuch
 noto-fonts-cjk
 noto-fonts-emoji
@@ -147,6 +147,7 @@ obsidian
 offlineimap
 onefetch
 openbsd-netcat
+openresolv
 openvpn
 os-prober
 pacgraph
@@ -267,6 +268,7 @@ wine-gecko
 wine-mono
 winetricks
 wireshark-qt
+wqy-zenhei
 xclip
 xcursor-simpleandsoft
 xdotool
