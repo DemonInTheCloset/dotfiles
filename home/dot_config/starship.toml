@@ -1,5 +1,5 @@
 # Left prompt
-format = "$time$directory$sudo$status$character"
+format = "$time$directory$git_branch$git_status$sudo$status$character"
 # Right prompt
 right_format = "$all"
 add_newline = false
