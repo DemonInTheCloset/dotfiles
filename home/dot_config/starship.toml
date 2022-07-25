@@ -4,8 +4,8 @@ format = "$time$directory$sudo$status$character"
 right_format = "$all"
 add_newline = false
 
-# Timeout after 80ms (Fast or Bust)
-command_timeout = 80
+# Timeout after 200ms (Fast or Bust)
+command_timeout = 200
 
 [cmd_duration]
 min_time = 500
