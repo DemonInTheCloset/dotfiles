@@ -129,8 +129,8 @@ namcap
 nasm
 neofetch
 neomutt
+neovide
 neovim
-neovim-qt
 newsboat
 nix
 notmuch
