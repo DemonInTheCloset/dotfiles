@@ -5,7 +5,7 @@ right_format = "$all"
 add_newline = false
 
 # Timeout after 200ms (Fast or Bust)
-command_timeout = 200
+# command_timeout = 200
 
 [cmd_duration]
 min_time = 500
