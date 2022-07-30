@@ -216,6 +216,7 @@ shellharden
 shfmt
 signal-desktop
 smartmontools
+spotifyd
 starship
 steam
 strace
