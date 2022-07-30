@@ -36,6 +36,7 @@ python-reorder-python-imports
 qbpm-git
 rambox-pro-bin
 serve-d
+spotify
 stack-static
 tmux-plugin-manager
 urlview-xdg-git
