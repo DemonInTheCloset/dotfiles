@@ -20,6 +20,7 @@ kotlin-language-server
 lain-git
 lib32-mangohud
 ly
+macchina
 mangohud
 mangohud-common
 mprocs
@@ -35,6 +36,7 @@ protonup-qt
 python-reorder-python-imports
 qbpm-git
 rambox-pro-bin
+river
 serve-d
 spotify
 stack-static
