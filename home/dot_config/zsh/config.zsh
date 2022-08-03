@@ -28,3 +28,5 @@ eval $(dircolors)
 
 # Remind me about aliases
 source /usr/share/zsh/plugins/alias-tips/alias-tips.plugin.zsh
+
+macchina
