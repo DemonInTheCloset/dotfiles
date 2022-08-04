@@ -28,6 +28,7 @@ mpv-thumbnail-script
 multimc-bin
 nerd-fonts-dejavu-complete
 nginxbeautifier
+nitch
 nsxiv
 openrgb
 pam-gnupg-git
