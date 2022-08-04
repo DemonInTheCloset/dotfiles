@@ -40,7 +40,6 @@ docker-compose
 dunst
 dust
 efibootmgr
-electron
 entr
 exa
 fakeroot
@@ -52,6 +51,7 @@ firefox
 flameshot
 flatpak
 flex
+foot
 fzf
 fzy
 gawk
