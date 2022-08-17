@@ -1,4 +1,8 @@
-{{- $ids := list -}}
+# Chezmoi Config
+diff:
+  command: "delta"
+
+{{ $ids := list -}}
 {{- if not (hasKey . "identities") -}}
     {{- $num_ids := promptInt "How many identities do you want to add?" 1 | int -}}
     {{- range $ix := until $num_ids -}}
