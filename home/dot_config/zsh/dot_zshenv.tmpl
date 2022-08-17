@@ -70,7 +70,7 @@ export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
 
 # Path Settings
 typeset -U PATH path FPATH fpath
-path+=("$HOME"/.local/bin "$HOME"/.local/scripts "$XDG_DATA_HOME"/npm/bin)
+path+=("$HOME"/.local/bin "$HOME"/.local/scripts "$CARGO_HOME"/bin "$XDG_DATA_HOME"/npm/bin)
 fpath+="$ZDOTDIR"/zfunc
 fpath+="$ZDOTDIR"/completions
 export PATH FPATH
