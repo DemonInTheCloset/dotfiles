@@ -13,6 +13,7 @@ google-java-format
 grub-hook
 gruvbox-dark-gtk
 haskell-language-server-static
+hyprland
 i3exit
 itch-bin
 jdtls
@@ -39,6 +40,7 @@ qbpm-git
 rambox-pro-bin
 river
 serve-d
+sirula
 spotify
 stack-static
 tmux-plugin-manager
