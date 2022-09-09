@@ -10,6 +10,7 @@ return {
     -- -- Window
     -- window_background_image = "/usr/share/backgrounds/archlinux/wave.png",
     window_background_opacity = 0.8,
+    window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
     -- -- Color Scheme
     color_scheme = "Gruvbox Dark",
     -- -- BEL feedback
