@@ -37,6 +37,7 @@ dmd
 dmenu
 docker
 docker-compose
+dub
 dunst
 dust
 efibootmgr
@@ -72,9 +73,12 @@ grep
 groff
 grub
 grub-theme-vimix
+gst-plugins-good
 gtk-engine-murrine
 gtk-engines
 gzip
+handbrake
+handbrake-cli
 hledger
 hlint
 hspell
@@ -88,9 +92,11 @@ isync
 iwd
 jdk-openjdk
 jq
+kdenlive
 keepassxc
 kitty
 kotlin
+ldc
 lib32-fontconfig
 lib32-libpng12
 lib32-libpulse
@@ -107,6 +113,7 @@ linux
 linux-firmware
 linux-zen
 linux-zen-headers
+lld
 llvm
 lshw
 lua-language-server
@@ -120,6 +127,7 @@ man-db
 man-pages
 matterbridge
 mattermost-desktop
+mingw-w64-gcc
 moreutils
 mpv
 msmtp
@@ -200,6 +208,7 @@ qt5ct
 qutebrowser
 ranger
 rclone
+rebuild-detector
 reflector
 ripgrep
 riscv64-linux-gnu-gcc
@@ -208,6 +217,7 @@ rsync
 rtmpdump
 rust-analyzer
 samba
+sccache
 scrot
 sd
 sed
@@ -226,6 +236,7 @@ sxhkd
 sysstat
 taplo-cli
 tcc
+tea
 tealdeer
 termdown
 texinfo
@@ -327,4 +338,5 @@ zip
 zk
 zsh
 zsh-autosuggestions
+zsh-completions
 zsh-syntax-highlighting
