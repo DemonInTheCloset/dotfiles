@@ -24,7 +24,7 @@ Host {{ .host }}
 Host {{ .host }}
     HostName {{ .host }}
     User {{ .user }}
-    IdentityFile ~/.ssh/id_ed25519_univeristy
+    IdentityFile ~/.ssh/id_ed25519_university
     IdentitiesOnly yes
 
 {{ end -}}
@@ -40,5 +40,5 @@ Host {{ $name | title }}{{ .name }}
     IdentityFile ~/.ssh/id_ed25519_{{ $name }}
     IdentitiesOnly yes
         {{- end -}}
-    {{ end -}}
+    {{ end }}
 {{ end }}
