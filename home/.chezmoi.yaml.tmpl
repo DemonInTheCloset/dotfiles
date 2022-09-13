@@ -95,6 +95,9 @@ data:
   # SSH default personal hosts (hosts to use with "personal" identity)
   ssh_personal_hosts:
 {{ template "setOrDefault" dict "dict" . "key" "ssh_personal_hosts" "default" (list) "indent" 4 }}
+  # SSH default university hosts (hosts to use with "university" identity)
+  ssh_university_hosts:
+{{ template "setOrDefault" dict "dict" . "key" "ssh_university_hosts" "default" (list) "indent" 4 }}
   id:
 {{- $data := . -}}
 {{- range $id := $ids }}
