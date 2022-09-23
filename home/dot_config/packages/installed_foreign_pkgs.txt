@@ -6,6 +6,8 @@ chromium-widevine
 dashbinsh
 edex-ui-bin
 electron11-bin
+ferium-gui-bin
+ftba-electron
 git-ignore
 glmark2-git
 gomuks
@@ -24,8 +26,10 @@ ly
 macchina
 mangohud
 mangohud-common
+minecraft-launcher
 mprocs
 mpv-thumbnail-script
+msvc-wine-rust-git
 multimc-bin
 nerd-fonts-dejavu-complete
 nginxbeautifier
