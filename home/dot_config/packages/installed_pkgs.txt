@@ -67,6 +67,7 @@ git-lfs
 github-cli
 glow
 gnome-todo
+gobject-introspection
 goimapnotify
 gradle
 grep
@@ -218,6 +219,7 @@ rtmpdump
 rust-analyzer
 samba
 sccache
+screenkey
 scrot
 sd
 sed
@@ -263,6 +265,7 @@ ttc-iosevka
 ttf-dejavu
 ttf-iosevka-nerd
 udiskie
+ufw
 unzip
 valgrind
 vi
