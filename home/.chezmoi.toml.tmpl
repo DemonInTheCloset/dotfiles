@@ -1,0 +1,133 @@
+# Chezmoi Config
+[diff]
+command = "delta"
+
+{{ $ids := list -}}
+{{- if not (hasKey . "identities") -}}
+    {{- $num_ids := promptInt "How many identities do you want to add?" 1 | int -}}
+    {{- range $ix := until $num_ids -}}
+        {{- $ids = promptString "Identity Name" "personal" | trim | lower | append $ids -}}
+    {{- else -}}
+        {{- fail "No identities setup" -}}
+    {{- end -}}
+{{- else -}}
+    {{- $ids = .identities -}}
+{{- end -}}
+
+{{- $gitids := list -}}
+{{- if not (hasKey . "gitids") -}}
+    {{- $num_ids := promptInt "How many git identities do you want to add?" 1 | int -}}
+    {{- range $ix := until $num_ids -}}
+        {{- $gitids = promptString "Identity Name" "public" | trim | lower | append $gitids -}}
+    {{- else -}}
+        {{- fail "No identities setup" -}}
+    {{- end -}}
+{{- else -}}
+    {{- $gitids = .gitids -}}
+{{- end -}}
+
+{{- define "setOrDefault" -}}
+    {{- $value := .default -}}
+    {{- if hasKey .dict .key -}}
+        {{- $value = get .dict .key -}}
+    {{- end -}}
+    {{- $value | toToml -}}
+{{- end -}}
+
+{{- define "setOrPromptString" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key | quote -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptString $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptString $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | toToml -}}
+    {{- end -}}
+{{- end -}}
+
+{{- define "setOrPromptInt" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptInt $prompt .default | int -}}
+        {{- else -}}
+            {{- $value = promptInt $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | toToml -}}
+    {{- end -}}
+{{- end -}}
+
+{{- define "setOrPromptBool" -}}
+    {{- if hasKey .dict .key -}}
+        {{- get .dict .key -}}
+    {{- else -}}
+        {{- $prompt := list .name .key | join " " | title -}}
+        {{- $value := "" -}}
+        {{- if hasKey . "default" -}}
+            {{- $value = promptBool $prompt .default -}}
+        {{- else -}}
+            {{- $value = promptBool $prompt -}}
+        {{- end -}}
+        {{- $_ := set .dict .key $value -}}
+        {{- $value | toToml -}}
+    {{- end -}}
+{{- end -}}
+
+[data]
+# First identity is the default ("personal", "public", and "university" are treated specially)
+identities = {{ $ids | toToml }}
+# Identities to use with git
+gitids = {{ $gitids | toToml }}
+{{ $values :=  dict -}}
+{{- $data := . -}}
+{{- range $id := $ids }}
+    {{- $key := list "ssh" $id "hosts" | join "_" -}}
+    {{- $value := list -}}
+    {{- if and (hasKey $data $key) (get $data $key | first | ne nil) -}}
+        {{- $value = get $data $key -}}
+    {{- end }}
+{{- $values = $value | dict $key | dict "data" | merge $values -}}
+{{- end }}
+{{ $values | toToml }}
+
+{{- $data := . -}}
+{{- range $id := $ids }}
+[data.id.{{ $id }}]
+    {{- $dict := dig "id" $id (dict) $data }}
+name         = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "name"                                                             }}
+email        = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "email"                                                            }}
+imapport     = {{ template "setOrPromptInt"    dict "name" $id "dict" $dict "key" "imapport" "default" 993                                           }}
+imapuser     = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "imapuser" "default" (get $dict "email")                           }}
+imapserver   = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "imapserver" "default" "imap.gmail.com"                            }}
+smtpport     = {{ template "setOrPromptInt"    dict "name" $id "dict" $dict "key" "smtpport" "default" 993                                           }}
+smtpuser     = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "smtpuser" "default" (get $dict "email" | trimSuffix "@gmail.com") }}
+smtpserver   = {{ template "setOrPromptString" dict "name" $id "dict" $dict "key" "smtpserver" "default" "smtp.gmail.com"                            }}
+# SSH Hosts to override with this identity
+    {{- $value := list -}}
+    {{- if hasKey $dict "ssh_override" -}}
+        {{- $value = get $dict "ssh_override" -}}
+    {{- end }}
+{{ $value | dict "ssh_override" | dict $id | dict "id" | dict "data" | toToml }}
+{{- else -}}
+    {{- fail "No Identities provided" -}}
+{{- end }}
+[data.dev]
+# Automatically update pkglists when updating your system
+# Only useful for developers, leave at default
+# Default: false
+updatepkglists = {{- template "setOrDefault" dict "dict" .dev "key" "updatepkglists" "default" false }}
+
+# Do not try to install packages if there are new available
+# Leave at default unless you know what you are doing
+# the config might randomly break otherwise
+# Default: false
+no_pkg_sync = {{- template "setOrDefault" dict "dict" .dev "key" "no_pkg_sync" "default" false }}
