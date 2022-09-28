@@ -40,8 +40,20 @@ xset s off &
 
 numlockx & # Enable numlock
 
-# Program Autostart
-# "$HOME"/.local/bin/autostart.sh &
-
 # Start Window Manager
-exec "${WINDOW_MANAGER:=awesome}"
+case "${XDG_CURRENT_DESKTOP:=Awesome}" in
+'Awesome')
+    export XDG_CURRENT_DESKTOP
+	export WINDOW_MANAGER='awesome'
+	;;
+'i3')
+	export WINDOW_MANAGER='i3'
+	;;
+esac
+
+export PINENTRY_USER_DATA='gtk'
+systemctl --user import-environment XDG_CURRENT_DESKTOP PINENTRY_USER_DATA
+
+if [ "$WINDOW_MANAGER" ]; then
+	exec "${WINDOW_MANAGER:=awesome}"
+fi
