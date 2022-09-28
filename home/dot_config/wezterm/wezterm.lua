@@ -1,5 +1,29 @@
 local wezterm = require("wezterm")
 
+local default_theme = "Gruvbox Dark"
+
+local function str_is_empty(str)
+    return str == nil or str == ""
+end
+
+local function xdg_data_home()
+    local data_home = os.getenv("XDG_DATA_HOME")
+
+    if str_is_empty(data_home) then
+        return os.getenv("HOME") .. "/.local/share"
+    end
+
+    return data_home
+end
+
+local function get_current_theme()
+    for line in io.lines(xdg_data_home() .. "/current_theme") do
+        return line
+    end
+
+    return default_theme
+end
+
 return {
     check_for_updates = false, -- Managed by Package Manager
     -- Appearance
@@ -12,7 +36,7 @@ return {
     window_background_opacity = 0.8,
     window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
     -- -- Color Scheme
-    color_scheme = "Gruvbox Dark",
+    color_scheme = get_current_theme(),
     -- -- BEL feedback
     -- visual_bell = {
     -- 	fade_in_duration_ms = 50,
