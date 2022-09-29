@@ -1,23 +1,25 @@
 {{- $config := (dict) -}}
 {{- if hasKey . "identities" | not -}}
-    {{- $_ := set . "identities" (list) -}}
+    {{- $map := set . "identities" (list) -}}
     {{- $num_ids := promptInt "How many identities do you want to add?" 1 | int -}}
     {{- range $ix := until $num_ids -}}
-        {{- $_ := promptString "Identity Name" "personal" | trim | lower | append .identities | set . "identities" -}}
+        {{- $_ := promptString "Identity Name" "personal" | trim | lower | append (get $map "identities") | set $map "identities" -}}
     {{- else -}}
         {{- fail "No identities setup" -}}
     {{- end -}}
+    {{- $_ := get $map "identities" | set . "identities" -}}
 {{- end -}}
 {{- $_ := set $config "identities" .identities -}}
 
 {{- if hasKey . "gitids" | not -}}
-    {{- $_ := set . "gitids" (list) -}}
+    {{- $map := set . "gitids" (list) -}}
     {{- $num_ids := promptInt "How many git identities do you want to add?" 1 | int -}}
     {{- range $ix := until $num_ids -}}
-        {{- $_ := promptString "Identity Name" "public" | trim | lower | append .gitids | set . "gitids" -}}
+        {{- $_ := promptString "Identity Name" "public" | trim | lower | append (get $map "gitids") | set $map "gitids" -}}
     {{- else -}}
         {{- fail "No identities setup" -}}
     {{- end -}}
+    {{- $_ := get $map "gitids" | set . "gitids" -}}
 {{- end -}}
 {{- $_ := set $config "gitids" .gitids -}}
 
