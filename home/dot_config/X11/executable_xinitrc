@@ -10,6 +10,10 @@ usermodmap=$XDG_CONFIG_HOME/X11/xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+# Fix Xauthority not found
+touch "$XAUTHORITY"
+
 # Change Xorg cache files
 export USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
 export USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
