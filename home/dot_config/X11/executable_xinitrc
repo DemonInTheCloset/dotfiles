@@ -42,7 +42,7 @@ fi
 xset -dpms &
 xset s off &
 
-numlockx & # Enable numlock
+# numlockx & # Enable numlock
 
 # Start Window Manager
 case "${XDG_CURRENT_DESKTOP:=Awesome}" in
