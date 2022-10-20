@@ -65,8 +65,8 @@ gettext
 ghc
 gimp
 git-delta
-git-lfs
 github-cli
+git-lfs
 glow
 gnome-todo
 gobject-introspection
@@ -88,8 +88,8 @@ hspell
 htop
 hyperfine
 i2c-tools
-i3-gaps
 i3blocks
+i3-gaps
 i3status
 isync
 iwd
@@ -305,9 +305,9 @@ xfce4-settings
 xfconf
 xorg-bdftopcf
 xorg-docs
-xorg-font-util
 xorg-fonts-100dpi
 xorg-fonts-75dpi
+xorg-font-util
 xorg-iceauth
 xorg-mkfontscale
 xorg-server

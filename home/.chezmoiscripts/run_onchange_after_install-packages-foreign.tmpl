@@ -3,7 +3,7 @@
 set -x
 # Installed Foreign Packages Hash {{ include "dot_config/packages/installed_foreign_pkgs.txt" | sha256sum }}
 {{- if not .dev.no_pkg_sync }}
-pkgs="$(cat {{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_foreign_pkgs.txt" }} ~/.config/packages/pkglist_foreign.txt | sort | uniq -u)"
+pkgs="$(comm -2 -3 {{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_foreign_pkgs.txt" }} ~/.config/packages/pkglist_foreign.txt)"
 
 if [ -z "$pkgs" ]; then
     echo "Nothing to do"
