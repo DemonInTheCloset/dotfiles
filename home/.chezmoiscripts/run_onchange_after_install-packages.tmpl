@@ -3,5 +3,12 @@
 set -x
 # Installed Packages Hash {{ include "dot_config/packages/installed_pkgs.txt" | sha256sum }}
 {{- if not .dev.no_pkg_sync }}
-cat "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_pkgs.txt" }}" ~/.config/packages/pkglist.txt | sort | uniq -u | sudo pacman -S --needed -
+pkgs="$(cat "{{ joinPath .chezmoi.sourceDir "dot_config/packages/installed_pkgs.txt" }}" ~/.config/packages/pkglist.txt | sort | uniq -u)"
+
+if [ -z "$pkgs" ]; then
+    echo "Nothing to do"
+    exit 0
+fi
+
+sudo pacman -S --needed $pkgs
 {{- end }}
