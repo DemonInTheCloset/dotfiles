@@ -7,4 +7,4 @@ Target = *
 [Action]
 Description = Updating package lists
 When = PostTransaction
-Exec = /bin/sh -c '/usr/bin/pacman -Qqen > /etc/pkglist.txt && /usr/bin/pacman -Qqem > /etc/pkglist_foreign.txt'
+Exec = /bin/sh -c '/usr/bin/pacman -Qqen | sort > /etc/pkglist.txt && /usr/bin/pacman -Qqem | sort > /etc/pkglist_foreign.txt'
