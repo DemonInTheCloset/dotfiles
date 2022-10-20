@@ -27,6 +27,7 @@ checkbashisms
 chezmoi
 chromium
 clang
+connman
 cronie
 dash
 dbus-broker
@@ -40,6 +41,7 @@ docker-compose
 dub
 dunst
 dust
+easy-rsa
 efibootmgr
 entr
 exa
@@ -140,8 +142,10 @@ neofetch
 neomutt
 neovide
 neovim
+networkmanager-openvpn
 newsboat
 nix
+nm-connection-editor
 notmuch
 noto-fonts-cjk
 noto-fonts-emoji
@@ -184,7 +188,6 @@ pipewire-alsa
 pipewire-pulse
 pkgconf
 polybar
-powerline
 prettier
 pulseaudio-alsa
 pulsemixer
@@ -205,17 +208,21 @@ python-tldextract
 python-tomli
 python-tzlocal
 python-virtualenv
+qopenvpn
 qt5ct
+quassel-client-qt
 qutebrowser
 ranger
 rclone
 rebuild-detector
 reflector
 ripgrep
+ripgrep-all
 riscv64-linux-gnu-gcc
 rofi
 rsync
 rtmpdump
+rtorrent
 rust-analyzer
 samba
 sccache
@@ -227,6 +234,7 @@ shellcheck
 shellharden
 shfmt
 signal-desktop
+skim
 smartmontools
 spotifyd
 starship
@@ -260,6 +268,8 @@ tmux
 todoman
 tokei
 traceroute
+transmission-cli
+transmission-qt
 tree
 ttc-iosevka
 ttf-dejavu
@@ -273,6 +283,7 @@ vicious
 vim
 vkd3d
 vscode-json-languageserver
+wasm-bindgen
 weechat
 wezterm
 wget
