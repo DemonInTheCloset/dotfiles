@@ -32,8 +32,11 @@ alias grep='grep --color=auto'
 alias ip='ip --color=auto'
 
 # ls aliases
-alias la='ls -lah --color=auto'
-alias ls='ls --color=auto'
+alias la='exa --icons -l -a'
+alias ls='exa --icons'
+
+# tree aliases
+alias tree='exa --icons -T'
 
 # mbsync aliases
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
