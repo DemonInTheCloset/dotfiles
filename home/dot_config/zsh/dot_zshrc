@@ -13,12 +13,7 @@ source "$ZDOTDIR/config.zsh"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# if [ "$TTY" = /dev/tty"${XDG_VTNR}" ]; then
-#     [[ ! -f "$ZDOTDIR"/.p10k_compat.zsh ]] || source "$ZDOTDIR"/.p10k_compat.zsh
-# else
-#     # To customize prompt, run `p10k configure` or edit "$ZDOTDIR"/.p10k.zsh.
-#     [[ ! -f "$ZDOTDIR"/.p10k.zsh ]] || source "$ZDOTDIR"/.p10k.zsh
-# fi
+systemctl --user import-environment DISPLAY XAUTHORITY
 
 export PINENTRY_USER_DATA='curses'
 
