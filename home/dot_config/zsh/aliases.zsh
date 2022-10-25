@@ -43,7 +43,7 @@ alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias mbsynca="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
 
 # nvim aliases
-alias ngit='nvim +:Neogit +:tabonly!'
+alias ngit="nvim '+:lua require(\"neogit\").open()' '+:tabonly!'"
 alias note='nvim +:setlocal\ buftype=nofile +:setlocal\ bufhidden=hide +:setlocal\ noswapfile'
 alias nview="nvim -R"
 alias nvimconfig="$VISUAL $XDG_CONFIG_HOME"/nvim/init.lua
