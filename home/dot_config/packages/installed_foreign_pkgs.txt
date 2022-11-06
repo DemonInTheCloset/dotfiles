@@ -7,6 +7,7 @@ cmst
 cpu-x
 darkman
 dashbinsh
+djvu2pdf
 edex-ui-bin
 electron11-bin
 ferium
@@ -56,5 +57,4 @@ tmux-plugin-manager
 urlview-xdg-git
 vim-language-server
 xdg-ninja
-youtube-music-bin
 zoom
