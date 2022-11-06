@@ -68,7 +68,6 @@ git-delta
 github-cli
 git-lfs
 glow
-gnome-todo
 gobject-introspection
 goimapnotify
 gradle
@@ -91,6 +90,7 @@ i2c-tools
 i3blocks
 i3-gaps
 i3status
+irssi
 isync
 iwd
 jdk-openjdk
@@ -156,6 +156,7 @@ ntp
 numlockx
 nuspell
 nvme-cli
+nvtop
 obsidian
 offlineimap
 onefetch
@@ -189,7 +190,6 @@ pipewire-pulse
 pkgconf
 polybar
 prettier
-pulseaudio-alsa
 pulsemixer
 pv
 pwndbg
@@ -267,6 +267,8 @@ tlp
 tmux
 todoman
 tokei
+tor
+torbrowser-launcher
 traceroute
 transmission-cli
 transmission-qt
@@ -276,6 +278,7 @@ ttf-dejavu
 ttf-iosevka-nerd
 udiskie
 ufw
+unrar
 unzip
 valgrind
 vi
