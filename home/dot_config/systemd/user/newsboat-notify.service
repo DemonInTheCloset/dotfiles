@@ -1,8 +1,8 @@
 [Unit]
-Description=Send a test Notification
+Description=Refresh RSS feeds and notify
 
 [Service]
 Type=oneshot
 ExecStartPre=/bin/sh -c "/usr/bin/newsboat -x print-unread | sed 's/\(\S\) .*$/\1/' > %C/newsboat-unread-pre"
 ExecStart=/usr/bin/newsboat -x reload
-ExecStartPost=/bin/sh -c "pre=$(cat %C/newsboat-unread-pre);post=$(/usr/bin/newsboat -x print-unread | sed 's/\(\S\) .*$/\1/');if [ $pre -lt $post]; then notify-send 'News in RSS feeds'; else notify-send 'No News'; fi"
+ExecStartPost=/bin/sh -c "pre=$(cat %C/newsboat-unread-pre);post=$(/usr/bin/newsboat -x print-unread | sed 's/\(\S\) .*$/\1/');if [ $pre -lt $post ]; then notify-send 'News in RSS feeds'; else notify-send 'No News'; fi"
