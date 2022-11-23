@@ -18,31 +18,18 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
-
-# Force Signing
-[commit]
-	gpgsign = true
-	template = ~/.config/git/template/commit-message
-# Include Identities
-[includeIf "gitdir:~/.cache/paru/"]
-	path = ~/.config/git/configuration/public
-
-[includeIf "gitdir:~/.config/"]
-	path = ~/.config/git/configuration/public
-
-[includeIf "gitdir:~/.local/share/pass/"]
-	path = ~/.config/git/configuration/personal
-
-[includeIf "gitdir:~/.local/share/chezmoi/"]
-	path = ~/.config/git/configuration/public
-
-[includeIf "gitdir:~/Programming/"]
-	path = ~/.config/git/configuration/public
-
-[includeIf "gitdir:~/University/"]
-	path = ~/.config/git/configuration/university
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+# Force Signing
+[commit]
+	gpgsign = true
+	template = ~/.config/git/template/commit-message
+
+# Include Identities
+{{- range $config := .git_config }}
+[includeIf "gitdir:{{ .path }}"]
+	path = ~/.config/git/identities/{{ .identity }}
+{{- end }}
