@@ -1,8 +1,8 @@
 [Unit]
 Description=Mailbox synchronization service
-WantedBy=goimapnotify.service
 Wants=network-online.target
 After=network-online.target nss-lookup.target
+Before=goimapnotify.service
 
 [Service]
 Type=oneshot
