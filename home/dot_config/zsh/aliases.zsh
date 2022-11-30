@@ -66,6 +66,9 @@ alias paruQi='paru -Qi'
 alias paruQl='paru -Ql'
 alias paruQs='paru -Qs'
 
+# pass aliases
+alias fpass='fd -e gpg . --base-directory "$PASSWORD_STORE_DIR" -x echo {.} | sk | xargs pass show'
+
 # Python aliases
 alias mkvenv='virtualenv .venv'
 alias sourcevenv='source .venv/bin/activate'
