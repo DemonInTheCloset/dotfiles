@@ -5,6 +5,7 @@ alsa-utils
 archlinux-wallpaper
 aspell
 atril
+audacity
 autoconf
 automake
 awesome
@@ -22,6 +23,19 @@ bluez-utils
 brightnessctl
 btop
 calcurse
+cargo-audit
+cargo-bloat
+cargo-deny
+cargo-edit
+cargo-feature
+cargo-flamegraph
+cargo-generate
+cargo-nextest
+cargo-outdated
+cargo-sort
+cargo-spellcheck
+cargo-udeps
+cargo-watch
 ccache
 checkbashisms
 chezmoi
@@ -35,11 +49,9 @@ dex
 dfmt
 discord
 dmd
-dmenu
 docker
 docker-compose
 dub
-dunst
 dust
 easy-rsa
 efibootmgr
@@ -172,6 +184,7 @@ pandoc
 pandoc-crossref
 papirus-icon-theme
 pass
+pass-otp
 pasystray
 patch
 pavucontrol
@@ -189,6 +202,7 @@ pipewire-alsa
 pipewire-pulse
 pkgconf
 polybar
+postgresql
 prettier
 pulsemixer
 pv
@@ -233,6 +247,7 @@ sed
 shellcheck
 shellharden
 shfmt
+shy
 signal-desktop
 skim
 smartmontools
@@ -287,6 +302,7 @@ vim
 vkd3d
 vscode-json-languageserver
 wasm-bindgen
+websocat
 weechat
 wezterm
 wget
@@ -351,6 +367,7 @@ xwallpaper
 yapf
 yt-dlp
 yubikey-manager-qt
+zbar
 zip
 zk
 zsh
