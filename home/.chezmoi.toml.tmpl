@@ -32,6 +32,12 @@
     {{- $_ := get $data $key | set $config $key -}}
 {{- end -}}
 
+{{- if hasKey . "git_config" | not -}}
+    {{- $_ := set $config "git_config" (dict) -}}
+{{- else -}}
+    {{- $_ := set $config "git_config" .git_config -}}
+{{- end -}}
+
 {{- if hasKey . "id" | not -}}
     {{- $_ := set . "id" (dict) -}}
 {{- end -}}
