@@ -53,7 +53,6 @@ serve-d
 sirula
 spotify
 stack-static
-tmux-plugin-manager
 urlview-xdg-git
 vim-language-server
 xdg-ninja
