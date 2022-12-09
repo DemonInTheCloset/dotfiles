@@ -1,9 +1,10 @@
 # ignore generated files
-home/dot_config/neomutt/accounts/
 !home/dot_config/neomutt/accounts/.keep
+home/dot_config/neomutt/accounts/*.tmpl
 
-home/dot_config/imapnotify/
 !home/dot_config/imapnotify/.keep
+home/dot_config/imapnotify/*.tmpl
 
-home/dot_config/git/configuration/
-!home/dot_config/git/configuration/.keep
+
+!home/dot_config/git/identities/.keep
+home/dot_config/git/identities/*.tmpl

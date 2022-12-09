@@ -3,7 +3,7 @@
 set -xe
 
 {{- $data := . }}
-{{ $basepath := joinPath .chezmoi.sourceDir "dot_config" "git" "configuration" }}
+{{ $basepath := joinPath .chezmoi.sourceDir "dot_config" "git" "identities" }}
 {{ range $id := .gitids }}
     {{- $dict := dig "id" $id (dict) $data -}}
     {{- $fpath := list $id "tmpl" | join "." | joinPath $basepath -}}
