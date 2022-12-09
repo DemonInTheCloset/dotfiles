@@ -43,6 +43,8 @@ chromium
 clang
 connman
 cronie
+cups
+cups-pdf
 dash
 dbus-broker
 dex
@@ -135,6 +137,7 @@ lua-language-server
 luarocks
 lutris
 lxappearance-gtk3
+ly
 lynx
 m4
 make
@@ -183,6 +186,7 @@ pamixer
 pandoc
 pandoc-crossref
 papirus-icon-theme
+paru
 pass
 pass-otp
 pasystray
@@ -201,9 +205,11 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pkgconf
+pkgstats
 polybar
 postgresql
 prettier
+print-manager
 pulsemixer
 pv
 pwndbg
@@ -233,6 +239,8 @@ reflector
 ripgrep
 ripgrep-all
 riscv64-linux-gnu-gcc
+rocm-hip-sdk
+rocm-opencl-sdk
 rofi
 rsync
 rtmpdump
@@ -370,6 +378,7 @@ yubikey-manager-qt
 zbar
 zip
 zk
+zoom
 zsh
 zsh-autosuggestions
 zsh-completions
