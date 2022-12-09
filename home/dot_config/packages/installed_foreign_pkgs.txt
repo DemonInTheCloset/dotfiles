@@ -25,12 +25,13 @@ itch-bin
 jdtls
 kotlin-language-server
 lain-git
+legendary
 lib32-mangohud
-ly
 macchina
 mangohud
 mangohud-common
 minecraft-launcher
+miniconda3
 mkinitcpio-numlock
 mprocs
 mpv-thumbnail-script
@@ -42,13 +43,13 @@ nitch
 nsxiv
 openrgb
 pam-gnupg-git
-paru
 prismlauncher
 protonup-qt
 python-reorder-python-imports
 qbpm-git
 rambox-pro-bin
 river
+rofi-dmenu
 serve-d
 sirula
 spotify
@@ -56,4 +57,3 @@ stack-static
 urlview-xdg-git
 vim-language-server
 xdg-ninja
-zoom
