@@ -239,8 +239,6 @@ reflector
 ripgrep
 ripgrep-all
 riscv64-linux-gnu-gcc
-rocm-hip-sdk
-rocm-opencl-sdk
 rofi
 rsync
 rtmpdump
