@@ -1,0 +1,10 @@
+{{- $cmd := list "gpg --list-secret-keys --with-keygrip" .default_gpg_key "| grep -A1 '\\[E\\]' | sed -n 's/\\s*Keygrip = //p'" | join " " -}}
+{{- $gpghome := env "GNUPGHOME" -}}
+{{- if not $gpghome -}}
+    {{- $gpghome = "~/.gnupg" -}}
+{{- end -}}
+
+# GNUPGHOME
+{{ $gpghome }}
+# Keygrips
+{{ output "sh" "-c" $cmd -}}

@@ -11,6 +11,11 @@
 {{- end -}}
 {{- $_ := set $config "identities" .identities -}}
 
+{{- if hasKey . "default_gpg_key" | not -}}
+    {{- $_ := promptString "Default GPG Key identifier" "name/email" | set . "default_gpg_key" -}}
+{{- end -}}
+{{- $_ := set $config "default_gpg_key" .default_gpg_key -}}
+
 {{- if hasKey . "gitids" | not -}}
     {{- $map := set . "gitids" (list) -}}
     {{- $num_ids := promptInt "How many git identities do you want to add?" 1 | int -}}
