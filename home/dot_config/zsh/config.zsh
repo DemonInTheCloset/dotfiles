@@ -8,7 +8,8 @@ source "$ZDOTDIR/completion.zsh"
 source "$ZDOTDIR/hooks.zsh"
 
 # Source Personal Aliases
-source "$ZDOTDIR/aliases.zsh"
+source "$ZDOTDIR/aliases.zsh" # Managed by chezmoi
+source "$ZDOTDIR/extra_aliases.zsh" # User modifyable
 
 # Source Interactive Shell Variables
 # Color settings
