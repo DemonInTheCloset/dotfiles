@@ -42,7 +42,7 @@ nginxbeautifier
 nitch
 nsxiv
 openrgb
-pam-gnupg-git
+pam-gnupg
 prismlauncher
 protonup-qt
 python-reorder-python-imports
