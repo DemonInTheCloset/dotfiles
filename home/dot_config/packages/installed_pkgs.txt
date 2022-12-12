@@ -76,7 +76,6 @@ gcc
 gdb
 gdb-dashboard
 gettext
-ghc
 gimp
 git-delta
 github-cli
@@ -88,15 +87,12 @@ gradle
 grep
 groff
 grub
-grub-theme-vimix
 gst-plugins-good
 gtk-engine-murrine
 gtk-engines
 gzip
 handbrake
 handbrake-cli
-hledger
-hlint
 hspell
 htop
 hyperfine
@@ -128,8 +124,6 @@ libtool
 libvoikko
 linux
 linux-firmware
-linux-zen
-linux-zen-headers
 lld
 llvm
 lshw
@@ -146,6 +140,7 @@ man-pages
 matterbridge
 mattermost-desktop
 mingw-w64-gcc
+mono
 moreutils
 mpv
 msmtp
@@ -178,13 +173,12 @@ onefetch
 openbsd-netcat
 openresolv
 openvpn
+optipng
 os-prober
 pacgraph
 pacman
 pacman-contrib
 pamixer
-pandoc
-pandoc-crossref
 papirus-icon-theme
 paru
 pass
@@ -235,6 +229,7 @@ qutebrowser
 ranger
 rclone
 rebuild-detector
+refind
 reflector
 ripgrep
 ripgrep-all
