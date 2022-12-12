@@ -1,5 +1,6 @@
 activitywatch-bin
 alias-tips-git
+beautysh
 cava
 checkmake
 chromium-widevine
