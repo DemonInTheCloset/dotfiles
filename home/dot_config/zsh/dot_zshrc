@@ -1,20 +1,23 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
-# Created by newuser for 5.8
-
 # Source Personal configuration
 source "$ZDOTDIR/config.zsh"
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source_silent_fail() {
+    [ -f "$1" ] && source "$1"
+}
+
+source_silent_fail /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source_silent_fail /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 systemctl --user import-environment DISPLAY XAUTHORITY
 
 export PINENTRY_USER_DATA='curses'
+
+if [ "$TERM" = "linux" ]; then
+    # Framebuffer TTY
+    ln -sf ~/.config/starship/plain_text.toml ~/.config/starship.toml
+else
+    # Graphical TTY
+    ln -sf ~/.config/starship/nerdfont.toml ~/.config/starship.toml
+fi
 
 eval "$(starship init zsh)"
