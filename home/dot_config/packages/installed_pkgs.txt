@@ -245,7 +245,6 @@ screenkey
 scrot
 sd
 sed
-shellcheck
 shellharden
 shfmt
 shy
