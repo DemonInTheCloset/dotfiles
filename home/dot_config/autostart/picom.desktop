@@ -3,6 +3,6 @@ Version=1.0
 Name=Picom
 Comment=A standalone compositor for Xorg
 Exec=picom -b
-OnlyShowIn=Awesome;
+OnlyShowIn=Awesome;Hyprland;
 StartupNotify=false
 Type=Application

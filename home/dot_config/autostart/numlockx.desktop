@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=NumLockX
+Comment=Turn on the NumLock in X
+Exec=numlockx on
+OnlyShowIn=Awesome;
+StartupNotify=false
+Type=Application
