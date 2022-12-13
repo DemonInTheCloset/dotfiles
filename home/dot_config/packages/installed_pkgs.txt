@@ -12,7 +12,6 @@ awesome
 base
 bat
 bc
-bear
 bind
 binutils
 bison
@@ -20,6 +19,7 @@ blender
 blueman
 bluez
 bluez-utils
+booster
 brightnessctl
 btop
 calcurse
@@ -47,6 +47,7 @@ cups
 cups-pdf
 dash
 dbus-broker
+devtools
 dex
 dfmt
 discord
@@ -54,6 +55,7 @@ dmd
 docker
 docker-compose
 dub
+dunst
 dust
 easy-rsa
 efibootmgr
@@ -93,6 +95,7 @@ gtk-engines
 gzip
 handbrake
 handbrake-cli
+helvum
 hspell
 htop
 hyperfine
@@ -100,6 +103,7 @@ i2c-tools
 i3blocks
 i3-gaps
 i3status
+interception-caps2esc
 irssi
 isync
 iwd
@@ -109,6 +113,7 @@ kdenlive
 keepassxc
 kitty
 kotlin
+kvantum
 ldc
 lib32-fontconfig
 lib32-libpng12
@@ -200,6 +205,7 @@ pipewire-alsa
 pipewire-pulse
 pkgconf
 pkgstats
+polkit-kde-agent
 polybar
 postgresql
 prettier
@@ -234,7 +240,8 @@ reflector
 ripgrep
 ripgrep-all
 riscv64-linux-gnu-gcc
-rofi
+rmlint
+rofi-lbonn-wayland-git
 rsync
 rtmpdump
 rtorrent
@@ -257,6 +264,7 @@ steam
 strace
 stylua
 sudo
+swaybg
 sxhkd
 sysstat
 taplo-cli

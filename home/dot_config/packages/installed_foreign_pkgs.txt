@@ -11,6 +11,7 @@ dashbinsh
 djvu2pdf
 edex-ui-bin
 electron11-bin
+eww-wayland
 ferdium-bin
 ferium
 ftba-electron
@@ -56,4 +57,6 @@ sirula
 spotify
 urlview-xdg-git
 vim-language-server
+waybar-hyprland
+webcord
 xdg-ninja
