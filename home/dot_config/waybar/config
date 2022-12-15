@@ -26,7 +26,6 @@
         "format-icons": {
             "urgent": "",
             "active": "",
-            "default": ""
         },
         "sort-by-number": true
     },
