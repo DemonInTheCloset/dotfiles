@@ -183,14 +183,11 @@ os-prober
 pacgraph
 pacman
 pacman-contrib
-pamixer
 papirus-icon-theme
 paru
 pass
 pass-otp
-pasystray
 patch
-pavucontrol
 pcmanfm-qt
 pdfjs
 perf
@@ -210,7 +207,6 @@ polybar
 postgresql
 prettier
 print-manager
-pulsemixer
 pv
 pwndbg
 py3status
