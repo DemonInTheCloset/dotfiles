@@ -7,6 +7,9 @@ autoload -Uz datefile
 # Useful pass wrapper
 autoload -Uz passinsert
 
+# Backup a Directory with tar and xz
+autoload -Uz tarbackup
+
 # Prompt Themes
 autoload -Uz promptinit
 

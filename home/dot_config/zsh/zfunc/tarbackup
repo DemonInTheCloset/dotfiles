@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+function tarbackup() {
+    tar -cf - "$1" | xz -zv -T0 > "$(basename "$1").tar.xz"
+}
