@@ -32,7 +32,6 @@ macchina
 mangohud
 mangohud-common
 minecraft-launcher
-miniconda3
 mkinitcpio-numlock
 mprocs
 mpv-thumbnail-script
