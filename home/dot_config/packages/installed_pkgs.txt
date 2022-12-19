@@ -57,6 +57,7 @@ docker-compose
 dub
 dunst
 dust
+easyeffects
 easy-rsa
 efibootmgr
 entr
@@ -83,8 +84,10 @@ git-delta
 github-cli
 git-lfs
 glow
+gnu-efi
 gobject-introspection
 goimapnotify
+google-chrome
 gradle
 grep
 groff
@@ -126,6 +129,7 @@ libcurl-gnutls
 libpng12
 libreoffice-fresh
 libtool
+libva-utils
 libvoikko
 linux
 linux-firmware
@@ -161,6 +165,7 @@ networkmanager-openvpn
 newsboat
 nix
 nm-connection-editor
+noise-suppression-for-voice
 notmuch
 noto-fonts-cjk
 noto-fonts-emoji
@@ -207,6 +212,7 @@ polybar
 postgresql
 prettier
 print-manager
+putty
 pv
 pwndbg
 py3status
