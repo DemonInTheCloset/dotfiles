@@ -8,7 +8,7 @@ source_silent_fail() {
 source_silent_fail /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_silent_fail /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XAUTHORITY
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XAUTHORITY 2> /dev/null
 
 export PINENTRY_USER_DATA='curses'
 
