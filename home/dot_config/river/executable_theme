@@ -1,9 +1,11 @@
 #!/bin/sh
 
 # Set Background Image
+killall --user "$USER" swaybg
 swaybg --image /usr/share/backgrounds/archlinux/awesome.png &
 
-# Set border color
+# Set border theme
+riverctl border-width 2
 riverctl border-color-urgent    0xfb4934
 riverctl border-color-focused   0xfabd2f
 riverctl border-color-unfocused 0x3c3836
@@ -18,4 +20,5 @@ riverctl float-filter-add title "popup title with spaces"
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+killall --user "$USER" rivertile
+rivertile -view-padding 2 -outer-padding 2 &
