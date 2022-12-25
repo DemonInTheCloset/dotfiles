@@ -11,6 +11,14 @@ riverctl map normal "$mod" F2 spawn 'qbpm launch default'
 # "$mod"+Return to start an instance of wezterm
 riverctl map normal "$mod" Return spawn wezterm
 
+riverctl map normal "$mod" P spawn passmenu
+
+riverctl map normal "$mod" S spawn 'dmenu-confirm "Do you want to Shutdown?" "sudo poweroff"'
+riverctl map normal "$mod"+Shift S spawn 'dmenu-confirm "Do you want to Reboot?" "sudo reboot"'
+
+# "$mod"+R to reload river config
+riverctl map normal "$mod" R spawn ~/.config/river/init
+
 # "$mod"+Shift+Q to close the focused view
 riverctl map normal "$mod"+Shift Q close
 
@@ -92,8 +100,8 @@ done
 # "$mod"+0 to focus all tags
 # "$mod"+Shift+0 to tag focused view with all tags
 all_tags=$(((1 << 32) - 1))
-riverctl map normal "$mod" 0 set-focused-tags $all_tags
-riverctl map normal "$mod"+Shift 0 set-view-tags $all_tags
+riverctl map normal "$mod"       0 set-focused-tags $all_tags
+riverctl map normal "$mod"+Shift 0 set-view-tags    $all_tags
 
 # "$mod"+Space to toggle float
 riverctl map normal "$mod" Space toggle-float
