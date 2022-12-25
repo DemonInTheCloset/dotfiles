@@ -1,1 +1,17 @@
 #!/bin/sh
+
+configure_touchpads() {
+    riverctl list-inputs \
+        | grep 'type: pointer' -B 1 \
+        | grep -vE 'type: pointer|^--$' \
+        | xargs -I '{}' riverctl input '{}' $@
+}
+
+# Touchpad config
+configure_touchpads natural-scroll enabled
+
+configure_touchpads tap enabled
+configure_touchpads tap-button-map left-right-middle
+
+configure_touchpads scroll-method two-finger
+configure_touchpads click-method clickfinger

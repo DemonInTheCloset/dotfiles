@@ -14,7 +14,10 @@ src="$(dirname -- "$0")"
 
 . "$src"/theme
 
+. "$src"/inputs
+
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
+killall --user "$USER" levee
 riverctl spawn 'levee -m battery -m backlight -m pulse'
