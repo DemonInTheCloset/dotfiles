@@ -19,6 +19,9 @@ riverctl float-filter-add title "popup title with spaces"
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-killall --user "$USER" rivertile
-rivertile -view-padding 2 -outer-padding 2 &
+# riverctl default-layout rivertile
+# killall --user "$USER" rivertile
+# rivertile -view-padding 2 -outer-padding 2 &
+riverctl default-layout rivercarro
+killall --user "$USER" rivercarro
+rivercarro &
