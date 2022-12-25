@@ -1,0 +1,4 @@
+#!/bin/sh
+# Use rofi as dmenu-wl
+# Needs dmenu to be a symlink to rofi
+dmenu $@
