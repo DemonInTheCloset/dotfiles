@@ -19,7 +19,7 @@ src="$(dirname -- "$0")"
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
-killall --user "$USER" levee
-riverctl spawn 'levee -m battery -m backlight -m pulse'
+killall --user "$USER" yambar
+riverctl spawn yambar
 
 systemctl --user start river-xdg-autostart.target
