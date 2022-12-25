@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# This is the example configuration file for river.
+#
+# If you wish to edit this, you will probably want to copy it to
+# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
+#
+# See the river(1), riverctl(1), and rivertile(1) man pages for complete
+# documentation.
+
+src="$(dirname -- "$0")"
+
+. "$src"/keybindings
+
+. "$src"/theme
+
+# Set keyboard repeat rate
+riverctl set-repeat 50 300
+
+riverctl spawn 'levee -m battery -m backlight -m pulse'

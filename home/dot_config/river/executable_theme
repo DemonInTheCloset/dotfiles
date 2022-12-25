@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Set Background Image
+swaybg --image /usr/share/backgrounds/archlinux/awesome.png &
+
+# Set border color
+riverctl border-color-urgent    0xfb4934
+riverctl border-color-focused   0xfabd2f
+riverctl border-color-unfocused 0x3c3836
+
+# Make certain views start floating
+riverctl float-filter-add app-id float
+riverctl float-filter-add title "popup title with spaces"
+
+# Set app-ids and titles of views which should use client side decorations
+# riverctl csd-filter-add app-id "gedit"
+
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 6 &
