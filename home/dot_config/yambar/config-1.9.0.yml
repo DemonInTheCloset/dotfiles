@@ -1,0 +1,97 @@
+iconfont: &iconfont "Iosevka Nerd Font Complete Mono:pixelsize=24"
+red: &red fb4934ff
+grey: &grey 3c3836ff
+black: &black 282828ff
+white: &white fbf1c7ff
+gree: &green b8bb26ff
+yellow: &yellow fabd2fff
+
+bar:
+  height: 28
+  location: top
+  foreground: *white
+  background: 28282828
+  font: "Iosevka Nerd Font Complete Mono:pixelsize=16"
+  spacing: 8
+
+  left:
+    - river:
+        anchors:
+          tag: &tag {string: {text: "{id}"}}
+          tags: &tags {default: {empty: {}}, conditions: {id < 10: *tag}}
+          urgent: &urgent {map: {<<: *tags, margin: 12, deco: {border: {size: 2, color: *red}}}}
+          normal: &normal {map: {<<: *tags, margin: 12, deco: {border: {size: 2, color: *white}}}}
+          full: &full {map: {default: *normal, conditions: {urgent: *urgent, ~urgent: *normal}}}
+          free: &free {map: {<<: *tags, margin: 12, deco: {border: {size: 2, color: *grey}}}}
+          occupied: &occupied {default: *free, conditions: {occupied: *full}}
+          focused:     &focused     {map: {<<: *occupied, deco: {background: {color: *white}}, foreground: *black}}
+          focused_urg: &focused_urg {map: {<<: *occupied, deco: {background: {color: *red}},   foreground: *black}}
+        content:
+          map:
+            default: {map: *occupied}
+            conditions:
+              focused && urgent: *focused_urg
+              focused && ~urgent: *focused
+
+  center:
+    - clock:
+        foreground: *yellow
+        date-format: "%F"
+        content:
+          list:
+            spacing: 4
+            items:
+              - string: {text: "{date}"}
+              - string: {text: "{time}"}
+
+  right:
+    - network:
+        name: wlan0
+        content:
+          map:
+            conditions:
+              carrier:
+                map:
+                  default: {string: {text: "睊", foreground: *red, font: *iconfont}}
+                  conditions:
+                    state == up:
+                      - string: {margin: 2, foreground: *green, text: "", font: *iconfont}
+                      - string: {margin: 2, foreground: *green, text: "{ssid}:"}
+                      - string: {margin: 2, text: "{ipv4}"}
+                      - string: {margin: 2, foreground: *green, text: "({signal}dBm)"}
+    - backlight:
+        name: intel_backlight
+        content:
+          - string: {foreground: *yellow, text: " ", font: *iconfont}
+          - string: {text: "{percent}%"}
+    - battery:
+        name: BAT0
+        content:
+          - map:
+              font: *iconfont
+              default:
+                ramp:
+                 tag: capacity
+                 items:
+                   - string: {text: , foreground: *red}
+                   - string: {text: , foreground: *red}
+                   - string: {text: , foreground: *red}
+                   - string: {text: , foreground: *yellow}
+                   - string: {text: , foreground: *yellow}
+                   - string: {text: , foreground: *yellow}
+                   - string: {text: , foreground: *yellow}
+                   - string: {text: , foreground: *green}
+                   - string: {text: , foreground: *green}
+                   - string: {text: , foreground: *green}
+                   - string: {text: , foreground: *green}
+              conditions:
+                state == charging:
+                  ramp:
+                   tag: capacity
+                   items:
+                     - string: {text: , foreground: *red}
+                     - string: {text: , foreground: *yellow}
+                     - string: {text: , foreground: *yellow}
+                     - string: {text: , foreground: *green}
+                     - string: {text: , foreground: *green}
+          - string: {text: "{capacity}%", margin: 4}
