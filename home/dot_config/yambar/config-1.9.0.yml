@@ -1,4 +1,5 @@
-iconfont: &iconfont "Iosevka Nerd Font Complete Mono:pixelsize=24"
+iconfont: &iconfont "Font Awesome:pixelsize=20"
+big_iconfont: &big_iconfont "Font Awesome:pixelsize=28"
 red: &red fb4934ff
 grey: &grey 3c3836ff
 black: &black 282828ff
@@ -11,7 +12,7 @@ bar:
   location: top
   foreground: *white
   background: 28282828
-  font: "Iosevka Nerd Font Complete Mono:pixelsize=16"
+  font: "Iosevka Nerd Font Complete Mono:pixelsize=18"
   spacing: 8
 
   left:
@@ -62,7 +63,7 @@ bar:
     - backlight:
         name: intel_backlight
         content:
-          - string: {foreground: *yellow, text: " ", font: *iconfont}
+          - string: {foreground: *yellow, text: " ", font: *big_iconfont}
           - string: {text: "{percent}%"}
     - battery:
         name: BAT0
@@ -95,3 +96,21 @@ bar:
                      - string: {text: , foreground: *green}
                      - string: {text: , foreground: *green}
           - string: {text: "{capacity}%", margin: 4}
+    - pipewire:
+        content:
+          map:
+            margin: 4
+            default: {string: {text: "{form_factor} {cubic_volume}%"}}
+            conditions:
+              (form_factor == mic) && muted: {string: {font: *iconfont, text: ""}}
+              (form_factor == mic) && ~muted:
+                - string: {font: *iconfont, text: "", margin: 2}
+                - string: {text: "{cubic_volume}%"}
+              (form_factor == headset || form_factor == headphones) && muted: {string: {font: *iconfont, text: "ﳌ"}}
+              (form_factor == headset || form_factor == headphones) && ~muted:
+                - string: {font: *iconfont, text: "", margin: 2}
+                - string: {text: "{cubic_volume}%"}
+              (form_factor == speaker) && muted: {string: {font: *iconfont, text: ""}}
+              (form_factor == speaker) && ~muted:
+                - string: {font: *iconfont, text: "", margin: 2}
+                - string: {text: "{cubic_volume}%"}
