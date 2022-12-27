@@ -16,10 +16,9 @@ src="$(dirname -- "$0")"
 
 . "$src"/inputs
 
+. "$src"/statusbar
+
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
-
-killall --user "$USER" yambar
-riverctl spawn yambar
 
 systemctl --user start river-xdg-autostart.target
