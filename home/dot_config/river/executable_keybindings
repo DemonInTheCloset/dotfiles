@@ -16,7 +16,9 @@ riverctl map normal "$mod" P spawn passmenu
 riverctl map normal "$mod" S spawn 'dmenu-confirm "Do you want to Shutdown?" "sudo poweroff"'
 riverctl map normal "$mod"+Shift S spawn 'dmenu-confirm "Do you want to Reboot?" "sudo reboot"'
 
-# TODO: Screenshots
+# Screenshot
+riverctl map normal None  Print spawn "wayshot -f ~/Pictures/\"\$(date +'screenshot_%F_%s.png')\""
+riverctl map normal Shift Print spawn "wayshot -f ~/Pictures/"'"$('"date +'screenshot_%F_%s.png'"')"'" -s "'"$('"slurp -f '%x %y %w %h'"')"'
 
 # "$mod"+R to reload river config
 riverctl map normal "$mod" R spawn ~/.config/river/init
