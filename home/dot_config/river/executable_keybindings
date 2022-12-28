@@ -16,6 +16,8 @@ riverctl map normal "$mod" P spawn passmenu
 riverctl map normal "$mod" S spawn 'dmenu-confirm "Do you want to Shutdown?" "sudo poweroff"'
 riverctl map normal "$mod"+Shift S spawn 'dmenu-confirm "Do you want to Reboot?" "sudo reboot"'
 
+# TODO: Screenshots
+
 # "$mod"+R to reload river config
 riverctl map normal "$mod" R spawn ~/.config/river/init
 
@@ -78,7 +80,7 @@ riverctl map-pointer normal "$mod" BTN_LEFT move-view
 riverctl map-pointer normal "$mod" BTN_RIGHT resize-view
 
 # "$mod" + Middle Mouse Button to toggle float
-riverctl map-pointer normal "$mod" BTN_MIDDLE toggle-float
+# riverctl map-pointer normal "$mod" BTN_MIDDLE toggle-float
 
 for i in $(seq 1 9)
 do
