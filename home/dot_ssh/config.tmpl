@@ -7,8 +7,9 @@ Ciphers aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.
 # Setup {{ $name | title }} Hosts
         {{- range $host := get $data $key }}
 Host {{ .host }}
-    HostName {{ .host }}
+    {{- if hasKey . "user" }}
     User {{ .user }}
+    {{- end }}
     IdentityFile ~/.ssh/id_ed25519_{{ $name }}
     IdentitiesOnly yes
         {{- end -}}
@@ -23,9 +24,19 @@ Host {{ .host }}
     {{- $id := dig "id" $name (dict) $data -}}
     {{- if hasKey $id "ssh_override" -}}
         {{- range $host := get $id "ssh_override" }}
-Host {{ $name | title }}{{ .name }}
+Host {{ .name }}
+    {{- if hasKey . "host" }}
     HostName {{ .host }}
+    {{- end }}
+    {{- if hasKey . "port" }}
+    Port {{ .port }}
+    {{- end }}
+    {{- if hasKey . "user" }}
     User {{ .user }}
+    {{- end }}
+    {{- if hasKey . "proxy_jump" }}
+    ProxyJump {{ .proxy_jump }}
+    {{- end }}
     IdentityFile ~/.ssh/id_ed25519_{{ $name }}
     IdentitiesOnly yes
         {{- end -}}
