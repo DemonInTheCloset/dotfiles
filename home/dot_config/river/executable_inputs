@@ -2,8 +2,7 @@
 
 configure_touchpads() {
     riverctl list-inputs \
-        | grep 'type: pointer' -B 1 \
-        | grep -vE 'type: pointer|^--$' \
+        | grep 'Touchpad' \
         | xargs -I '{}' riverctl input '{}' $@
 }
 
