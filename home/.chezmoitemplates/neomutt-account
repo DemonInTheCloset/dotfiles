@@ -26,4 +26,4 @@ unset signature
 unmacro index o
 
 # Set Mailboxes
-mailboxes !
+mailboxes ! <
