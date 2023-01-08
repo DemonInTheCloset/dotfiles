@@ -14,3 +14,7 @@ configure_touchpads tap-button-map left-right-middle
 
 configure_touchpads scroll-method two-finger
 configure_touchpads click-method clickfinger
+
+# Keyboard config
+# swap capslock and escape, and set the keymap to $KEYMAP or us if empty
+riverctl keyboard-layout -options 'caps:swapescape' "${KEYMAP:-us}"
