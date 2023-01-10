@@ -1,13 +1,16 @@
 #!/bin/sh
 
+# Remove previous statusbar
 killall --user="$USER" yambar
+killall --user="$USER" waybar
 
-wlr-randr \
-    | grep --no-group-separator -B 2 'Enabled: yes' \
-    | sed -n 's/^\(\S\+\).*/\1/p' \
-    | xargs -I '{}' sh -c '
-tmpfile="$(mktemp "yambar-{}.XXXX.yml" --tmpdir)"
-cp ~/.config/yambar/config.yml "$tmpfile"
-sed -i "s/^\(\s\+\)height\(:.\+\)$/\1height\2\n\1monitor: {}/" "$tmpfile"
-yambar --config="$tmpfile"&
-'
+# wlr-randr \
+#     | grep --no-group-separator -B 2 'Enabled: yes' \
+#     | sed -n 's/^\(\S\+\).*/\1/p' \
+#     | xargs -I '{}' sh -c '
+# tmpfile="$(mktemp "yambar-{}.XXXX.yml" --tmpdir)"
+# cp ~/.config/yambar/config.yml "$tmpfile"
+# sed -i "s/^\(\s\+\)height\(:.\+\)$/\1height\2\n\1monitor: {}/" "$tmpfile"
+# yambar --config="$tmpfile"&
+# '
+XDG_CURRENT_DESKTOP=Unity waybar&
