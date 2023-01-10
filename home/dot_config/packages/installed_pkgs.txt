@@ -104,9 +104,8 @@ htop
 hyperfine
 i2c-tools
 i3blocks
-i3-gaps
 i3status
-interception-caps2esc
+i3-wm
 irssi
 isync
 iwd
@@ -131,6 +130,7 @@ libreoffice-fresh
 libtool
 libva-utils
 libvoikko
+light
 linux
 linux-firmware
 lld
@@ -312,6 +312,7 @@ vim
 vkd3d
 vscode-json-languageserver
 wasm-bindgen
+waybar
 websocat
 weechat
 wezterm
