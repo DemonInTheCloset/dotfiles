@@ -4,10 +4,10 @@
     "height": 30,
     "spacing": 4,
     "modules-left": [
-        "wlr/workspaces"
+        "river/tags"
     ],
     "modules-center": [
-        "hyprland/window"
+        "river/window"
     ],
     "modules-right": [
         "network",
@@ -20,19 +20,6 @@
         "idle_inhibitor",
         "tray"
     ],
-    "wlr/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-        },
-        "sort-by-number": true
-    },
-    "hyprland/window": {
-        "format": "[ {} ]",
-        "separate-outputs": true
-    },
     "battery": {
         "bat": "BAT0",
         "interval": 60,
@@ -60,11 +47,11 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
         "format-disconnected": "{ifname} Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-ethernet": "{ifname} ",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50
     },
