@@ -83,6 +83,7 @@ gimp
 git-delta
 github-cli
 git-lfs
+gitoxide
 glow
 gnu-efi
 gobject-introspection
@@ -183,8 +184,8 @@ onefetch
 openbsd-netcat
 openresolv
 openvpn
-optipng
 os-prober
+oxipng
 pacgraph
 pacman
 pacman-contrib
