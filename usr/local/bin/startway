@@ -6,15 +6,15 @@ wm="${1:-river}"
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP="$wm"
 export XDG_SESSION_DESKTOP="$wm"
+systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
 # Qt Options
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+systemctl --user import-environment QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME QT_AUTO_SCREEN_SCALE_FACTOR
 
 # Toolkit Options
-export SDL_VIDEODRIVER=wayland
-export CLUTTER_BACKEND=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Application options

@@ -12,10 +12,6 @@ source_silent_fail /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestion
 systemctl --user import-environment PATH XDG_CONFIG_HOME XDG_DATA_HOME 2> /dev/null
 systemctl --user import-environment PASSWORD_STORE_DIR 2> /dev/null
 systemctl --user import-environment NOTMUCH_CONFIG 2> /dev/null
-# Wayland Environment Variables
-systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 2> /dev/null
-# X11 Environment Variables
-systemctl --user import-environment DISPLAY XAUTHORITY 2> /dev/null
 
 export PINENTRY_USER_DATA='curses'
 

@@ -8,6 +8,9 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
+systemctl --user import-environment DISPLAY XAUTHORITY
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
 src="$(dirname -- "$0")"
 
 . "$src"/keybindings
@@ -21,4 +24,5 @@ src="$(dirname -- "$0")"
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
+systemctl --user start plasma-polkit-agent.service
 systemctl --user start river-xdg-autostart.target
