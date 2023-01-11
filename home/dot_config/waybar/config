@@ -16,7 +16,7 @@
         "temperature",
         "memory",
         "clock",
-        "wireplumber",
+        "pulseaudio",
         "idle_inhibitor",
         "tray"
     ],
@@ -82,6 +82,20 @@
     "wireplumber": {
         "format": " {volume}%",
         "format-muted": "",
+        "on-click": "helvum"
+    },
+    "pulseaudio": {
+        "format": "<big>{icon}</big> {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
         "on-click": "helvum"
     },
     "clock": {
