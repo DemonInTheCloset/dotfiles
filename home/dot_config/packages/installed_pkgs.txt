@@ -71,9 +71,9 @@ firefox
 flameshot
 flatpak
 flex
-foot
 fzf
 fzy
+gamemode
 gawk
 gcc
 gdb
@@ -88,9 +88,9 @@ glow
 gnu-efi
 gobject-introspection
 goimapnotify
-google-chrome
 gradle
 grep
+grim
 groff
 grub
 gst-plugins-good
@@ -104,9 +104,6 @@ hspell
 htop
 hyperfine
 i2c-tools
-i3blocks
-i3status
-i3-wm
 irssi
 isync
 iwd
@@ -148,7 +145,6 @@ make
 man-db
 man-pages
 matterbridge
-mattermost-desktop
 mingw-w64-gcc
 mono
 moreutils
@@ -197,7 +193,6 @@ patch
 pcmanfm-qt
 pdfjs
 perf
-perl-anyevent-i3
 perl-file-mimeinfo
 perl-log-log4perl
 perl-yaml-tiny
@@ -216,7 +211,6 @@ print-manager
 putty
 pv
 pwndbg
-py3status
 pypy3
 python
 python-adblock
@@ -235,6 +229,7 @@ qopenvpn
 qt5ct
 quassel-client-qt
 qutebrowser
+r8168
 ranger
 rclone
 rebuild-detector
@@ -325,6 +320,7 @@ wine-gecko
 wine-mono
 winetricks
 wireshark-qt
+wl-clipboard
 wqy-zenhei
 xclip
 xcursor-simpleandsoft

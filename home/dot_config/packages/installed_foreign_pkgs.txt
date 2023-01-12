@@ -19,7 +19,6 @@ glmark2-git
 gomuks
 google-java-format
 gruvbox-dark-gtk
-i3exit
 itch-bin
 jdtls
 kotlin-language-server
