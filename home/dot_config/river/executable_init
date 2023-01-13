@@ -25,4 +25,4 @@ src="$(dirname -- "$0")"
 riverctl set-repeat 50 300
 
 systemctl --user start plasma-polkit-agent.service &
-systemctl --user start river-xdg-autostart.target &
+sleep 5 && systemctl --user start river-xdg-autostart.target &
