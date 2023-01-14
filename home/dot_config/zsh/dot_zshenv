@@ -75,10 +75,6 @@ fpath+="$ZDOTDIR"/zfunc
 fpath+="$ZDOTDIR"/completions
 export PATH FPATH
 
-# Websites
-export ALARMPI='{{ (pass "dotfiles/raspberrypi/url") }}'
-export ALARMUSER='{{ (pass "dotfiles/raspberrypi/name") }}'
-
 # Default programs
 export VISUAL='/usr/bin/nvim'
 export EDITOR="$VISUAL"
