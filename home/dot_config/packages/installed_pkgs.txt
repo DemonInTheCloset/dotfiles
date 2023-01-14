@@ -239,7 +239,6 @@ ripgrep
 ripgrep-all
 riscv64-linux-gnu-gcc
 rmlint
-rofi-lbonn-wayland-git
 rsync
 rtmpdump
 rtorrent
