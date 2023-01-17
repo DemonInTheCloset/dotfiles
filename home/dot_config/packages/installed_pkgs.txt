@@ -99,6 +99,7 @@ gtk-engines
 gzip
 handbrake
 handbrake-cli
+helix
 helvum
 hspell
 htop
