@@ -36,7 +36,6 @@ msvc-wine-rust-git
 nerd-fonts-dejavu-complete
 networkmanager-iwd
 nginxbeautifier
-nitch
 nsxiv
 openrgb
 pam-gnupg
@@ -54,6 +53,7 @@ sirula
 spotify
 urlview-xdg-git
 vim-language-server
+wayshot-bin
 webcord
 wlr-randr
 xdg-ninja
