@@ -1,6 +1,7 @@
 activitywatch-bin
 alias-tips-git
 beautysh
+brave-bin
 cava
 checkmake
 chromium-widevine
@@ -48,6 +49,7 @@ refind-theme-regular-git
 river
 rivercarro
 rofi-dmenu
+rofi-lbonn-wayland-git
 serve-d
 sirula
 spotify

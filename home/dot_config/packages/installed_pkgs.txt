@@ -86,8 +86,10 @@ git-lfs
 gitoxide
 glow
 gnu-efi
+go
 gobject-introspection
 goimapnotify
+gopls
 gradle
 grep
 grim
@@ -133,6 +135,7 @@ light
 linux
 linux-firmware
 lld
+lldb
 llvm
 lshw
 lua-language-server
@@ -193,6 +196,7 @@ pass-otp
 patch
 pcmanfm-qt
 pdfjs
+pdftk
 perf
 perl-file-mimeinfo
 perl-log-log4perl
