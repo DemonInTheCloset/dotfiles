@@ -164,7 +164,6 @@ neovide
 neovim
 networkmanager-openvpn
 newsboat
-nix
 nm-connection-editor
 noise-suppression-for-voice
 notmuch
