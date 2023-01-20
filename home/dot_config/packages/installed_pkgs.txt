@@ -265,6 +265,7 @@ steam
 strace
 stylua
 sudo
+sway
 swaybg
 sxhkd
 sysstat
