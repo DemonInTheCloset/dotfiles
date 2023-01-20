@@ -13,4 +13,5 @@ killall --user="$USER" waybar
 # sed -i "s/^\(\s\+\)height\(:.\+\)$/\1height\2\n\1monitor: {}/" "$tmpfile"
 # yambar --config="$tmpfile"&
 # '
+ln -sf ~/.config/waybar/config-river ~/.config/waybar/config
 XDG_CURRENT_DESKTOP=Unity waybar&
