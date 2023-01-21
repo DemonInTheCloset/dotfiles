@@ -233,7 +233,6 @@ qopenvpn
 qt5ct
 quassel-client-qt
 qutebrowser
-r8168
 ranger
 rclone
 rebuild-detector
@@ -300,6 +299,7 @@ transmission-qt
 tree
 ttc-iosevka
 ttf-dejavu
+ttf-dejavu-nerd
 ttf-iosevka-nerd
 udiskie
 ufw

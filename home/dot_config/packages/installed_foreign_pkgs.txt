@@ -30,11 +30,9 @@ macchina
 mangohud
 mangohud-common
 minecraft-launcher
-mkinitcpio-numlock
 mprocs
 mpv-thumbnail-script
 msvc-wine-rust-git
-nerd-fonts-dejavu-complete
 networkmanager-iwd
 nginxbeautifier
 nsxiv
