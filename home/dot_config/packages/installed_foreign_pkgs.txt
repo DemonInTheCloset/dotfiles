@@ -42,7 +42,6 @@ prismlauncher
 protonup-qt
 python-reorder-python-imports
 qbpm-git
-rambox-pro-bin
 refind-theme-regular-git
 river
 rivercarro
@@ -55,6 +54,7 @@ urlview-xdg-git
 vim-language-server
 wayshot-bin
 webcord
+wev
 wlr-randr
 xdg-ninja
 yambar

@@ -1,5 +1,6 @@
 acpi
 acpilight
+age
 alsa-firmware
 alsa-utils
 archlinux-wallpaper
@@ -42,6 +43,7 @@ chezmoi
 chromium
 clang
 connman
+cpupower
 cronie
 cups
 cups-pdf
@@ -71,6 +73,7 @@ firefox
 flameshot
 flatpak
 flex
+fwupd
 fzf
 fzy
 gamemode
@@ -89,12 +92,12 @@ gnu-efi
 go
 gobject-introspection
 goimapnotify
+gopass
 gopls
 gradle
 grep
 grim
 groff
-grub
 gst-plugins-good
 gtk-engine-murrine
 gtk-engines
@@ -246,6 +249,7 @@ rsync
 rtmpdump
 rtorrent
 rust-analyzer
+rust-rage
 samba
 sccache
 screenkey
