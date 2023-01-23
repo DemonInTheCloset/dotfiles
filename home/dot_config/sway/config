@@ -81,6 +81,7 @@ input type:touchpad {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec wezterm start --class='dropdown terminal'
 
     # Start Browser
     bindsym $mod+F2 exec qbpm launch default
@@ -260,6 +261,27 @@ gaps inner 4
 client.focused          #fabd2f #d65d0e #fbf1c7 #fe8019 #fabd2f
 client.focused_inactive #504945 #282828 #fbf1c7 #3c3836 #504945
 client.unfocused        #3c3836 #282828 #fbf1c7 #504945 #3c3836
+
+# Windows
+for_window {
+    [class="floating"] {
+        floating enable
+    }
+
+    [app_id="floating"] {
+        floating enable
+    }
+
+    [app_id="dropdown terminal"] {
+        floating enable
+        resize set width  80 ppt
+        resize set height 40 ppt
+        move position 10 ppt 0 ppt
+        move to scratchpad
+        scratchpad show
+        sticky enable
+    }
+}
 
 # Autostart
 exec systemctl --user start plasma-polkit-agent.service
