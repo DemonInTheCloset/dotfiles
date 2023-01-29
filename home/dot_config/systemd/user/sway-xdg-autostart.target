@@ -1,0 +1,6 @@
+[Unit]
+Description=SwayWM Service that starts xdg-desktop-autostart
+Documentation=https://systemd.io/DESKTOP_ENVIRONMENTS/#xdg-autostart-integration
+Requires=xdg-desktop-autostart.target
+RefuseManualStart=no
+StopWhenUnneeded=no
