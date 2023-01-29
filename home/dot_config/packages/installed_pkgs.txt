@@ -21,6 +21,7 @@ blueman
 bluez
 bluez-utils
 booster
+bottom
 brightnessctl
 btop
 calcurse
@@ -98,6 +99,7 @@ gradle
 grep
 grim
 groff
+gst-plugin-pipewire
 gst-plugins-good
 gtk-engine-murrine
 gtk-engines
@@ -110,6 +112,7 @@ hspell
 htop
 hyperfine
 i2c-tools
+inkscape
 irssi
 isync
 iwd
@@ -119,6 +122,7 @@ kdenlive
 keepassxc
 kitty
 kotlin
+krita
 kvantum
 ldc
 lib32-fontconfig
@@ -152,6 +156,8 @@ make
 man-db
 man-pages
 matterbridge
+mdbook
+mdbook-linkcheck
 mingw-w64-gcc
 mono
 moreutils
@@ -244,6 +250,7 @@ reflector
 ripgrep
 ripgrep-all
 riscv64-linux-gnu-gcc
+river
 rmlint
 rsync
 rtmpdump

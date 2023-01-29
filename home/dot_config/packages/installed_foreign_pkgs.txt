@@ -43,7 +43,6 @@ protonup-qt
 python-reorder-python-imports
 qbpm-git
 refind-theme-regular-git
-river
 rivercarro
 rofi-dmenu
 rofi-lbonn-wayland-git
