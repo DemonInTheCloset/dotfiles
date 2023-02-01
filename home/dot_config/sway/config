@@ -18,7 +18,7 @@ set $term wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -run-shell-command 'swaymsg exec {terminal} -e {cmd}' -run-command 'swaymsg exec {cmd}' -modi 'run,drun' -show drun
+set $menu rofi -run-shell-command 'swaymsg exec -- {terminal} -e {cmd}' -run-command 'swaymsg exec -- {cmd}' -modi 'run,drun' -show drun
 
 exec systemctl --user import-environment DISPLAY XAUTHORITY
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -127,7 +127,8 @@ input type:touchpad {
     bindsym $mod+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+m       exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+m exit
 #
 # Moving around:
 #
