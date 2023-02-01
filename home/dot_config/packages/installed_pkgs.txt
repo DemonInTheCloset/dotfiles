@@ -13,6 +13,7 @@ awesome
 base
 bat
 bc
+bees
 bind
 binutils
 bison
@@ -118,6 +119,7 @@ isync
 iwd
 jdk-openjdk
 jq
+k3b
 kdenlive
 keepassxc
 kitty
@@ -133,6 +135,7 @@ lib32-vkd3d
 libadwaita
 libappindicator-gtk3
 libcurl-gnutls
+libdvdcss
 libpng12
 libreoffice-fresh
 libtool
@@ -305,6 +308,7 @@ tokei
 tor
 torbrowser-launcher
 traceroute
+transcode
 transmission-cli
 transmission-qt
 tree
