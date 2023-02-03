@@ -91,8 +91,8 @@ input type:touchpad {
     bindsym $mod+P exec passmenu
 
     # Power Management
-    bindsym $mod+S       exec dmenu-confirm "Do you want to Shutdown?" "sudo poweroff"
-    bindsym $mod+Shift+S exec dmenu-confirm "Do you want to Reboot?"   "sudo reboot"
+    bindsym $mod+S       exec dmenu-confirm "Do you want to Shutdown?" "systemctl poweroff"
+    bindsym $mod+Shift+S exec dmenu-confirm "Do you want to Reboot?"   "systemctl reboot"
 
     # Scrennshots
     bindsym Print       exec sh -c 'wayshot -f ~/Pictures/$(date +screenshot_%F_%s.png)"'
