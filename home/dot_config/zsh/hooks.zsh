@@ -11,3 +11,5 @@ rehash_precmd() {
 }
 
 add-zsh-hook -Uz precmd rehash_precmd
+
+eval "$(direnv hook zsh)"
