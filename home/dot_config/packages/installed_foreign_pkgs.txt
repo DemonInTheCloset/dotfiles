@@ -17,7 +17,6 @@ ferdium-bin
 ferium-bin
 git-ignore
 glmark2-git
-gomuks
 google-java-format
 gruvbox-dark-gtk
 itch-bin
@@ -49,6 +48,7 @@ rofi-lbonn-wayland-git
 serve-d
 sirula
 spotify
+sway-services-git
 urlview-xdg-git
 vim-language-server
 wayshot-bin
