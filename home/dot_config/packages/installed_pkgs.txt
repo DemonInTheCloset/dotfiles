@@ -11,6 +11,7 @@ autoconf
 automake
 awesome
 base
+base-devel
 bat
 bc
 bees
@@ -122,6 +123,7 @@ isync
 iwd
 jdk-openjdk
 jq
+just
 k3b
 kdenlive
 keepassxc
