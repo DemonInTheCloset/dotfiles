@@ -19,7 +19,7 @@ bind
 binutils
 bison
 blender
-blueman
+bluedevil
 bluez
 bluez-utils
 booster
@@ -68,6 +68,7 @@ easyeffects
 easy-rsa
 efibootmgr
 entr
+ethtool
 exa
 fakeroot
 fasm
@@ -148,6 +149,7 @@ libvoikko
 light
 linux
 linux-firmware
+linux-headers
 lld
 lldb
 llvm
@@ -177,9 +179,7 @@ neofetch
 neomutt
 neovide
 neovim
-networkmanager-openvpn
 newsboat
-nm-connection-editor
 noise-suppression-for-voice
 notmuch
 noto-fonts-cjk
@@ -261,6 +261,7 @@ rmlint
 rsync
 rtmpdump
 rtorrent
+ruff-lsp
 rust-analyzer
 rust-rage
 rxvt-unicode
@@ -324,6 +325,7 @@ udiskie
 ufw
 unrar
 unzip
+v4l2loopback-utils
 valgrind
 vi
 vicious
@@ -396,6 +398,7 @@ xournalpp
 xsettingsd
 xwallpaper
 yapf
+ydotool
 yt-dlp
 yubikey-manager-qt
 zbar
