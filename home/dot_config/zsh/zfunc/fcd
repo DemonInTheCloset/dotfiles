@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+function fcd() {
+    target="${1:-./}"
+    cd "$(fd --max-depth 1 --type d . "$target" | sk)"
+}

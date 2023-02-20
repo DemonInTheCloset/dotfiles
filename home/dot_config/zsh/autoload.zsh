@@ -1,6 +1,9 @@
 # Move and copy using rsync
 autoload -Uz mvr cpr
 
+# fcd (find and cd)
+autoload -Uz fcd
+
 # Create a file with the current date prepended
 autoload -Uz datefile
 
