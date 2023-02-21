@@ -1,6 +1,9 @@
 # Get places information
 source "$ZDOTDIR"/places.zsh
 
+# AUR help
+alias aur-install='makepkg -si'
+
 # cd aliases
 alias cdc="cd $CONFIG"
 alias cdn="cd $CONFIG"/nvim
@@ -17,6 +20,7 @@ alias cdchezmoi="cd $XDG_DATA_HOME"/chezmoi
 alias fcdc='cd "$(fd -I -d 1 -t d . "$CONFIG" | sk)"'
 alias fcdp='cd "$(fd -I -d 2 -t d . "$PROGRAMMING" | sk)"'
 alias fcdu='cd "$(fd -I -d 2 -t d . "$UNIVERSITY" | sk)"'
+alias faur='cd "$(fd -d 1 -t d . "${XDG_CACHE_DIR:-$HOME/.cache}/paru/clone" | sk)"'
 
 # git aliases
 alias gmsg-hook='ln -sv '"$CONFIG"'/git/hooks/commit-msg.sample `git rev-parse --git-dir`/hooks/commit-msg'
