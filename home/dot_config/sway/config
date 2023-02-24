@@ -153,6 +153,21 @@ input type:touchpad {
     bindsym $mod+Shift+Down  move down
     bindsym $mod+Shift+Up    move up
     bindsym $mod+Shift+Right move right
+
+#
+# Resize windows:
+#
+
+    bindsym $mod+Ctrl+$left  resize shrink width
+    bindsym $mod+Ctrl+$down  resize shrink height
+    bindsym $mod+Ctrl+$up    resize grow   width
+    bindsym $mod+Ctrl+$right resize grow   width
+
+    bindsym $mod+Ctrl+Left   resize shrink width
+    bindsym $mod+Ctrl+Down   resize shrink height
+    bindsym $mod+Ctrl+Up     resize grow   width
+    bindsym $mod+Ctrl+Right  resize grow   width
+
 #
 # Workspaces:
 #
