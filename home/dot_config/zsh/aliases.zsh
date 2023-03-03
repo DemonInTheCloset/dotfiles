@@ -17,10 +17,10 @@ alias cdpass="cd $PASSWORD_STORE_DIR"
 alias cdchezmoi="cd $XDG_DATA_HOME"/chezmoi
 
 # cd + sk aliases
-alias fcdc='cd "$(fd -I -d 1 -t d . "$CONFIG" | sk)"'
-alias fcdp='cd "$(fd -I -d 2 -t d . "$PROGRAMMING" | sk)"'
-alias fcdu='cd "$(fd -I -d 2 -t d . "$UNIVERSITY" | sk)"'
-alias faur='cd "$(fd -d 1 -t d . "${XDG_CACHE_DIR:-$HOME/.cache}/paru/clone" | sk)"'
+alias fcdc='cd "$(fd -I -d 1 -t d . "$CONFIG" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
+alias fcdp='cd "$(fd -I -d 2 -t d . "$PROGRAMMING" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
+alias fcdu='cd "$(fd -I -d 2 -t d . "$UNIVERSITY" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
+alias faur='cd "$(fd -I -d 1 -t d . "${XDG_CACHE_DIR:-$HOME/.cache}/paru/clone" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
 
 # git aliases
 alias gmsg-hook='ln -sv '"$CONFIG"'/git/hooks/commit-msg.sample `git rev-parse --git-dir`/hooks/commit-msg'
