@@ -83,6 +83,9 @@ alias sshpi=ssh "$ALARMUSER@$ALARMPI"
 # startx
 alias startwm="startx $XDG_CONFIG_HOME/X11/xinitrc -- $XDG_CONFIG_HOME/X11/xserverrc vt$XDG_VTNR"
 
+# Get weather
+alias weather='curl wttr.in'
+
 # zsh aliases
 alias zshconfig="$VISUAL $ZDOTDIR"/config.zsh
 alias sourcezshrc="source $ZDOTDIR"/.zshrc
