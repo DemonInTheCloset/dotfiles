@@ -37,6 +37,7 @@ cargo-flamegraph
 cargo-generate
 cargo-nextest
 cargo-outdated
+cargo-release
 cargo-sort
 cargo-spellcheck
 cargo-udeps
@@ -131,6 +132,7 @@ keepassxc
 kotlin
 krita
 kvantum
+lazygit
 ldc
 lib32-fontconfig
 lib32-libpng12
@@ -189,10 +191,10 @@ npm
 ntfs-3g
 ntp
 numlockx
+nushell
 nuspell
 nvme-cli
 nvtop
-obsidian
 offlineimap
 onefetch
 openbsd-netcat

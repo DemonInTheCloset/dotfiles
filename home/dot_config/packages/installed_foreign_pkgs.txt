@@ -12,6 +12,7 @@ dashbinsh
 djvu2pdf
 edex-ui-bin
 electron11-bin
+elk-zone-bin
 eww-wayland
 ferdium-bin
 ferium-bin
@@ -44,7 +45,6 @@ refind-theme-regular-git
 rivercarro
 rofi-dmenu
 rofi-lbonn-wayland-git
-serve-d
 sirula
 spotify
 sway-services-git
