@@ -32,7 +32,6 @@ mangohud-common
 minecraft-launcher
 mprocs
 mpv-thumbnail-script
-msvc-wine-rust-git
 nginxbeautifier
 nsxiv
 openrgb
