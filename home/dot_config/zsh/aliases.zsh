@@ -16,11 +16,12 @@ alias cdpass="cd $PASSWORD_STORE_DIR"
 
 alias cdchezmoi="cd $XDG_DATA_HOME"/chezmoi
 
-# cd + sk aliases
+# sk + action aliases
 alias fcdc='cd "$(fd -I -d 1 -t d . "$CONFIG" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
 alias fcdp='cd "$(fd -I -d 2 -t d . "$PROGRAMMING" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
 alias fcdu='cd "$(fd -I -d 2 -t d . "$UNIVERSITY" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
 alias faur='cd "$(fd -I -d 1 -t d . "${XDG_CACHE_DIR:-$HOME/.cache}/paru/clone" | sk --preview "exa --oneline --icons --group-directories-first '"'{}'"'")"'
+alias fnvim='nvim "$(fd --strip-cwd-prefix --type f | sk --preview "bat --decorations=always --color=always '"'"'{}'"'"'")"'
 
 # git aliases
 alias gmsg-hook='ln -sv '"$CONFIG"'/git/hooks/commit-msg.sample `git rev-parse --git-dir`/hooks/commit-msg'
@@ -47,7 +48,6 @@ alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias mbsynca="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc -a"
 
 # nvim aliases
-alias ngit="PINENTRY_USER_DATA=gtk nvim '+:lua require(\"neogit\").open()' '+:tabonly!'"
 alias note='nvim +:setlocal\ buftype=nofile +:setlocal\ bufhidden=hide +:setlocal\ noswapfile'
 alias nview="nvim -R"
 alias nvimconfig="$VISUAL $XDG_CONFIG_HOME"/nvim/init.lua
