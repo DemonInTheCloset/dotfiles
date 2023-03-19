@@ -83,6 +83,9 @@ alias sshpi=ssh "$ALARMUSER@$ALARMPI"
 # startx
 alias startwm="startx $XDG_CONFIG_HOME/X11/xinitrc -- $XDG_CONFIG_HOME/X11/xserverrc vt$XDG_VTNR"
 
+# Wifi QR Code
+alias wifiqr="zbarcam --oneshot | sed '"'s/.*;P:\(\S\+\);S:\(\S\+\);H.*/\nSSID: \2\nPassword: \1/'"'"
+
 # Get weather
 alias weather='curl wttr.in'
 
