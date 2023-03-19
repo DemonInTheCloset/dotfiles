@@ -78,7 +78,7 @@ export PATH FPATH
 # Default programs
 export VISUAL='/usr/bin/nvim'
 export EDITOR="$VISUAL"
-export TERMINAL='xterm-kitty'
+export TERMINAL='wezterm'
 # export BROWSER='qbpm launch default'
 export MANPAGER='/bin/sh -c "col -b | nvim -R -c '"'"'set ft=man'"'"'"'
 export DIFFPROG='delta'

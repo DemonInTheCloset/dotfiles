@@ -18,7 +18,3 @@ refreshPeriod = "24h"
 type = "git-repo"
 url = "https://github.com/DemonInTheCloset/awesome-config.git"
 refreshPeriod = "24h"
-[".config/kitty/kitty-themes"]
-type = "git-repo"
-url = "https://github.com/kovidgoyal/kitty-themes.git"
-refreshPeriod = "168h"
