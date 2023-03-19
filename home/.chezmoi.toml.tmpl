@@ -1,3 +1,4 @@
+{{- /* Ask for identity names */ -}}
 {{- $config := (dict) -}}
 {{- if hasKey . "identities" | not -}}
     {{- $map := set . "identities" (list) -}}
@@ -11,11 +12,13 @@
 {{- end -}}
 {{- $_ := set $config "identities" .identities -}}
 
+{{- /* Set up default GPG key */ -}}
 {{- if hasKey . "default_gpg_key" | not -}}
     {{- $_ := promptString "Default GPG Key identifier" "name/email" | set . "default_gpg_key" -}}
 {{- end -}}
 {{- $_ := set $config "default_gpg_key" .default_gpg_key -}}
 
+{{- /* Set up git identities */ -}}
 {{- if hasKey . "gitids" | not -}}
     {{- $map := set . "gitids" (list) -}}
     {{- $num_ids := promptInt "How many git identities do you want to add?" 1 | int -}}
@@ -28,21 +31,14 @@
 {{- end -}}
 {{- $_ := set $config "gitids" .gitids -}}
 
-{{- $data := . -}}
-{{- range $id := .identities }}
-    {{- $key := list "ssh" $id "hosts" | join "_" -}}
-    {{- if hasKey $data $key | not -}}
-        {{- $_ := set $data $key (list) -}}
-    {{- end -}}
-    {{- $_ := get $data $key | set $config $key -}}
-{{- end -}}
-
+{{- /* Set up git configuration */ -}}
 {{- if hasKey . "git_config" | not -}}
     {{- $_ := set $config "git_config" (dict) -}}
 {{- else -}}
     {{- $_ := set $config "git_config" .git_config -}}
 {{- end -}}
 
+{{- /* Set up identities */ -}}
 {{- if hasKey . "id" | not -}}
     {{- $_ := set . "id" (dict) -}}
 {{- end -}}
@@ -88,11 +84,15 @@
     {{- if hasKey $dict "ssh_override" | not -}}
         {{- $_ = set $dict "ssh_override" (list) -}}
     {{- end -}}
+    {{- if hasKey $dict "ssh_hosts" | not -}}
+        {{- $_ = set $dict "ssh_hosts" (list) -}}
+    {{- end -}}
 {{- else -}}
     {{- fail "No Identities provided" -}}
 {{- end }}
 {{- $_ := set $config "id" .id -}}
 
+{{- /* Set development variables */ -}}
 {{- if hasKey . "dev" | not -}}
     {{- $_ := set . "dev" (dict) -}}
 {{- end -}}
@@ -101,6 +101,15 @@
 {{- end -}}
 {{- if hasKey .dev "no_pkg_sync" | not -}}
     {{- $_ := set .dev "no_pkg_sync" false -}}
+{{- end -}}
+
+{{- /* Remove old entry names */ -}}
+{{- $data := . -}}
+{{- range $id := .identities }}
+    {{- $old_key := list "ssh" $id "hosts" | join "_" -}}
+    {{- if hasKey $data $old_key -}}
+        {{- $_ := get $data $old_key | set (dig "id" $id (list) $config) "ssh_hosts" -}}
+    {{- end -}}
 {{- end -}}
 
 # Chezmoi Config

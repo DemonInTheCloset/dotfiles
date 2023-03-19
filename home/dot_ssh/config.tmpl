@@ -2,43 +2,40 @@
 Ciphers aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 {{ $data := . -}}
 {{- range $name := .identities -}}
-    {{- $key := list "ssh" $name "hosts" | join "_" }}
-    {{- if hasKey $data $key }}
+    {{- $hosts := dig "id" $name "ssh_hosts" (list) $data -}}
+    {{- /* If hosts are defined for this identity */ -}}
+    {{- if $hosts }}
 # Setup {{ $name | title }} Hosts
-        {{- range $host := get $data $key }}
+        {{- range $host := $hosts }}
 Host {{ .host }}
-    {{- if hasKey . "user" }}
+            {{- if hasKey . "user" }}
     User {{ .user }}
-    {{- end }}
+            {{- end }}
     IdentityFile ~/.ssh/id_ed25519_{{ $name }}
     IdentitiesOnly yes
         {{- end -}}
     {{ end }}
 {{ end }}
-{{ range $host := .ssh_public_hosts -}}
 
-{{ end -}}
 # Override hosts
 {{- $data := . -}}
 {{- range $name := .identities -}}
-    {{- $id := dig "id" $name (dict) $data -}}
-    {{- if hasKey $id "ssh_override" -}}
-        {{- range $host := get $id "ssh_override" }}
+    {{- $hosts := dig "id" $name "ssh_override" (list) $data -}}
+    {{- range $host := $hosts }}
 Host {{ .name }}
-    {{- if hasKey . "host" }}
+        {{- if hasKey . "host" }}
     HostName {{ .host }}
-    {{- end }}
-    {{- if hasKey . "port" }}
+        {{- end }}
+        {{- if hasKey . "port" }}
     Port {{ .port }}
-    {{- end }}
-    {{- if hasKey . "user" }}
+        {{- end }}
+        {{- if hasKey . "user" }}
     User {{ .user }}
-    {{- end }}
-    {{- if hasKey . "proxy_jump" }}
+        {{- end }}
+        {{- if hasKey . "proxy_jump" }}
     ProxyJump {{ .proxy_jump }}
-    {{- end }}
+        {{- end }}
     IdentityFile ~/.ssh/id_ed25519_{{ $name }}
     IdentitiesOnly yes
-        {{- end -}}
     {{- end -}}
 {{- end }}
